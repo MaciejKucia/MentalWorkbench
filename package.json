@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve"
+    "start": "eleventy --serve",
+    "lint": "markdownlint -i node_modules **/*.md"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@11ty/eleventy": "^3.1.0"
+    "@11ty/eleventy": "^3.1.0",
+    "markdownlint-cli": "^0.45.0"
   }
 }
