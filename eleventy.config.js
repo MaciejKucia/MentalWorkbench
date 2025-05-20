@@ -1,3 +1,4 @@
 export default async function(eleventyConfig) {
-	// Configure Eleventy
+	eleventyConfig.addPassthroughCopy("style.css");
+	eleventyConfig.addPassthroughCopy("logo.png");
 };

@@ -1,4 +1,7 @@
-# Welcome to my wiki
+---
+title: Welcome to my wiki
+layout: "base.njk"
+---
 
 Hello,
 
