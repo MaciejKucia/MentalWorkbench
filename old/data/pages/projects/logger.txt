@@ -1,0 +1,33 @@
+====== Logger for embedded systems ======
+
+<WRAP center todo 60%>
+Project under development
+</WRAP>
+
+
+===== Requirements =====
+
+Simple, Lightweight and Practical
+
+Log:
+  * Strings
+  * Integers, Enums
+  * Printfs
+  * Structures
+
+===== Implementation =====
+
+Single logging function ''log()'' with variable number of arguments will:
+  * Copy data into local buffer
+  * Notify sink controller
+
+
+===== Toolchain =====
+
+Altered build process
+  - Create list of C files: ''log_listc.py > log_files.auto.h''
+  - Preprocess C files ''gcc -E'' 
+  - Parse C files looking for log() calls, identify arguments ''log_parsec.py > log_structure.auto.xml''
+  - Merge xml files into zip ''log_zipxml.py''
+  - (optional) Build binary object from zip to embed into binary ''log_pack.py > log_dictionary.auto.c''
+  - Continue build process as usual

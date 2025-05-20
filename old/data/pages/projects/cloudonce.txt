@@ -1,0 +1,13 @@
+====== CloudOnce ======
+
+===== Planned features =====
+- Install software from the cloud
+  - Copy files
+  - Create desktop & start menu shortcuts
+  - No special priviledges required
+  - Deal with registry properly
+- Update software from the cloud
+- Support for the Google Drive
+- Automated installation package builder
+
+===== Architecture =====

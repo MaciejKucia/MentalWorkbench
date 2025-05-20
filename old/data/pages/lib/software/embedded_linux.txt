@@ -1,0 +1,100 @@
+====== Embedded Linux - Sitara ======
+
+<WRAP center todo>
+This page is under heavy development.
+</WRAP>
+
+
+This page describes process of configuring and building embedded installation of Linux operating system on OMAP-based development board. BeagleBoard-xm is a popular platform with many pre-compiled kernels. This page describes a process that can be applied to any embedded platform and involves software compilation from source.
+
+===== Terminology =====
+  * SPL - Second Program Loader
+  * IPL - Initial Program Loader
+  * MLO - Memory LOader
+  * RBL - ROM Boot Loader = IPL
+
+===== Hardware overview =====
+Every system is highly depended on hardware; especially on low-level. Beagleboard-Xm has no on-board flash and only source of non-volatile data is detachable flash card.
+
+^ Processor ^^
+| ARM® Cortex™-A8  |  1 [GHz]  |
+| TI TMS320C64x+ |  800 [MHz]  |
+| PowerVR SGX530 | |
+^ Memory ^  Size  ^
+| SRAM |  64 [kB]  |
+| external DDR RAM |  512 [MB]  |
+===== Initialization overview =====
+
+Booting embedded Linux is very similar to booting Linux on a PC. 
+
+  - Reset (or power on)
+  - Hardware initialization (power good, clocks & PLLs) [motherboard BIOS]
+  - Stage 0 bootloader (IPL): OMAP ROM [BIOS]
+  - Stage 1 bootloader (SPL): u-boot SPL (MLO) [MBR]
+  - Stage 2 bootloader: u-boot [LILO, GRUB]
+  - Linux kernel init
+  - User-space application start (/init)
+
+==== Reset and hardware initialization ====
+
+==== Stage 0 ====
+ROM code is a set of software hardcoded into hardware by manufacturer during chip fabrication. The purpose of this piece of software is to perform most basic peripherals initialization and load next bootloader into SRAM. User can select what kind of peripherals are used for code search (USB/SDcard/UART) using SYSBOOT Pins.
+
+==== Stage 1 ====
+Stage 1 bootloader unlike ISL is modifiable. Stage 0 bootloader must be designed in a way that will fit every possible hardware configuration. As a result Stage 0 bootloader uses only internal memory of the chip (as it has no information about external memory). MLO fits (size-limited) internal memory and loads next bootloader (bigger than internal memory) into external one. At this stage pin MUXing is performed and additional peripheral configuration is executed.
+
+<WRAP center info >
+In the past MLO was based on x-loader - small factor bootloader forked from u-boot source code. Today mainstream u-boot supports OMAP3 SPL.
+</WRAP>
+
+
+==== Stage 2 ====
+Das U-Boot is popular, flexible bootloader for UNIX operating systems. It offers variety of booting options and passes options to Linux kernel after loading it into memory. Again some of the hardware is configured.
+
+===== Preparing SD card =====
+Since Beagleboard-xM does not have on-board flash SD card is the only source of non-volatile data. 
+
+I am looking for SD card in my filesystem.
+
+<code>ls /dev/sd* </code>
+
+My SD card is located at ''/dev/sdb''. Now I will format it.
+
+<code>sudo parted --script ${DISK} mklabel msdos</code>
+
+Now I will create fat boot partition.
+
+<code> </code>
+
+Finaly ext4 partition for root filesystem.
+
+<code> 
+
+
+DISK=/dev/sdb
+sudo mkfs.ext4 ${DISK}2 -L rootfs
+</code> 
+
+===== Building U-Boot =====
+
+Finally I copy SPL and u-boot to the boot partition.
+
+<code></code>
+===== Linux Kernel =====
+Stage 2 bootloader loads a compressed Linux kernel into memory. Kernel initialization consists of interrupt and memory initialization and kernel decompression. After that scheduler is starting its operation.
+
+===== Embedded Qt =====
+
+===== OpenGL ES =====
+
+===== References =====
+
+  * http://beagleboard.org/
+  * http://www.ibm.com/developerworks/linux/library/l-linuxboot/
+  * http://processors.wiki.ti.com/index.php/Boot_Sequence
+  * https://groups.google.com/forum/?fromgroups=#!topic/beagleboard/M-ew_WGjE_A
+  * http://omappedia.org/wiki/Bootloader_Project
+  * http://omappedia.org/wiki/U-boot_Upstreaming_Project
+  * http://elinux.org/BeagleBoard
+  * http://www.eewiki.net/display/linuxonarm/BeagleBoard
+  * https://github.com/RobertCNelson/stable-kernel

@@ -1,0 +1,3 @@
+====== Qt ======
+
+  * [[http://gpupowered.org/node/10|Qt5 on TI platforms]]

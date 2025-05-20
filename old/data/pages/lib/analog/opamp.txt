@@ -1,0 +1,3 @@
+====== Operational amplifiers ======
+
+  * [[http://www.ti.com/ww/en/bobpease/assets/AN-31.pdf|TI - Op Amp Circuit Collection AN-31]]

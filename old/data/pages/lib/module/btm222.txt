@@ -1,0 +1,12 @@
+====== Bluetooth module ======
+
+===== Package pinout =====
+
+===== Board pinout =====
+
+===== AT commands =====
+
+
+
+===== References =====
+http://www.taiwantrade.com.tw/resources/member/276716/productcatalog/b9ee22e4-e94a-45cd-8db0-ac88b3a11a75_BTM222%20DataSheet.pdf

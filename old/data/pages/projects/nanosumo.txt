@@ -1,0 +1,15 @@
+====== Nanosumo ======
+
+  * MCU
+  * Sensors
+    * End of Ring
+    * Enemy
+  * H bridge (DRV8836)
+  * motors 2x GM15 25:1 6mm (https://content.solarbotics.com/products/datasheets/gm15_metric.pdf)
+  * battery CR2030 or LIR2450
+  * ir receiver
+  * led for info
+
+===== Body =====
+Body and gears design:
+{{:projects:robot_cad.png?direct|}}

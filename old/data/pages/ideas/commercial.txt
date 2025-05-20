@@ -1,0 +1,52 @@
+====== Commercial ideas ======
+
+===== GPS arrow =====
+
+  * Okrągły ledy na brzegu (może OLED po środku)
+  * korba ładowanie (jak w ikea LJUSA)
+  * Jeden przycisk
+    * Długo - zapisz lokacje
+    * krótko - pokarz kierunek
+  * Zwarta budowa
+  * GPS + kompas
+  * Super cap
+
+===== Smart lightswitch =====
+
+===== Speech recorder =====
+  * Energy harvesting: heat, sun, movement
+  * High compression ratio codec
+
+===== Technical Documentation =====
+  * Service: maintaining and supporting creation of technical documentation
+
+===== EaglePCB package repo paid service =====
+  * Just software - easy
+  * Probably there is a market for that
+  * TODOs:
+    * Website with payment system
+    * Component check
+  * Workflow:
+    * Assess what parts are in need
+    * Select part for creation
+    * Check for errors
+    * Publish
+  * Work for students?
+  * Pay for updates or pay for library?
+  * Work with distributors (links)?
+  * Extend: buy design
+  * Report error
+
+===== Digital Signage device =====
+  * Low cost ARM
+  * PoE
+  * HTML5 based soft
+  * Movement sensor
+  * Camera?
+
+===== Colab Box =====
+  * Router
+  * Internet ON OFF
+  * Presenter -> multiple receivers
+  * Any device, any content
+  * HTML5

@@ -1,0 +1,91 @@
+====== Interfejsy ======
+Symbolem TICK zaznałczyłem technologie warte uwagi (według mnie) ze względu na możliwe aplikacje w elektronice hobbistycznej.\\
+Strona zawiera fragmenty tekstu pochodzące z [[http://pl.wikipedia.org/wiki/Wikipedia:O_Wikipedii|Wikipedii]].
+
+====== Cyfrowe ======
+===== Szeregowe =====
+==== UART ====
+TICK Bardzo ważny interfejs.
+[[wp>Universal_asynchronous_receiver/transmitter|Universal Asynchronous Receiver Transmitter]]
+==== RS-232 ====
+TICK Ważny szeroko stosowany standard.
+  * [[http://en.wikipedia.org/wiki/RS-232]]
+==== RS-485 ====
+TICK
+Standard RS-485 (znany również jako [[wp>eia|EIA]]-485) został opracowany przez Towarzystwo Przemysłu Elektronicznego (EIA) w latach 80. Standard ten umożliwia szybką szeregową komunikację pomiędzy wieloma urządzeniami na duże odległości.\\
+Cechy standardu:
+  * Transmisja różnicowa po skrętce bez konieczności stosowania przewodu powrtonego
+  * Bardzo dobra odporność na zakłócenia
+  * Topologia magistrali „daisy chain” (urządzenia podpięte równolegle do jednej magistrali zakończonej terminatorem lub zapętlonej) lub gwiazda z użyciem repeaterów
+  * W podstawoej wersji standardu, transmisja dwukierunkowa „half-duplex” (w danej chwili czasowej transmisja może odbywać się wyłącznie w jednym kierunku)
+  * Do 1200m długości przewodu (przy przepustowości 100Kbit)
+  * Obsługuje 32 nadajniki i 32 odbiorniki
+  * Praktyczny brak ograniczenia ilości urządzeń przy zastosowania repeaterów
+  * Nie opisuje warstwy programowej ani złącz jedynie charakterystyki elektryczne
+  * Baza dla wielu protokołów komunikacyjnych szczególnie w przemyśle
+  * Łatwa konwersja pomiędzy RS232 a RS485
+
+  * [[wp>EIA-485]]
+  * [[http://elektronikab2b.pl/technika/3404-czym-jest-rs-485-]]
+==== I²C ====
+TICK TICK [[wp>I2c| (Inter-Integrated Circuit)]] - szeregowa, dwukierunkowa magistrala służąca do przesyłania danych pomiędzy zintegrowanymi układami elektronicznymi. Znana również pod nazwami: TWI((Two Wire Interface)) lub TWSI((Two-Wire Serial Interface)). Bardzo ważna technologia, warto przeczytać:
+  * [[http://www.nxp.com/acrobat_download2/literature/9398/39340011.pdf]]
+  * [[http://focus.ti.com/lit/sg/sszc003b/sszc003b.pdf]]
+  * [[http://www.atmel.com/dyn/resources/prod_documents/doc2564.pdf]]
+  * [[http://www.atmel.com/dyn/resources/prod_documents/doc2565.pdf]]
+==== 1-Wire ====
+TICK TICK [[wp>1-Wire|1-Wire]] – interfejs elektroniczny jak również i protokół komunikacyjny pomiędzy urządzeniami. Jego nazwa wywodzi się z faktu, że do komunikacji używana jest tylko jedna linia danych (oraz linia zerowa [masa]). Odbiornik może być zasilany bezpośrednio z linii danych, wykorzystując zasilanie pasożytnicze, co jest zaletą tego interfejsu. Odbiornik wyposażony jest w kondensator o pojemności 800 pF, który jest ładowany z linii danych – następnie energia w nim zgromadzona używana jest do zasilania odbiornika. 1-Wire jest podobne do interfejsu I²C, lecz z uwagi na pojedynczą linię komunikacyjną jest zarówno wolniejsze, jak i tańsze. Interfejs 1-Wire jest zazwyczaj używany do komunikacji pomiędzy niewielkimi urządzeniami, takimi jak: termometry cyfrowe, instrumenty metrologiczne, sterowniki ładowania akumulatorów, zamki elektroniczne typu [[wppl>IButton|iButton]], itd.
+==== SPI ====
+TICK TICK [[wp>Serial_Peripheral_Interface_Bus|Serial Peripheral Interface Bus]] Ważny interfejs warto przeczytać:
+  * [[http://www.dioda.com.pl/forum/topics20/spi-szeregowy-interfejs-urzadzen-peryferyjnych-vt2275.htm]]
+  * [[http://www.eetimes.com/discussion/beginner-s-corner/4023908/Introduction-to-Serial-Peripheral-Interface]]
+  * [[http://www.byteparadigm.com/kb/article/AA-00255/22/Introduction-to-SPI-and-IC-protocols.html]]
+==== USB ====
+TICK (Universal Serial Bus) Każdy zna złącze USB, tak naprawdę warto przeczytać cały artykuł na [[wppl>USB|Wikipedii]].
+==== CAN ====
+[[wppl>CAN|Controller Area Network]] jest szeregową magistralą komunikacyjną powstałą w latach 80. w firmie [[wppl>Robert_Bosch_GmbH|Robert Bosch GmbH]] z myślą o zastosowaniach w przemyśle samochodowym (ABS, sterowanie silnika). Obecnie znajduje zastosowanie również w przemysłowych magistralach polowych.
+  * [[http://esd.cs.ucr.edu/webres/can20.pdf|Specyfikacja CAN na stronach Robert Bosch GmbH [PDF]]]
+==== LIN ====
+[[wp>Local_Interconnect_Network|Local Interconnect Network]] jest standardem samochodowej magistrali komunikacyjnej stosowanej często jako podsieć sieci CAN ze względu na niższe koszty. 
+==== FireWire ====
+[[wppl>firewire|FireWire]] to standard łącza szeregowego umożliwiającego szybką komunikację i synchroniczne usługi w czasie rzeczywistym. Opracowany w roku 1995 dla komputerów osobistych i cyfrowych urządzeń optycznych. Rozwijany przez firmę Apple Inc. Jest zdefiniowany w dokumencie IEEE 1394.
+Magistrala ta w okrojonej wersji wykorzystywana jest przez firmę Sony pod nazwą i.Link oraz przez Texas Instruments jako Lynx. Natomiast firma Creative Technology opisuje złącze jako SB1394. Obecnie również przez inne jako DV link. Zmiana nazwy ma na celu uniknięcie opłat licencyjnych, ale wszystkie te złącza są ze sobą w zgodne z wyjątkiem różnych wtyczek i braku linii zasilania.
+FireWire jest szeregową magistralą ogólnego przeznaczenia, jednak ze względu na promowanie jej przez Apple jako wyjątkowo multimedialnej oraz ze względu na powszechne stosowanie w kamerach jest kojarzona prawie wyłącznie z kamerami cyfrowymi. Obecnie popularne stało się używanie FireWire w profesjonalnych kartach muzycznych i innym sprzęcie audio.
+==== PCI Express ====
+[[wp>PCI_Express|PCI Express]] jest technologią wypierającą [[#Równoległe|PCI]].
+==== Ethernet ====
+TICK [[wppl>ethernet|Ethernet]] - technologia, w której zawarte są standardy wykorzystywane w budowie głównie lokalnych sieci komputerowych. Obejmuje ona specyfikację przewodów oraz przesyłanych nimi sygnałów. Ethernet opisuje również format ramek i protokoły.
+==== LVDS ====
+[[wp>Low-voltage_differential_signaling|Low voltage differential signaling]] - technologia szybkiej transmisji danych po [[wppl>Skrętka|skrętce]]. Najczęściej stosowana przy transmisji danych z karty graficznej do matrycy LCD w laptopach.
+==== SATA ====
+[[wppl>SATA|Serial Advanced Technology Attachment]] – szeregowa magistrala komputerowa, służąca do komunikacji pomiędzy komputerem a urządzeniami pamięci masowej, takimi jak dyski twarde, napędy optyczne i taśmowe. SATA jest bezpośrednim następcą równoległej magistrali [[#Równoległe|ATA]].
+
+
+===== Równoległe =====
+==== IEEE 1284 ====
+[[wppl>IEEE_1284|IEEE 1284]] (LPT np. w starych drukarkach, skanerach; "port równoległy") Obecnie praktycznie wyparty przez [[#USB|USB]]
+==== PCI ====
+[[wppl>Peripheral_Component_Interconnect|PCI]] (Peripheral Component Interconnect) magistrala komunikacyjna służąca do przyłączania kart rozszerzeń do płyty głównej w komputerach klasy [[wp>IBM_Personal_Computer|IBM PC]]. Obecnie wypierane przez [[#PCI Express|PCI Express]]
+==== ATA ====
+[[wppl>ATA_(technologia)|ATA]] (Advanced Technology Attachments) nazywany również IDE (Integrated Drive Electronics). Po wprowadzeniu technologi [[#SATA|SATA]] stosuje się określenie PATA (Parallel((ang. równoległy)) ATA) Standard stosowany w komunikacji systemu komputerowego z dyskami twardymi w komputerach klasy [[wp>IBM_Personal_Computer|IBM PC]].
+===== Specjalne =====
+==== JTAG ====
+
+
+====== Analogowe ======
+Możemy podzielić na 2 grupy:
+===== Napięciowe =====
+TICK Najpopularniejsze np. [[wppl>jack|Jack]], [[wppl>S-Video|S-Video]], [[wp>Video_Graphics_Array|VGA]] itd.
+===== Prądowe =====
+Bardziej odporne na zakłócenia, stosowane np. w miernictwie i automatyce. 
+  * 4 ÷ 20 [mA]
+  * 0 ÷ 20 [mA]
+====== Bezprzewodowe ======
+Np:
+  * [[wppl>Bluetooth|Bluetooth]] TICK
+  * [[wppl>wifi|Wi-Fi]]
+  * [[wppl>Irda|IrDA]] (Infrared Data Association)
+  * [[wp>Consumer_IR|CIR]] (Consumer Infra Red)
+  * [[wp>zigbee|ZigBee]]  TICK
+  * [[wp>Z-Wave|Z-Wave]] Automatyka domowa
+  * [[wp>Near_field_communication|NFC]] (Near Field Communication)

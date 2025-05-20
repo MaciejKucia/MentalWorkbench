@@ -1,0 +1,68 @@
+  * [[integra:terminologia|Terminologia]]
+  * [[integra:podstawy|Podstawowe zagadnienia]] TODO
+
+  * [[http://sp-hm.pl/downloads/kody_smd.pdf|Tabela kodów SMD PDF]]
+  * [[http://www.marsport.org.uk/smd/mainframe.htm|Tabela kodów SMD HTML]]
+  * http://en.wikipedia.org/wiki/List_of_common_microcontrollers
+  * [[http://www.youtube.com/watch?v=0jzLDe950AY|Intruduction to PLLs]]
+
+====== Zamiana intel hex na binary ======
+<code>avr-objcopy -I ihex file.hex -O binary file.bin</code>
+
+====== Firmy które warto znać ======
+  * [[http://www2.atmel.com/|Atmel]]
+  * [[microchip.com|Microchip]]
+  * [[http://www.analog.com/en/index.html|Analog Devices]]
+  * [[http://www.freescale.com/|Freescale]]
+  * [[http://www.nxp.com/#/homepage|NXP Semiconductors]] - dawniej Philips Semiconductors
+  * [[http://www.st.com|STMicroelectronics]]
+  * [[http://www.national.com/|National Semiconductor]]
+  * [[http://www.linear.com/|Linear Technology]]
+  * [[www.ti.com|Texas Instruments]]
+  * [[http://arm.com/|ARM Advanced RISC Machines]]
+  * [[Cypress Semiconductor]]
+  * [[www.altera.com|Altera]]
+  * [[http://www.xilinx.com/|Xilinx]]
+  * [[profilic.com|Profilic]]
+  * [[www.ftdichip.com|FTDI Future Technology Devices International]]
+  * [[cree.com|Cree]]
+  * [[realtek.com|Realtek Semiconductor]]
+  * [[Vishay Electronic]]
+  * [[Microsemi]]
+  * [[Marvell Technology Group]]
+  * [[Sanyo Denki]]
+  * [[Toshiba]]
+  * [[Philips]]
+  * [[Intel]]
+  * [[Samsung]]
+  * [[Simens]]
+  * [[Fairchild Semiconductor]]
+
+====== Generowanie plików dzwiękowych w Pythonie ======
+<code python>from struct import pack
+from math import sin, pi
+import wave
+import random
+
+RATE=44100
+
+## GENERATE MONO FILE ##
+wv = wave.open('test_mono.wav', 'w')
+wv.setparams((1, 2, RATE, 0, 'NONE', 'not compressed'))
+maxVol=2**15-1.0 #maximum amplitude
+wvData=""
+for i in range(0, RATE*3):
+        wvData+=pack('h', maxVol*sin(i*500.0/RATE)) #500Hz
+wv.writeframes(wvData)
+wv.close()
+
+## GENERATE STERIO FILE ##
+wv = wave.open('test_stereo.wav', 'w')
+wv.setparams((2, 2, RATE, 0, 'NONE', 'not compressed'))
+maxVol=2**15-1.0 #maximum amplitude
+wvData=""
+for i in range(0, RATE*3):
+        wvData+=pack('h', maxVol*sin(i*500.0/RATE)) #500Hz left
+        wvData+=pack('h', maxVol*sin(i*200.0/RATE)) #200Hz right
+wv.writeframes(wvData)
+wv.close()</code>

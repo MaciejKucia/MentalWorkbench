@@ -1,0 +1,110 @@
+====== TestClass ======
+
+
+|[[#TestInterface]]   -> [[#TestClass]]  |
+
+
+>> Class level summary documentation goes here.
+> Longer comments can be associated with a type or member through the remarks tag.
+
+===== Private Attributes =====
+
+^string^**[[#_name]]**^
+|//Store for the name property.// ||
+
+===== Properties =====
+
+^string^**[[#Name]]**^
+|//Name property. // ||
+
+===== Functions =====
+
+^ public  ^   ^**[[#TestClass]]** () ^
+| //The class constructor. // |||
+^ public  ^  void ^**[[#SomeMethod]]** (string s, int x) ^
+| //Description for SomeMethod.// |||
+^ public  ^  int ^**[[#SomeOtherMethod]]** () ^
+| //Some other method. // |||
+^ public  ^  int ^**[[#InterfaceMethod]]** (int n) ^
+| //Documentation that describes the method goes here. // |||
+
+===== Private Static Functions =====
+
+^ private  ^  int ^**[[#Main]]** (System.String[] args) ^
+| //The entry point for the application. // |||
+===== All Members =====
+
+==== _name ==== 
+^ string TestClass._name  ^   ^
+| //Store for the name property.// ||
+
+==== InterfaceMethod ==== 
+^ int TestClass.InterfaceMethod  ^ (int n)  ^
+| //Documentation that describes the method goes here. // ||
+| n | Parameter n requires an integer argument.  |
+| **return** | The method returns an integer. |
+
+==== Main ==== 
+^ static int TestClass.Main  ^ (System.String[] args)  ^
+| //The entry point for the application. // ||
+| args | A list of command line arguments. |
+
+==== Name ==== 
+^ string TestClass.Name  ^   ^
+| //Name property. // ||
+| //A value tag is used to describe the property value.// ||
+==== SomeMethod ==== 
+^ void TestClass.SomeMethod  ^ (string s, int x)  ^
+| //Description for SomeMethod.// ||
+| s | Parameter description for s goes here. |
+| x | Extra parameter. |
+| **see** | System.String|
+| //
+You can use the cref attribute on any tag to reference a type or member and the compiler will check that the reference exists. // ||
+==== SomeOtherMethod ==== 
+^ int TestClass.SomeOtherMethod  ^ ()  ^
+| //Some other method. // ||
+| **return** | Return results are described through the returns tag.|
+| **see** | SomeMethod(string)|
+| //
+Notice the use of the cref attribute to reference a specific method. // ||
+==== TestClass ==== 
+^ TestClass.TestClass  ^ ()  ^
+| //The class constructor. // ||
+
+
+Location: [[\\D:/Cdoc/TestClass.cs]]
+----
+====== TestInterface ======
+
+
+|[[#TestInterface]]   -> [[#TestClass]]  |
+
+
+>> Documentation that describes the interface goes here. 
+> Details about the interface go here. 
+
+===== Functions =====
+
+^ public  ^  int ^**[[#InterfaceMethod]]** (int n) ^
+| //Documentation that describes the method goes here. // |||
+===== All Members =====
+
+==== InterfaceMethod ==== 
+^ int TestInterface.InterfaceMethod  ^ (int n)  ^
+| //Documentation that describes the method goes here. // ||
+| n | Parameter n requires an integer argument.  |
+| **return** | The method returns an integer. |
+
+
+Location: [[\\D:/Cdoc/TestClass.cs]]
+----
+====== TestClass.cs ======
+
+>> 
+> 
+
+Location: [[\\D:/Cdoc/TestClass.cs]]
+----
+
+//Maciej Kucia 2014//

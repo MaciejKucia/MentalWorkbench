@@ -1,0 +1,13 @@
+====== Algorytm Dijkstry ======
+===== Zadanie 19 =====
+
+{{:other:bo:dij1.png}}
+
+  - Wpisuje minimalne drogi zaznaczam węzeł początkowy \\ {{:other:bo:dij2.png}}
+  - Aktualizuje minimalne drogi węzłów sąsiadujących, następnie zaznaczam niezaznaczany węzeł o minimalnej drodze \\ {{:other:bo:dij3.png}} \\ Węzeł 2: 0+2 = 2 \\ Węzeł 3: 0+1 = 1
+  - Powtarzam dla wybranego węzła \\ {{:other:bo:dij4.png?441}} \\ Węzła 2 nie aktualizuje bo 2 < 1+4
+  - W poniższym kroku węzły 5 i 6 są aktualizowane \\ {{:other:bo:dij5.png}}
+  - Kontynuuje aż do oznaczenia wszystkich wierzchołków \\ {{:other:bo:dij6.png}}
+  - Określam najkrótszą drogę skacząc po najmniejszych drogach od wierzchołka końcowego \\ {{:other:bo:dij7.png}} \\ Minimalna droga wynosi 9 i prowadzi przez 1->3->4->5->7->9->10
+
+[[pl:other:bo:kru|Dalej>>]]

@@ -1,0 +1,26 @@
+====== Równania różniczkowe ======
+===== O zmiennych rozdzielonych =====
+$ {{dy} \over {dx}} = g(x)h(y)$
+Rozdzielam prawa lewa i całkuje
+==== Sprowadzalne do zmiennych rozdzielonych ====
+$ y' = g({y \over x})$
+Podstawiam
+$y=ux$
+===== Jednorodne =====
+===== Zupełne =====
+===== Clairauta =====
+===== Liniowe =====
+===== Bernouliego =====
+===== Riccatiego =====
+===== Lagrangea =====
+===== O stałych współczynnikach =====
+
+====== Szeregi Funkcyjne ======
+====== Stabilność ======
+
+
+
+
+
+
+

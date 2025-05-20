@@ -1,0 +1,186 @@
+======= EE basics =======
+
+====== Electric Field ======
+
+===== Math =====
+
+==== Gradient   ====
+$\text{grad} \; f = \nabla f = \left[ \frac{\partial f}{\partial x_1}, ... ,\frac{\partial f}{\partial x_n} \right]$
+
+"Direction and magnitude of function change"
+
+<WRAP center box 50%>
+$f(x,y,z) = 2x+3y^2-\sin z$
+$\nabla f = \left[ \frac{\partial f}{\partial x}, \frac{\partial f}{\partial y},\frac{\partial f}{\partial z} \right] = \hat i 2 + \hat j 6y + \hat k (-\cos z)$
+</WRAP>
+==== Divergence ====
+
+$\text{div} \, F(x,y,z) = \vec \nabla \cdot \vec F = \frac{\partial U}{\partial x} + \frac{\partial V}{\partial y} +\frac{\partial W}{\partial z} $
+
+"Source strength"
+
+==== Laplace operator ====
+(∇·∇, ∇<sup>2</sup> or ∆) Laplacian is a differential operator given by the divergence of the gradient of a function on Euclidean space. The Laplacian ∆f(p) of a function f at a point p, up to a constant depending on the dimension, is the rate at which the average value of f over spheres centered at p, deviates from f(p) as the radius of the sphere grows.
+
+$$\nable^2 f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}$$
+==== Curl ====
+
+$\text{curl} \, F(x,y,z) = \vec \nabla \times \vec F = \left| \begin{array}{ccc} \ \hat i & \hat j & \hat k \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ F_x & F_y & F_z \end{array} \right| $
+
+"Vorticity - how much does it twist"
+
+
+==== Stokes' Theorem ====
+(:PL: Twierdzenie Stokesa)
+The integral of a differential form $\omega$ over the boundary of some orientable manifold $\Omega$ is equal to the integral of its exterior derivative $\text{d} \omega$ over the whole of $\Omega$
+
+$$ \int_{\partial \Omega} \omega = \int_{\Omega} \text{d} \omega$$
+
+$$ \oint_C P dx + Q dy + R dz = \iint_S \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right) dy dz +  \left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right) dz dx +  \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right) dx dy $$
+
+$$ \oint_C P dx + Q dy + R dz = \iint_S \text{rot}_n F \; dS =\iint_S \nabla \times F \; dS $$
+
+<html>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Inkscape (http://www.inkscape.org/) -->  <svg    xmlns:dc="http://purl.org/dc/elements/1.1/"    xmlns:cc="http://creativecommons.org/ns#"    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    version="1.1"    width="673.00525"    height="134.99947"    id="svg2">   <defs      id="defs4">     <marker        refX="0"        refY="0"        orient="auto"        id="Arrow1Mend"        style="overflow:visible">       <path          d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"          transform="matrix(-0.4,0,0,-0.4,-4,0)"          id="path3968"          style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />     </marker>     <marker        refX="0"        refY="0"        orient="auto"        id="Arrow1Send"        style="overflow:visible">       <path          d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"          transform="matrix(-0.2,0,0,-0.2,-1.2,0)"          id="path3974"          style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />     </marker>     <marker        refX="0"        refY="0"        orient="auto"        id="Arrow2Send"        style="overflow:visible">       <path          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"          transform="matrix(-0.3,0,0,-0.3,0.69,0)"          id="path3992"          style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round" />     </marker>     <marker        refX="0"        refY="0"        orient="auto"        id="Arrow1Lend"        style="overflow:visible">       <path          d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"          transform="matrix(-0.8,0,0,-0.8,-10,0)"          id="path3962"          style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />     </marker>   </defs>   <metadata      id="metadata7">     <rdf:RDF>       <cc:Work          rdf:about="">         <dc:format>image/svg+xml</dc:format>         <dc:type            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />         <dc:title></dc:title>       </cc:Work>     </rdf:RDF>   </metadata>   <g      transform="translate(-194.5,-204.84977)"      id="layer1">     <path        d="m 290,242.36218 0,30 30,0 0,-60 30,0 0,120 -90,0 0,-30 -30,0 0,30 -30,0 0,-90 z"        id="path2987"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,-53.841842,684.39575)"        id="path3773"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,-55,714.39575)"        id="path4585"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,-53.841842,654.72437)"        id="path4587"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,-25,684.39575)"        id="path4589"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,-25,654.72437)"        id="path4591"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,5,684.39575)"        id="path4593"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,5,654.72437)"        id="path4595"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,5,714.72437)"        id="path4597"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,35,684.72437)"        id="path4599"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,35,714.72437)"        id="path4601"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,65,684.72437)"        id="path4603"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,65,714.72437)"        id="path4605"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,65,654.72437)"        id="path4607"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,65,624.72437)"        id="path4609"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 370,302.36218 30,0 0,-60"        id="path4611"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 460,272.36218 -90,0"        id="path4613"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 430,302.36218 0,-60"        id="path4615"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 520,302.36218 -90,0"        id="path4617"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 460,272.36218 0,60"        id="path4619"        style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 490,272.36218 0,60"        id="path4621"        style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 520,272.36218 -30,0"        id="path4623"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 520,242.36218 -30,0"        id="path4625"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 460,242.36218 0,30 30,0 0,-60 30,0 0,120 -90,0 0,-30 -30,0 0,30 -30,0 0,-90 z"        id="path4627"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,116.15816,684.39575)"        id="path4629"        style="fill:none;stroke:#000080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,115,714.39575)"        id="path4631"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,116.15816,654.72437)"        id="path4633"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,145,654.72437)"        id="path4637"        style="fill:none;stroke:#000080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,175,684.39575)"        id="path4639"        style="fill:none;stroke:#000080;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,175,654.72437)"        id="path4641"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,175,714.72437)"        id="path4643"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,205,684.72437)"        id="path4645"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,205,714.72437)"        id="path4647"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,235,684.72437)"        id="path4649"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,235,714.72437)"        id="path4651"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,235,654.72437)"        id="path4653"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,235,624.72437)"        id="path4655"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 400,302.36218 15,0 15,0 0,-15 0,-15 -15,0 -15,0 0,15 z"        id="path4657"        style="fill:none;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none" />     <path        d="m 413,300.36218 5,2 -5,2 z"        id="path5601"        style="fill:#008000;stroke:#008000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 432,277.36218 -2,5 -2,-5 z"        id="path5603"        style="fill:#000080;stroke:#000080;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 432,297.36218 -2,-5 -2,5 z"        id="path5605"        style="fill:#008000;stroke:#008000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 425,270.36218 -5,2 5,2 z"        id="path5607"        style="fill:#008000;stroke:#008000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 405,274.36218 5,-2 -5,-2 z"        id="path5609"        style="fill:#000080;stroke:#000080;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 402,277.36218 -2,5 -2,-5 z"        id="path5611"        style="fill:#008000;stroke:#008000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 402,297.36218 -2,-5 -2,5 z"        id="path5613"        style="fill:#000080;stroke:#000080;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 540,302.36218 30,0 0,-60"        id="path5615"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 630,272.36218 -90,0"        id="path5617"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 600,302.36218 0,-60"        id="path5619"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 690,302.36218 -90,0"        id="path5621"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 630,272.36218 0,60"        id="path5623"        style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 660,272.36218 0,60"        id="path5625"        style="fill:none;stroke:#b3b3b3;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 690,272.36218 -30,0"        id="path5627"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 690,242.36218 -30,0"        id="path5629"        style="fill:none;stroke:#cccccc;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />     <path        d="m 630,242.36218 0,30 30,0 0,-60 30,0 0,120 -90,0 0,-30 -30,0 0,30 -30,0 0,-90 z"        id="path5631"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,286.15816,684.39575)"        id="path5633"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,285,714.39575)"        id="path5635"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,286.15816,654.72437)"        id="path5637"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,315,654.72437)"        id="path5639"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,345,654.72437)"        id="path5643"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,375,684.72437)"        id="path5647"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,375,714.72437)"        id="path5649"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,405,684.72437)"        id="path5651"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,405,714.72437)"        id="path5653"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,405,654.72437)"        id="path5655"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,405,624.72437)"        id="path5657"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 570,302.36218 15,0 15,0 0,30 30,0 0,-45 0,-15 -45,0 -15,0 0,15 z"        id="path5659"        style="fill:none;stroke:#808080;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-mid:none" />     <path        d="m 583,300.36218 5,2 -5,2 z"        id="path5661"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 632,277.36218 -2,5 -2,-5 z"        id="path5663"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 632,297.36218 -2,-5 -2,5 z"        id="path5665"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 625,270.36218 -5,2 5,2 z"        id="path5667"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 605,274.36218 5,-2 -5,-2 z"        id="path5669"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 602,317.36218 -2,5 -2,-5 z"        id="path5671"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 632,307.36218 -2,5 -2,-5 z"        id="path5675"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 632,327.36218 -2,-5 -2,5 z"        id="path5677"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 615,330.36218 5,2 -5,2 z"        id="path5679"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 277.12625,404.37764 a 10,10 0 1 1 1.71559,-11.68684"        transform="matrix(1,0,0,-1,145,684.72437)"        id="path5683"        style="fill:none;stroke:#008000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6;marker-mid:none;marker-end:url(#Arrow2Send)" />     <path        d="m 800,242.36218 0,30 30,0 0,-60 30,0 0,120 -90,0 0,-30 -30,0 0,30 -30,0 0,-90 z"        id="path5701"        style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />     <path        d="m 750,300.36218 5,2 -5,2 z"        id="path5727"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 712,282.36218 -2,5 -2,-5 z"        id="path5729"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 755,240.36218 -5,2 5,2 z"        id="path5733"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 725,334.36218 5,-2 -5,-2 z"        id="path5735"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 772,312.36218 -2,5 -2,-5 z"        id="path5737"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 862,287.36218 -2,-5 -2,5 z"        id="path5741"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 820,330.36218 5,2 -5,2 z"        id="path5743"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 742,317.36218 -2,-5 -2,5 z"        id="path5745"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 802,257.36218 -2,-5 -2,5 z"        id="path5747"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 832,252.36218 -2,5 -2,-5 z"        id="path5749"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 815,270.36218 -5,2 5,2 z"        id="path5751"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />     <path        d="m 845,210.36218 -5,2 5,2 z"        id="path5753"        style="fill:#666666;stroke:#666666;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1" />   </g> </svg>
+</html>
+
+==== Divergence Theorem ====
+(:PL: Twierdzenie Gaussa Ostrogradzkiego) Also known as Gauss's theorem or Ostrogradsky's theorem.
+
+
+Outward flux of a vector field through a closed surface is equal to the volume integral of the divergence over the region inside the surface. Intuitively, it states that the sum of all sources minus the sum of all sinks gives the net flow out of a region.
+
+$$ \iint F_n \; dS = \iiint_V \left( \frac{\partial P}{\partial x} +  \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z} \right) \; dxdydz $$
+
+$$ {\Huge∯}_S \left(F \cdot n \right) \; dS = \iiint_V \left( \nabla \cdot F \right) \; dV$$
+===== Electric Field Potential =====
+
+$$E = - \nabla V_E$$
+$$V_E = - \int_C E \; dl$$
+===== Electric Charge =====
+$$F = \frac{q_1 q_2}{r^2} k$$
+$$F = \frac{q_1 q_2}{4 \pi \varepsilon r^2} $$
+$ \frac{\varepsilon}{\varepsilon_0} = \varepsilon_w$ (:PL: wlasnosc srodowiska)
+$\varepsilon_0 = \frac{1}{36 \pi 10^{-9}} [\frac{F}{m}]$
+
+
+===== Electric Current =====
+
+==== Forward Current ====
+(:PL: Prąd przewodzenia). Movement of particles.
+$$ i = \lim \limits_{\Delta t \to 0} \frac{\Delta q}{\Delta t} [A]$$
+
+==== Displacement Current ====
+(:PL: Prad przesuniecia). Not caused by flow of particles but time-varying electric field and the motion of charges bound in atom 
+(dielectric polarization). 
+Example: capacitor. 
+$$I_D = \varepsilon \frac{\partial \Phi_E}{\partial t}$$
+Displacement current density in a dielectric:
+$$J_D = \varepsilon_0 \frac{\partial E}{\partial t} + \frac{\partial P}{\partial t}$$
+  * P - [[wp>Electric_polarization|polarization]] of the medium
+  * E - electric field
+
+=== Polarization Current ===
+Dipoles rotate causing movement of charge
+
+==== Convection Current ====
+Caused by movement of matter not electric field. 
+  * ions in liquid
+  * movement of charged matter (ex. gas or liquid)
+  * ions diffusion 
+
+
+==== Density of Current  ====
+$$J = \lim_{\Delta S_n \to 0} \frac {\Delta i}{\Delta S_n} = \frac{\partial i}{\partial S_n} \left[ \frac{A}{m^2} = \frac{C}{sm^2} \right]$$
+
+====== Maxwell's equations ======
+
+  * $\vec D = \varepsilon \vec E$
+  * $\vec B = \mu \vec H$
+
+
+^ Law      ^ Equation      ^ Reasoning ^
+| (3rd) Gauss's Law | $$\nabla E = \frac{\rho}{\varepsilon_0}$$ | Electric field comes from charge (jest zrodlowe) |
+| ::: | $$\oint_S \vec E \cdot \text{d} \vec S = \frac{\rho}{\varepsilon_0}$$ | :::|
+| (4th) Gauss's law for magnetism | $$\nabla B = 0$$ | Magnetic field does not come from anything static (pole mag jest bezródłowe) linie pola są zamknięte |
+| ::: | $$\oint_S \vec B \cdot \text{d} \vec S = 0$$ | ::: |
+| (1st) Faraday's Law of induction | $$\nabla \times E = -\frac{\partial B}{\partial t}$$ | Change of electric field induces changing magnetic field | 
+| ::: | $$\oint \vec E \cdot \text{d} \vec l = - \frac{\partial \Phi_B}{\partial t}$$ | ::: |
+| (2nd) Ampère's Law | $$\nabla \times \vec{H} = J + \frac{\partial \vec{D}}{\partial t} $$ | Change of magnetic field induces electric field and some displacement current |
+| ::: | $$\oint \vec H \cdot \text{d}\vec l = I + \frac{\partial \Phi_D}{\partial t}$$ | ::: |
+===== Kirchhoff's current law (KCL) =====
+(:PL: Pierwsze prawo Kirchhoffa, prądowe) Kirchhoff's first law, Kirchhoff's point rule, Kirchhoff's junction rule (or nodal rule).
+
+The current entering any junction is equal to the current leaving that junction. 
+
+**Only valid if** the charge density ($\vec J$) remains constant at the point to which it is applied.
+Ex: capacitor, antenna. See [[#Displacement current]]
+
+$$ \sum I = 0 $$
+$$ \oint \vec J \cdot \text{d} \vec{S}  = 0$$
+
+Divergence of Ampere's Law with Gauss Law:
+$$ \nabla \cdot J = - \nabla \frac{\partial D}{\partial t} = - \frac{\partial \rho}{\partial t}$$
+
+Current flowing out of a closed surface is equal to the rate of loss of charge within the enclosed volume ([[#Divergence theorem]]). 
+Kirchhoff's current law is equivalent to the statement that the divergence of the current is zero.
+
+$$\vec \nabla \vec I = 0 $$
+===== Kirchhoff's voltage law (KVL) =====
+
+(:PL: Drugie prawo Kirchoffa, napięciowe) Kirchhoff's second law, Kirchhoff's loop (or mesh) rule.
+
+Assume: there is no fluctuating magnetic field linking the closed loop.
+$$ \sum U = 0 $$
+====== Graphs ======
+empty. complete. regular. euler. hamilton
+incydence. matrix: node, loop, "odciec"
+
+===== Thevenin-Norton Law =====
+
+
+====== Electric Circuits ======
+===== Electrical Network =====
+===== Electric Element =====
+==== Active ====
+==== Passive ====
+==== Two-Port Network ====
+(:PL: Czwórnik)
+==== One-Port Network ====
+(:PL: Dwójnik)
+
+
+===== Branch =====
+
+===== Node =====
+
+===== Loop =====
+
+===== Node Voltage Method =====
+(:PL: Metoda Potęcjałów Węzłowych)
+$$[I] = [G][V]$$
+
+===== Mesh Current Method =====
+(:PL: Metoda Prądów Oczkowych)
+
+$$[R][I] = [E]$$
+
+====== Conductors ======
+===== 1st type =====
+===== 2nd type =====
+
+
+
+magnetic stream
+self inductance
+eliminacja sprzezen
+
+
+joule law
+
+resistance resistivity
+
+
+
+
+

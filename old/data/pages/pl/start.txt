@@ -1,0 +1,21 @@
+====== Witam na moim wiki! ======
+ 
+Mam nadzieję że informacje zgromadzone na tym wiki okażą się pomocne. 
+Proszę brać pod uwagę fakt że tworzę to wiki wyłącznie dla własnych celów edukacyjnych. 
+Nie odpowiadam za szkody jakie mogą zostać wyrządzone poprzez użycie informacji z tego wiki. Nie odpowiadam również za
+poprawność informacji tu zgromadzonych.
+Wszystkie materiały zamieszczane na wiki są objęte licencją [[http://creativecommons.org/licenses/by-nc-sa/3.0/|Attribution-NonCommercial-ShareAlike 3.0 Unported]], chyba że są oznaczone inaczej.
+Większość materiałów na wiki będzie udostępniania wyłącznie w języku angielskim.
+
+===== Kontakt =====
+Możesz do mnie pisać na adres: <maciej@kucia.net>
+
+===== Sekcje =====
+  * [[pl:art]]
+  * [[pl:avrc]]
+  * [[pl:warsztat]]
+===== Uwagi =====
+
+<WRAP center round todo 60%>
+Ten znak oznacza że fragment jest aktualnie w trakcie edycji lub wymaga rozszerzenia.
+</WRAP>

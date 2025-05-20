@@ -1,0 +1,139 @@
+====== Algorytmy BO ======
+
+[[pl:other:bo:teoria|Teoria]]
+===== Programowanie Liniowe =====
+
+==== Metoda graficzna ====
+  * Zadanie proste, patrz przykłady niżej
+  * Rysuj duży czytelny wykres
+  * Punkt ekstremum trzeba obliczyć (nie wystarczy odczytać z wykresu)
+
+=== Dualność ===
+
+  * Korzystamy z twierdzenia Dentzinga-Ordena
+
+^  Zadanie  ||
+^  Pierwotne  ^  Dualne  |
+|  Maksymalizuj  |  Minimalizuj  |
+|  {{:other:bo:dual1.png}}  | {{:other:bo:dual2.png}}  |
+^  Przy ograniczeniach:  ||
+|  {{:other:bo:dual3.png}}  | {{:other:bo:dual4.png}}  |
+
+  * [[pl:other:bo:dualnosc|Zadania]]
+==== Metoda Simpleks ====
+  * Na egzaminie wymagana jest wyłącznie umiejętność zbudowania tablicy Simpleksowej. 
+  * Problem musi być w postaci standardowej tzn:
+    * Szukamy maksimum funkcji celu
+    * Wszystkie ograniczenia są równościami
+    * Wszystkie zmienne decyzyjne są nieujemne
+  * Jak uzyskać postać standardową np. [[http://www.ioz.pwr.wroc.pl/pracownicy/kulej/w2bm12.pdf|tutaj]] lub [[http://kbo.ue.poznan.pl/godlewski/materialy/2007Dzienne(3c)-simpleks.pdf|tutaj]]
+
+  * [[pl:other:bo:simpleks|Zadania]]
+
+==== Metoda podziału i ograniczeń ====
+  * Dzieli problem na proste podproblemy dzięki czemu jest bardzo żmudna i łatwo się w niej pomylić
+  * Rozwiązujemy problem komiwojażera algorytmem Little`a
+  * Dobrze opracowany algorytm (patrz schemat) [[http://www.gryf-elektryk.pl/sprawozdania/Rozwiazenie-problemu-komiwojazera-metoda-podzialu-i-ograniczen.pdf|tutaj]]
+  * [[http://www.youtube.com/watch?v=nN4K8xA8ShM|Tutaj]] cały wykład o tej metodzie, wygląda na taki sam sposób jak na zajęciach. Ale trwa 60 minut!
+  * Jest dostępna nawet oryginalna praca [[http://archive.org/details/algorithmfortrav00litt|online]]
+
+  * [[pl:other:bo:pio|Zadania]]
+
+
+
+===== Grafy =====
+
+==== Algorytm Minty'ego ====
+  * Odnajduje najkrótszą trasę pomiędzy 2 wierzchołkami
+  - Wybieramy początkowy węzeł
+  - Wypisujemy na listę wszystkie krawędzie razem z wagami
+  - Z listy usuwamy krawędzie prowadzące do węzłów występujących na liście jako węzły początkowe krawędzi
+  - Z listy wybieramy krawędź o najmniejszej wadze
+  - Powtarzamy dla węzła kończącego wybraną krawędź, zastępując węzeł na liście kolejną listą
+  - Powtarzamy od punktu **2.** aż do:
+    - Oznaczenia wszystkich krawędzi
+    - Oznaczenia węzła końcowego
+
+  * [[pl:other:bo:minty|Zadania]]
+==== Algorytm Dijkstry ====
+:!: __//Ja nawet nie byłem na tych zajęciach - sprawdź 2 razy//__
+  * Znajduje minimalną drogę pomiędzy początkowym i pozostałymi węzłami w grafie
+
+  - Przypisz każdemu wierzchołkowi minimalną drogę = ?
+  - Zaznacz początkowy węzeł i przypisz mu minimalną drogę = 0
+  - Sprawdź wszystkie krawędzie aktualnego węzła:
+    - Jeżeli suma wagi krawędzi i minimalnej drogi aktualnego węzła jest mniejsza niż minimalna droga węzła sąsiedniego, wpisz tą sumę do węzła sąsiedniego.
+  - Zaznacz wierzchołek sąsiedni o najmniejszej drodze minimalnej z wyłączeniem wierzchołków już zaznaczanych.
+  - Powtórz od **3.** chyba że wszystkie wierzchołki zostały już zaznaczone.
+  - Aby określić optymalną drogę:
+    - Zaczynając od węzła końcowego skacz po węzłach o nierosnącej drodze minimalnej aż do osiągnięcia węzła początkowego
+
+  * [[pl:other:bo:dijk|Zadania]]
+==== Algorytm Kruskala ====
+ :!: __Sprawdzić, nie było mnie na tych ćwiczeniach__
+
+  * Znajduje minimalne drzewo rozpinające
+
+  - Tworzymy zbiór krawędzi
+  - Sortujemy krawędzie według wagi niemalejąco
+  - Do póki zbiór zawiera krawędzie:
+    - Jeżeli krawędź należy do 2 różnych drzew dodajemy ją do "lasu"
+
+  * [[pl:other:bo:kru|Zadania]]
+
+==== Algorytm Dijkstry-Prima ====
+:!: __Sprawdź, na tych ćwiczeniach mnie nie było__
+  * Znajduje najkrótsze drzewo rozpinające 
+  * Wierzchołek początkowy ma numer 1
+
+  - Przygotuj tabelę: wiersze odpowiadają każdemu wierzchołkowi, kolumny:
+    - ? - 1 gdy wierzchołek początkowy łączy się z wierzchołkiem w kolumnie, 0 w przeciwnym wypadku
+    - ß - waga połączenia, dla braku połączenia ?
+  - Z kolumny ß wybierz najmniejszą wartość, zaznaczamy odpowiadający jej wierzchołek
+  - Tworzymy następne 2 kolumny
+  - Wykreślamy wiersz odpowiadający zaznaczonemu wierzchołkowi
+  - Jeżeli z zaznaczonego wierzchołka do innego droga jest krótsza niż dotychczasowa (w poprzednich kolumnach), aktualizujemy wartość a w kolumnie ? wpisujemy poprzednik zaznaczonego wierzchołka. 
+  - Powtarzamy od kroku 3 aż do oznaczenia wszystkich wierzchołków
+
+  * [[pl:other:bo:prim|Zadania]]
+===== Szeregowanie zdań =====
+==== Zagadnienie przydziału - Metoda Węgierska ====
+:!: __Ta część wymaga sprawdzenia, jeżeli jest poprawna usuń tą linię__
+
+  * Dane są środki i zadania które należy wzajemnie przydzielić. 
+  * Szukamy minimalnych kosztów.
+
+  - Budujemy macierz kosztów (wymiar n x n)
+  - Przekształcamy macierz do takiej postaci żeby w każdym wierszu i kolumnie występowało co najmniej jedno zero (od każdego wiersza odejmujemy jego najmniejszy element, jeżeli trzeba powtarzamy dla kolumn)
+  - Skreślamy liniami wiersze i kolumny zawierające zera (minimalną liczbą linii), jeżeli liczba linii jest < n to przekształcamy macierz:
+    - Znajdujemy najmniejszy nieskreślony element i:
+      - Odejmujemy go od elementów nieskreślonych
+      - Dodajemy do elementów podwójnie skreślonych
+     - Elementy skreślone jedną linią pozostają bez zmian
+     - Powtarzamy krok **2.**
+  - Budujemy macierz przydziału:
+    - w miejscach gdzie w przekształconej macierzy kosztów występują zera wpisujemy ''1''
+    - w pozostałych miejscach wpisujemy ''0''
+  - Sprawdzamy wszystkie dopuszczalne (jedna jedynka w kolumnie) kombinacje przydziałów środków do zadań
+
+**Uwaga:**
+Powyższa metoda może również służyć maksymalizacji funkcji celu - należy wtedy przed przystąpieniem do przekształcania macierzy pomnożyć każdy jej element przez -1.
+
+  * [[pl:other:bo:weg|Zadania]]
+==== Algorytm Johnsona ====
+:!: __Ta część wymaga sprawdzenia, jeżeli jest poprawna usuń tą linię__
+
+  * znajduje optymalne pod względem czasu uszeregowanie zadań na 2 maszynach w systemie przepływowym (Flow-Shop)
+  * Mamy dwie maszyny M<sub>1</sub> i M<sub>2</sub> oraz N zadań, każde z zadań wykonuje się na obydwu maszynach, w kolejności: M<sub>1</sub> a następnie M<sub>2</sub>
+  * Dla każdego zadania znane są czasy wykonywania na każdej z maszyn
+
+  - Dzielimy zdania na 2 grupy:
+    - Czas wykonywania na M<sub>1</sub> < M<sub>2</sub>
+    - Pozostałe
+  - Sortujemy zadania z grupy **I.** tak aby czas wykonywania na M<sub>1</sub> był niemalejący
+  - Sortujemy zadania z grupy **II.** tak aby czas wykonywania na M<sub>2</sub> był nierosnący
+  - Łączymy wyniki dołączając posortowaną grupę **II.** do końca posortowanej grupy **I.**
+  - Rysujemy [[http://pl.wikipedia.org/wiki/Diagram_Gantta|diagram Gnatta]]
+
+  * [[pl:other:bo:john|Zadania]]
+

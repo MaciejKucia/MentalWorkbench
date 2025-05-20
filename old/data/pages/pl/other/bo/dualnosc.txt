@@ -1,0 +1,297 @@
+====== Metoda graficzna - Dualność ======
+===== Zadanie 1 =====
+  * max 20[ha]
+  * tucznik 1[szt] 250[pln] -> 6[q] ziemniaków + 5[q] jęczmienia + 10[roboczogodzin] T
+  * ziemniaki 200[q] 10[pln] -> 1[ha] + 100[roboczogodzin] Z 
+  * jęczmień 40[q] 0[pln] -> 1[ha] + 20[roboczogodzin] J
+  * obca siła: 3[pln] za 1[roboczogodzinę] S
+  * zasób własny: 1800[roboczogodzin]
+  * Szukam: max zysku
+
+
+^  Produkt  |  Tucznik  | Ziemniaki  ^  Limit  ^
+^  Koszt ziemi  |  6/200 + 5/40  |  1  |  20  |
+^  Ilość rg  |  10 + 6/200*100 + 5/40*20  |  100  |  1800+S  |
+^  Zysk  |  250  |  10  |  max -3s |
+
+  * $\max f_c(t,z,s) = 250t + 10z - 3s$
+  * $z + \frac{31}{200} t \leq 20$
+  * $100 z + \frac{225}{2} t \leq 1800 +s$
+  * 3 zmienne 2 ograniczenia
+  * $f_c(\vec{x})=c \vec{x} \Rightarrow f_c(\vec{x})=[\begin{array}{ccc}10 & 250 & -3  \end{array}] \vec{x}$
+  * $Ax \leq b \Rightarrow \left[ \begin{array}{ccc} 1 & \frac{31}{200} & 0 \newline 100 & \frac{225}{2} & -1 \end{array} \right] \vec{x} \leq  \left[ \begin{array}{c} 20 \newline 1800 \end{array} \right]$
+
+Buduje zagadnienie dualne:
+ 
+  * $\min g_c(\vec{y})=b^T \vec{y} \Rightarrow g_c(\vec{y})=[\begin{array}{cc} 20 & 1800 \end{array}] \vec{y}$
+  * $A^Ty \geq c^T \Rightarrow \left[ \begin{array}{cc} 1 & 100 \newline \frac{31}{200} & \frac{225}{2} \newline 0 & -1 \end{array} \right] \vec{y} \geq  \left[ \begin{array}{c} 10 \newline 250 \newline -3 \end{array} \right]$
+===== Zadanie 2 =====
+
+^  Środki produkcji  ^  Jednostkowe nakłady na produkcję wyrobu ^^^^ Limit ^
+^ ::: ^  W1  ^  W2  ^  W3  ^  W4  ^ ::: |
+^  I  |  1  |  2  |  1.5  |  6  |  90000  |
+^  II  |  2  |  2  |  1.5  |  4  |  120000  |
+^  Zysk  |  4 [zł]  |  6 [zł]  |  3 [zł]  |  12 [zł]  |  -  |
+
+**1.** Buduję model matematyczny
+  * m = 4 zmienne 
+  * n = 2 ograniczenia
+
+  * $\max f(w_1,w_2,w_3,w_4) = 4w_1 + 6w_2 + 3w_3 + 12w_1$
+  * $1w_1+2w_2+1.5w_3+6w_4 \leq 90k$
+  * $2w_1+2w_2+1.5w_3+4w_4 \leq 120k$
+  * $w_i \geq 0$
+
+**2.** Przekształcam do zadania dualnego:
+  * m = 2 zmienne 
+  * n = 4 ograniczenia
+  * :!: Zmieniają się znaki równości
+
+  * $\min g(y_1,y_2) = 90k y_1 + 120k y_2$
+  * $\color{red}{1y_1 + 2y_2 \geq 4}$
+  * $\color{green}{2y_1 + 2y_2 \geq 6}$
+  * $\color{blue}{1.5y_1 + 1.5y_2 \geq 3}$
+  * $\color{yellow}{6y_1 + 4y_2 \geq 12}$
+  * $y_i \geq 0$
+
+Funkcję celu mogę uprościć 
+  * $\min g(y_1,y_2) = 9J y_1 + 12J y_2$, gdzie J to pewna jednostka
+
+Rozwiązuje metodą graficzną (oś X: y<sub>1</sub>):
+
+{{:other:bo:dualg.png}}
+
+Minimalne rozwiązanie znajduje się w punkcie przecięcia funkcji czerwonej i zielonej, szukam tego punktu:
+  * $1y_1 + 2y_2 = 4$
+  * $2y_1 + 2y_2 = 6$
+
+  * $y_1 = 4 - 2y_2$
+  * $2(4 - 2y_2) + 2y_2 = 6 \Rightarrow y_2=1, y_1=2$
+
+Wyznaczam rozwiązanie zadania:
+  * $\max f^*(w_1,w_2,w_3,w_4) = \min g^*(y_1,y_2) = \min g^*(2,1) = 90k \cdot 2 + 120k \cdot 1 = 300k = $300 tyś zł.
+
+Wyznaczam zmienne w<sub>i</sub>
+  * $1y_1 + 2y_2 \geq 4$
+  * $1 \cdot 2 + 2 \cdot 1 \geq 4$
+  * $2 + 2 \geq 4$ 
+  * OK
+
+  * $2y_1 + 2y_2 \geq 6$
+  * $4 + 2 \geq 6$ 
+  * OK
+
+  * $1.5y_1 + 1.5y_2 \geq 3$
+  * $3 + 1.5 \geq 3$
+  * x<sub>3</sub>=0
+
+  * $6y_1 + 4y_2 \geq 12$
+  * $12 + 4 \geq 12$
+  * x<sub>4</sub>=0
+
+Początkowy układ równań redukuje się do:
+  * $1x_1 + 2x_2 =90k $
+  * $2x_1 + 2x_2 =120k $
+A jego rozwiązaniem jest 
+
+
+<WRAP info>
+  * x<sub>1</sub>=30k
+  * x<sub>2</sub>=30k
+  * x<sub>3</sub>=0
+  * x<sub>4</sub>=0
+  * $\max f^*(30k,30k,0,0) = \min g^*(2,1) =  4 \cdot 30k + 6 \cdot 30k = 90k \cdot 2 + 120k \cdot 1 = 300k$
+</WRAP>
+===== Zadanie 3 =====
+
+  * Ile produktu powinna firma kupować u pierwszego dostawcy a ile u drugiego?
+
+^ Produkt | Dostawca I | Dostawca II ^ Ograniczenie produkcji |
+|  P1  |  0.2  |  0.3  |  1.8  |
+|  P2  |  0.2  |  0.1  |  1.2  |
+|  P3  |  0.3  |  0.3  |  2.4  |
+^ Względny zysk |  5  |  6  | |
+
+$f_c(\vec{x})=c \vec{x} \Rightarrow f_c(\vec{x})=[\begin{array}{cc}5 & 6 \end{array}] \vec{x}$
+
+$Ax \leq b \Rightarrow \left[ \begin{array}{cc} 0.2 & 0.3 \newline
+0.2 & 0.1 \newline  0.3 & 0.3\end{array} \right] \vec{x} \leq  \left[ \begin{array}{c} 1.8 \newline 1.2 \newline 2.4 \end{array} \right]$
+
+Znajduje rozwiązanie:
+
+<html>
+ <?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Inkscape (http://www.inkscape.org/) --> <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="314.01816" height="302.98407" id="svg2"> <defs id="defs4" /> <metadata id="metadata7"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <g transform="translate(30.251204,-774.42731)" id="layer1"> <path d="m 32.946579,155.55449 60,30 60.000001,90 -120.000001,0 z" transform="translate(-30.251204,774.42731)" id="path4584" style="fill:#ffccaa;stroke:none" /> <g transform="matrix(10,0,0,10,2.695375,-9473.6402)" id="g4559"> <path d="m 0,1027.3622 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m -25,-25 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0" id="path4557" style="fill:none;stroke:#e6e6e6;stroke-width:0.1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 0,1034.3622 12,18" id="path4518" style="fill:none;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 0,1036.3622 16,16" id="path4520" style="fill:#ff0000;stroke:#000080;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 0,1040.3622 24,12" id="path4522" style="fill:none;stroke:#00ff00;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <rect width="25" height="25" x="0" y="1027.3622" id="rect4545" style="fill:none;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" /> </g> <path d="M 2.695375,849.98182 242.69538,1049.9818" id="path4578" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 64.195374,959.98181 a 1.5,1.5 0 1 1 -3,0 1.5,1.5 0 1 1 3,0 z" transform="matrix(2,0,0,2,-62.695374,-959.98181)" id="path4586" style="fill:#ffd42a;stroke:none" /> </g> </svg> 
+</html>
+
+<WRAP info>
+Rozwiązaniem jest punkt (3,4.5) a funkcja celu ma wartość 40.5
+</WRAP>
+
+===== Zadanie 4 =====
+
+^  Zakład  ^ Czasochłonność ^^ Dzienne limity czasowe ^
+| ::: |  Wyrób 1  |  Wyrób 2  | ::: |
+|  1  |  1  |  0  |  4  |
+|  2  |  0  |  2  |  12  |
+|  3  |  3  |  2  |  18  |
+^ Zysk jednostkowy [pln] |  30  |  50  |  max  |
+^ Wielkość produkcji |  x<sub>1</sub>  |  x<sub>2</sub>  | |
+
+  * $f_c(\vec{x})=30x_1+50x_2$
+  * $A\vec{x}\leq b \Rightarrow \begin{bmatrix}1 & 0\\ 0 & 2\\ 3 & 2\end{bmatrix}\vec{x} \leq \begin{bmatrix}4 \\ 12 \\ 18 \end{bmatrix}$
+  * 2 zmienne 3 ograniczenia
+{GRAPH}
+
+<WRAP info>
+  * Maksimum w punkcie (4,3)
+  * $f_c(4,3)=30\cdot 4+50\cdot 3 = 510$
+</WRAP>
+
+===== Zadanie 5 =====
+
+
+komediowy  - 7M kobiet + 2M mężczyzn  50kUSD/min
+futbol - 2M kobiet + 12M mężczyzn  100kUSD/min
+
+28M kobiet
+24M mężczyzn  
+min koszt
+
+^Blok| Komediowy | Futbol ^ Minimum ^
+^Kobiet|  7  |  2  |  28  |
+^Mężczyzn |  2  |  12  |  24  |
+^Koszt |  50  |  100  |  min  |
+| |  x<sub>1</sub>  |  x<sub>2</sub>  |
+
+  * $\min f_c(x_1,x_2) = 50x_1 + 100x_2 $
+  * $\begin{bmatrix}7 & 2 \\ 2 & 12  \end{bmatrix} \begin{bmatrix}x_1 \\ x_2 \end{bmatrix} \geq \begin{bmatrix} 28 \\ 24 \end{bmatrix}$
+  * 2 zmienne 2 ograniczenia
+{GRAPH}
+<WRAP info>
+  * Rozwiązaniem jest punkt (3.6,1.4)
+  * $\min f_c(3.6,1.4) = 50 \cdot 3.6 + 100 \cdot 1.4 = 320 $ k[USD]
+</WRAP>
+
+===== Zadanie 6 =====
+^  Produkt  ^  Kalorie  ^  Cukier [uncja]  ^  Cena |
+|  Czekolada  |  400  |  2  |  5   |
+|  Lody  |  200  |  2  |  2  |
+|  Cola  |  150  |  4  |  3  |
+|  Sernik  |  500  |  4  |  8  |
+
+  * Dieta pewnego człowieka powinna składać się co najmniej 500 kalorii oraz 10 uncji cukru. Szukamy najmniejszego kosztu.
+
+Układam równania:
+  * $400x_1+200x_2+150x_3+500x_4 \geq 500$ **I**
+  * $2x_1+2x_2+4x_3+4x_4 \geq 10$ **II**
+  * $x_i \geq 0$
+  * $f_c(\vec{x}) = 5x_1+2x_2+3x_3+8x_4 \rightarrow min$
+
+  * $Ax \leq b \Rightarrow \left[ \begin{array}{cccc} 400 & 200 & 150 & 500 2 & 2 & 4 & 4 \end{array} \right] \vec{x} \leq  \left[ \begin{array}{cc} 500 10 \end{array} \right] $
+  * Upraszczam dzieląc obustronnie przez 100 równanie **I** oraz równanie **II** przez 2:   * $Ax \leq b \Rightarrow \left[ \begin{array}{cccc} 4 & 2 & 1.5 & 5 1 & 1 & 2 & 2 \end{array} \right] \vec{x} \leq  \left[ \begin{array}{cc} 5 5 \end{array} \right] $
+  * $f_c(\vec{x})=[\begin{array}{cccc}5 & 2 & 3 & 8 \end{array}] \vec{x} $
+ 
+Układam zagadnienie dualne:
+  * Funkcja celu: $F_{max} = b^Tw \rightarrow max$ a więc: $F_{max} = [\begin{array}{cc}5 & 5 \end{array}] \vec{w} \rightarrow max$
+  * $A^T\vec{w} \geq c^T \Rightarrow \left[ \begin{array}{cc} 4 & 1 \\ 2 & 1 \\ 1.5 & 2 \\ 5 & 2 \end{array} \right] \left[ \begin{array}{cc} w_1 & w_2 \end{array} \right] \geq \left[ \begin{array}{c} 5 \\ 2 \\ 3 \\ 8 \end{array} \right]  $
+
+A więc rozwiązuje układ równań np. metodą graficzną (patrz poprzedni przykład)
+  * $ \left\{ \begin{array}{l} w_2 \geq 5-4w_1 \\ w_2 \geq 2-2w_1 \\ w_2 \geq {{3-1.5w_1} \over {2}} \\ w_2 \geq {{8-5w_1} \over {2}} \end{array} \right.$
+  * ...
+  * Rozwiązanie: $ \left\{ \begin{array}{l} w_1 = {2 \over 5} \\ w_2 = {6 \over 5} \end{array} \right.$
+
+Potrafię już znaleźć wartości obu funkcji celu:
+  * $f_c(\vec{x}) = f_{min}(\vec{w}) = f_{min}(w_1,w_2) = f_{min}({2 \over 5},{6 \over 5}) = 5 \cdot {2 \over 5} + 5 {6\over5} = 8 $
+
+Szukam współczynników postaci pierwotnej (uwaga na nierówności):
+  *  $ \left\{ \begin{array}{l} {6 \over 5} \geq {25\over5} - {8\over5} \\ {6 \over 5} \geq {10\over5} - {4\over5} \\ {6 \over 5} \geq {(3 - {3\over5}) \over 2} \\ {6 \over 5} \geq {(8 - 2) \over 2} \\\end{array} \right.$
+  * 
+  *  $ \left\{ \begin{array}{l}  6 \geq 17 \\ 6 \geq 6 \\ 12 \geq 12 \\ 12 \geq 30 \\ \end{array} \right.$
+
+A więc zmienne x<sub>0</sub> oraz x<sub>4</sub> zerują się, szukam więc wartości pozostałych zmiennych:
+  *  $ \left\{ \begin{array}{l}  4 \cdot 0 + 2x_2 + 1.5x_3 + 5 \cdot 0 = 5 \\ 1 \cdot 0 + x_2 + 2x_3 + 2 \cdot 0 = 5 \\ \end{array} \right.$
+  * Rozwiązaniem zadania jest wektor:  $\vec{x} =  [\begin{array}{cccc}0 & 1 & 2 & 0 \end{array}]^T  $
+
+<WRAP left info 500px>
+  * Minimalny koszt założonej diety to 8 [zł]
+  * Składa się ona z 1 porcji lodów oraz 2 porcji coli
+
+^  Produkt  ^  Mnożnik  ^  Kalorie  ^  Cukier [uncja]  ^  Cena  |
+|  Lody  |  1  |  200  |  2  |  2  |
+|  Cola  |  2  |  150  |  4  |  3  |
+^  Suma  ||  500  |  10  |  8  |
+
+</WRAP>
+
+===== Zadanie 7 =====
+
+surowiec 80kg
+
+
+w1 - 1pln/l - at least 30l 1kg surowca/l
+w2 - 1pln/l - at least 20l 2kg surowca/l
+
+plan+koszt
+
+| | Wyrób 1 | Wyrób 2 ^ max |
+^ Surowiec/l | 1 | 2 | 80 |
+| | x1 | x2 | 
+^ conajmniej | 30 | 20 |
+
+  * $x_1 + 2x_2 \leq 80$
+  * $x_1 \geq 30$
+  * $x_2 \geq 20$
+  * $\max f_c(x_1,x_2) = x_1 + x_2$
+{GRAPH}
+
+Powstaje trójkąt. Sprawdzam wierzchołki:
+  * (30,25) $f_c(30,25) = 55$
+  * (20,40) $f_c(20,40) = 60$
+
+<WRAP info>
+Maksymalny zysk jest przy produkcji 20 litrów wyrobu 1 oraz 40 litrów wyrobu 2.
+</WRAP>
+
+===== Zadanie 8 =====
+
+^ Perfumy ^ E1 ^ E2 ^ E3  ^ Zysk |
+|  Cisza  |  0.2  |  0.3  |  0.4  |  9  |
+|  Swing  |  0.1  |  0.1  |  0.8  |  6  |
+^  Zapasy  |  48  |  30  |  60  ^  max  |
+
+  * $f_c(c,s)=9c+6s$
+  * $A[c,s]\leq b \Rightarrow \begin{bmatrix}0.2 & 0.1\\ 0.3 & 0.1\\ 0.4 & 0.8 \end{bmatrix}[c,s] \leq \begin{bmatrix}48 \\ 30 \\ 60 \end{bmatrix}$
+
+<html><?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Inkscape (http://www.inkscape.org/) -->  <svg    xmlns:dc="http://purl.org/dc/elements/1.1/"    xmlns:cc="http://creativecommons.org/ns#"    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    version="1.1"    width="314.01816"    height="302.98407"    id="svg2">   <defs      id="defs4" />   <metadata      id="metadata7">     <rdf:RDF>       <cc:Work          rdf:about="">         <dc:format>image/svg+xml</dc:format>         <dc:type            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />         <dc:title></dc:title>       </cc:Work>     </rdf:RDF>   </metadata>   <g      transform="translate(30.251204,-774.42731)"      id="layer1">     <path        d="m 2.695375,1014.9818 42.897932,20.7093 4.602068,14.2907 -47.5,0 z"        id="path4584"        style="fill:#ffccaa;stroke:none" />     <g        transform="matrix(10,0,0,10,2.695375,-9473.6402)"        id="g4559">       <path          d="m 0,1027.3622 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m -25,-25 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0"          id="path4557"          style="fill:none;stroke:#e6e6e6;stroke-width:0.1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />       <path          d="m 0,1028.6122 11.75,23.75"          id="path4518"          style="fill:none;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />       <path          d="m 0,1037.6122 4.75,14.75"          id="path4520"          style="fill:#ff0000;stroke:#000080;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />       <path          d="m 0,1048.8622 7.25,3.5"          id="path4522"          style="fill:none;stroke:#00ff00;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />       <rect          width="25"          height="25"          x="0"          y="1027.3622"          id="rect4545"          style="fill:none;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />     </g>   </g> </svg> </html>
+
+<WRAP info>
+Linie przecinają się w punkcie (90,30), wartość zysku wynosi: $f_c(90,30)=990$
+</WRAP>
+
+===== Zadanie 9 =====
+
+Sprzedarz: sete ≥ 2x oasis
+
+^  Surowce  ^  Napoje  ^^ Limity surowcow  |
+^ ::: |  Oasis  |  Sete  | :::  |
+|  Syrop owocowy  |  0.2  |  0.3  |  36  |
+|  Środek smakowy  |  0.2  |  0.2  |  28  |
+^  Cena/l  |  2.5  |  2.0  | |
+
+  * $\max f_c(o,s) = 2.5o + 2s$
+  * $A[o,s] \leq b \Rightarrow \left[ \begin{array}{ccc} 0.2 & 0.3 \newline 0.2 & 0.2 \end{array} \right] [o,s] \leq  \left[ \begin{array}{c} 36 \newline 28 \end{array} \right]$
+
+<html><?xml version="1.0" encoding="UTF-8" standalone="no"?> <!-- Created with Inkscape (http://www.inkscape.org/) -->  <svg    xmlns:dc="http://purl.org/dc/elements/1.1/"    xmlns:cc="http://creativecommons.org/ns#"    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"    xmlns:svg="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"    version="1.1"    width="314.01816"    height="302.98407"    id="svg2">   <defs      id="defs4" />   <metadata      id="metadata7">     <rdf:RDF>       <cc:Work          rdf:about="">         <dc:format>image/svg+xml</dc:format>         <dc:type            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />         <dc:title></dc:title>       </cc:Work>     </rdf:RDF>   </metadata>   <g      transform="translate(30.251204,-774.42731)"      id="layer1">     <path        d="m 2.695375,932.48184 60,40 77.500005,77.49996 -137.500005,0 z"        id="path4584"        style="fill:#ffccaa;stroke:none" />     <g        transform="matrix(10,0,0,10,2.695375,-9473.6402)"        id="g4559">       <path          d="m 0,1027.3622 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m -25,-25 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0"          id="path4557"          style="fill:none;stroke:#e6e6e6;stroke-width:0.1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />       <path          d="m 0,1038.6122 13.75,13.75"          id="path4522"          style="fill:none;stroke:#00ff00;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />       <rect          width="25"          height="25"          x="0"          y="1027.3622"          id="rect4545"          style="fill:none;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />       <path          d="m 0,1040.6122 17.75,11.75"          id="path4520"          style="fill:#ff0000;stroke:#000080;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />     </g>   </g> </svg></html>
+
+<WRAP info>
+Punkt przecięcia prostych: (60,80). Zysk: $f_c(60,80) = 310 $
+</WRAP>
+
+<WRAP center round todo 60%>
+Po co nam informacja o prognozie sprzedaży?
+</WRAP>
+
+
+
+
+[[pl:other:bo:simpleks|Dalej>>]]

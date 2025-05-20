@@ -1,0 +1,32 @@
+====== 3D Printer ======
+===== Project Assumptions =====
+  * Parallel delta robot
+  * Printing area: fi 250 [mm], height 300 [mm]
+  * Filament: PLA 1,75
+===== Parts =====
+
+^ Part ^ Seller ^ Price ^
+| 3x stepper motor Astrosyn 23LM-C238-01 | | |
+| 1x stepper motor | | |
+| 3[pcs] GT2 timing pulley | ebay: powge, Ningbo, China| 28 USD |
+| 5[m] GT2 timing belt | ::: | ::: |
+| J-Head MK-V | ebay: dib-bid, Hong Kong | 35 USD |
+| 10[pcs] LM8UU 8mm Linear Ball Bearing | ebay: zsjladyshop, Hong Kong | 7 USD |
+| Arduino mega 2560 | Allegro | 70 PLN |
+| RAMPS 1.4 | Allegro | 90 PLN |
+| Circlips | Allegro | |
+| Bolts, nuts and washers | Allegro | |
+| 9x Alu pipes | | | 
+| 5x stepstick | ebay: alice1101983, HongKong | 15.75 USD |
+===== Mechanical =====
+===== Electrical =====
+
+  * {{:projects:a4988_stepper.pdf|Allegro A4988 datasheet}}
+  * {{:projects:ramps1_4schematic.png?linkonly|RAMPS 1.4 schematic}}
+  * {{:projects:jhn_nozzle_holder_v5_metric.jpg?linkonly|hot end blueprints}}
+===== Software =====
+
+
+
+
+

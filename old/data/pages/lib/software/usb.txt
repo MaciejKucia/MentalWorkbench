@@ -1,0 +1,18 @@
+====== Universal Serial Bus ======
+
+  * New usb tools: http://www.usb.org/developers/tools/
+  * http://blogs.msdn.com/b/usbcoreblog/archive/2009/10/31/how-does-usb-stack-enumerate-a-device.aspx
+
+===== Multi Platform =====
+
+  * [[http://www.libusb.org/]]
+  * [[http://libusbx.sourceforge.net/]]
+
+===== Windows =====
+
+  * [[http://msdn.microsoft.com/en-US/windows/hardware/hh852362|Windows Driver Kit 8]]
+  * [[http://msdn.microsoft.com/en-us/windows/desktop/hh852363.aspx|Windows Software Development Kit (SDK) for Windows 8]]
+  * http://sourceforge.net/projects/libusb-win32/
+==== Microsoft OS descriptors ====
+  * https://github.com/pbatard/libwdi/wiki/WCID-Devices
+  * http://www.mail-archive.com/libusbx-devel@lists.sourceforge.net/msg02212.html

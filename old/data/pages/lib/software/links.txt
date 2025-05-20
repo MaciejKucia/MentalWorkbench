@@ -1,0 +1,15 @@
+
+
+| Hashmaps | https://blog.waffles.space/2018/12/07/deep-dive-into-hashbrown/ |
+| A Beginner's Guide To Scaling To 11 Million+ Users On Amazon's AWS | http://highscalability.com/blog/2016/1/11/a-beginners-guide-to-scaling-to-11-million-users-on-amazons.html |
+| k8s vms | https://tech.paulcz.net/blog/future-of-kubernetes-is-virtual-machines/ |
+| writing 300k lines of code | https://blog.gruntwork.io/5-lessons-learned-from-writing-over-300-000-lines-of-infrastructure-code-36ba7fadeac1 |
+| algo expert 65 questions | https://www.algoexpert.io/questions |
+| Algorithms | http://jeffe.cs.illinois.edu/teaching/algorithms/? |
+| Knowledge graphs | https://www.diffbot.com/ |
+
+
+
+Broń
+
+https://braterstwo.eu/z-nami-zdobedziesz-pozwolenie-na-bron/

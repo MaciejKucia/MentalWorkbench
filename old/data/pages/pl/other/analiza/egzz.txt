@@ -1,0 +1,12 @@
+====== Egzamin Wrzesień 2012 ======
+
+===== Zadanie 1 =====
+Wyznaczyć ekstrema lokalne funkcji $f(x,y)= \frac{8}{x} + \frac{x}{y} + y$.
+===== Zadanie 2 =====
+Wyznaczyć lokalne ekstrema warunkowe funkcji $f(x,y)=y-\ln x$ przy warunku $g(x,y)=x^2+(y-2)^2-2=0$.
+===== Zadanie 3 =====
+Obliczyć objętość bryły ograniczonej powierzchniami $z=\sqrt{x^2+y^2},z=6-x^2-y^2$.
+===== Zadanie 4 =====
+Wyznaczyć przedział zbieżności i sumę szeregu $ \sum_{n=1}^{\infty} \frac{2^n}{n}x^{2n}$.
+===== Zadanie 5 =====
+Obliczyć strumień pola wektorowego $\vec{F} = (2x,-y,z)$ przez zewnętrzną stronę powierzchni paraboidy $z=9-x^2-y^2;z \geq 0$.

@@ -1,0 +1,26 @@
+====== Terminologia ======
+
+===== Element =====
+Niepodzielna pod względem funkcjonalnym bez utraty swoich własności charakterystycznych część składowa układu.
+
+===== Obwód elektryczny =====
+Struktura połączenia elementów w której występuje jedna zamknięta droga dla przepływu prądu.
+
+===== Układ elektryczny =====
+Struktura połączenia elementów w której występuje więcej niż jedna zamknięta droga dla przepływu prądu.
+
+===== hFE =====
+>>The common emitter current gain is defined as the BETA or Hfe (which stands for:  H parameters, forward current transfer ratio, common emitter configuration)
+Wzmocnienie prądowe w konfiguracji wspólnego emitera jest definiowane jako BETA lub Hfe (które wzięło się z: parametr H, współczynnik wzmocnienia prądowego polaryzacji przewodzącej w konfiguracji wspólnego emitera) ;-)
+
+===== VCC =====
+Układy cyfrowe bazują na tranzystorach, najwięcej jest w nich tranzystorów bipolarnych. VCC to napięcie doprowadzane do kolektorów tranzystorów (collector), analogicznie oznacza się napięcia dla: emiterów VEE, źródeł VSS, drenów VDD. Najprościej przyjąć że VCC to po prostu szyna zasilania.
+
+===== MSB =====
+Most Significant Bit - bit najbardziej znaczący 
+
+===== LSB =====
+Least Significant Bit - bit najmniej znaczący
+
+===== Ripple =====
+Tętnienie. Nie elektryczne: Zmarszczka na wodzie. Fala.

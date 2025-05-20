@@ -1,0 +1,11 @@
+====== Data Converters ======
+
+===== ADC =====
+  * Analog Devices, [[http://www.analog.com/static/imported-files/tutorials/MT-001.pdf|Taking the Mystery out of the Infamous Formula, "SNR = 6.02N + 1.76dB," and Why You Should Care]]  by Walt Kester
+===== DAC =====
+
+===== References =====
+
+  * http://www.maximintegrated.com/app-notes/index.mvp/id/641
+
+

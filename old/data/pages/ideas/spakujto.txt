@@ -1,0 +1,18 @@
+====== spakuj.to ======
+
+ToDo
+  * Domain
+  * Server
+  * Page
+  * PayU
+  * Inpost kupony
+
+
+Service
+  - A
+  - B
+  - C
+  - UK ?
+
+Uwagi:
+  - wysylam jako list

@@ -1,0 +1,85 @@
+====== AI research ideas ======
+
+  * Problem roadmap
+  * Idea Flow
+
+===== Definitions =====
+
+==== Idea ====
+Number representing: object, group of objects, action, property, time, space, 
+
+==== Concept ====
+
+
+  * aprioryczne (wytwory intelektu) 
+  * aposterioryczne (powstałe poprzez abstrahowanie z doświadczenia).
+==== Knowledge ====
+Relations between ideas.
+
+==== Thought ====
+Queue of ideas.
+
+==== Reality ====
+Complete set of ideas.
+
+==== Intelligence ====
+Ability to build new knowledge.
+
+===== Mind =====
+"1k voices"
+Layers of filtering
+
+
+===== Brain =====
+
+  * prosopagnosia - face blindness
+
+===== Ideas =====
+
+==== Group 0 - Basic ====
+  - Yes
+  - No
+  - Is (to be)
+  - Is not
+  - Have property
+  - Do not have property
+  - Force (pushing)
+
+
+==== Group 1 - Location ====
+  - Close
+  - Far
+  - Above
+  - Under
+  - On the right
+  - On the left
+  - In front of
+  - Behind
+
+
+==== Group 2 - Movement ====
+  - Towards
+  - Towards opposite
+  - Rotating
+
+
+==== Group 3 - Objects ====
+  - Human
+  - Robot
+  - Floor
+  - Animal
+  - Furniture
+  - 
+
+==== Actions ====
+  - Grab
+  - Move
+  - Push
+  - Pull
+  - 
+
+===== Links =====
+  * http://www.fizyka.umk.pl/~duch/ Wlodzislaw Duch
+  * http://www.geneontology.org/page/about The Gene Ontology project is a major bioinformatics initiative to develop a computational representation of our evolving knowledge of how genes encode biological functions at the molecular, cellular and tissue system levels. 
+  * http://www.mkbergman.com/862/the-sweet-compendium-of-ontology-building-tools/
+  * [[http://www.w3.org/2001/sw/SW-FAQ|W3C Semantic Web Frequently Asked Questions]]

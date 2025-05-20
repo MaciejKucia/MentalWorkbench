@@ -1,0 +1,49 @@
+====== Algorytm Kruskala ======
+===== Zadanie 21 =====
+
+{{:other:bo:kruskal1.png}}
+
+ **1.** Wypisuje krawędzie z wagami
+| 1<->2 | 2 |
+| 2<->3 | 1 |
+| 3<->4 | 2 |
+| 4<->5 | 3 |
+| 5<->6 | 1 |
+| 6<->1 | 6 |
+| 1<->4 | 3 |
+| 6<->2 | 2 |
+| 5<->3 | 0 |
+
+ **2.** Sortuje krawędzie niemalejąco
+
+| 5<->3 | 0 |
+| 2<->3 | 1 |
+| 5<->6 | 1 |
+| 1<->2 | 2 |
+| 3<->4 | 2 |
+| 6<->2 | 2 |
+| 4<->5 | 3 |
+| 1<->4 | 3 |
+| 6<->1 | 6 |
+
+ **3.** Dodaje pierwszą krawędź z listy
+
+{{:other:bo:kru2.png}}
+
+ **4.** Dodaje kolejne krawędzie, na razie nie ma konfliktu
+
+{{:other:bo:kru3.png?800}}
+
+ **5.** Krawędz 6<->2 nie łączy 2 różnych drzew a więc odpada
+
+{{:other:bo:kru4.png}}
+
+ **6.** Tak jak kolejne 3 krawędzie na liście
+
+{{:other:bo:kru5.png}}
+
+ **7.** Minimalne drzewo rozpinające to: 
+
+{{:other:bo:kru6.png}} \\ Suma krawędzi to: 6
+
+[[pl:other:bo:prim|Dalej>>]]

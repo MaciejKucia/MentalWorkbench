@@ -1,0 +1,76 @@
+====== Programowanie Liniowe ======
+===== Zadanie 1 =====
+  * max 20[ha]
+  * tucznik 1[szt] 250[pln] -> 6[q] ziemniaków + 5[q] jęczmienia + 10[roboczogodzin] T
+  * ziemniaki 200[q] 10[pln] -> 1[ha] + 100[roboczogodzin] Z 
+  * jęczmień 40[q] 0[pln] -> 1[ha] + 20[roboczogodzin] J
+  * obca siła: 3[pln] za 1[roboczogodzinę] S
+  * zasób własny: 1800[roboczogodzin]
+  * Szukam: max zysku
+
+  * Zysk: $\max f(T,Z,S) = 250T+10Z-3S$
+
+  * Robocizna: $10T + 100Z + 20J \leq 1800 + S$
+  * $T = 0.03Z + 0.125J$
+  * $100.3Z + 21.25J \leq 1800 + S$
+  * Ziemia: $Z+J \leq 20$
+
+| Co | Zysk | Ziemia | Praca |
+| Tucznik | 250 | 0.155 | 13.25 |
+| Ziemniaki | 10 | 1 | 100 |
+^max^| 20 | 1800 + S |
+
+A więc:
+
+  * Zysk: $\max f(T,Z,S) = 250T + 10J - 3S$
+
+Ograniczenia:
+
+  * $0.155T + Z \leq 20$ - ziemi
+  * $13.25T + 100Z - S \leq 1800$ - robocizny
+  * $T,Z,S \geq 0$
+
+3 zmienne i 2 ograniczenia, przekształcam do zagadnienia dualnego: 2 zmienne 3 ograniczenia
+
+  * $\min g(w_1,w_2) = 20w_1 + 1800w_2$
+  * $0.155w_1 + 13.25w_2 \geq 250$
+  * $1w_1 + 100w_2 \geq 10$
+  * $0w_1 - 1w_2 \geq -3$
+  * $w_1,w_2 \geq 0$
+
+<html>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="314.01816" height="302.98407" id="svg2"> <defs id="defs4" /> <metadata id="metadata7"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <g transform="translate(30.251204,-774.42731)" id="layer1"> <path d="m 0,802.3622 0,40 130,180 120,0 0,-220 z" id="path4576" style="fill:#d7f4e3;stroke:none" /> <text x="-12.640508" y="792.24957" id="text4524" xml:space="preserve" style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"><tspan x="-12.640508" y="792.24957" id="tspan4526">w2</tspan></text> <text x="255.41736" y="1058.863" id="text4528" xml:space="preserve" style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"><tspan x="255.41736" y="1058.863" id="tspan4530">w1</tspan></text> <g transform="matrix(10,0,0,10,0,-9471.2598)" id="g4559"> <path d="m 0,1027.3622 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m 1,-25 0,25 m -25,-25 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0 m -25,1 25,0" id="path4557" style="fill:none;stroke:#e6e6e6;stroke-width:0.1pt;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 0,1031.3622 15.1,21" id="path4518" style="fill:none;stroke:#ff0000;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 0,1045.3622 12.5,7" id="path4520" style="fill:#ff0000;stroke:#000080;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 0,1049.3622 25,0" id="path4522" style="fill:none;stroke:#00ff00;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <rect width="25" height="25" x="0" y="1027.3622" id="rect4545" style="fill:none;stroke:#000000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" /> </g> <text x="150.96376" y="1072.2258" id="text4566" xml:space="preserve" style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"><tspan x="150.96376" y="1072.2258" id="tspan4568">1510</tspan></text> <text x="-26.364485" y="847.94714" id="text4570" xml:space="preserve" style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"><tspan x="-26.364485" y="847.94714" id="tspan4572">21</tspan></text> <path d="m 130.92857,1022.3622 a 1.5,1.5 0 1 1 -3,0 1.5,1.5 0 1 1 3,0 z" transform="matrix(3,0,0,3,-258.85715,-2044.7244)" id="path4574" style="fill:#000000;stroke:none" /> <path d="M 0,852.36218 180,1052.3622" id="path4578" style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> </g> </svg> 
+</html>
+
+Punkt wspólny dla równań
+  * $w_2 = 3$
+  * $w_1 + 70w_2 = 1510$
+
+to (1300,3)
+
+Potrafię więc wyznaczyć maksymalny zysk:
+
+$\min g^*(w_1,w_2) = \max f^*(y_1,y_2) = \min g^*(1300,3) = 35600 [pln]$
+
+Wyznaczam $w_1,w_2$
+  * $1w_1 + 70w_2 \geq 1510$
+  * $1300+210=1510$
+  * OK
+
+  * $1w_1 + 160w_2 \geq 1250$
+  * $1300 + 480 = 1780$
+  * a więc J=0
+
+  * $ - 1w_2 \geq -3$
+  * $-3=-3$
+  * OK
+
+  * $0J + Z = 20$
+  * $0J + 160Z - S = 1800$
+
+Wynika z tego że:
+  * J = 0
+  * Z = 20
+  * S = 1400
+
+$f(J,Z,S) = 1510Z + 1250J - 3S = 1510 \cdot 20 - 1400 \cdot 3 = 26000$

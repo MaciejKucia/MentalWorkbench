@@ -1,0 +1,304 @@
+====== Developing multi-platform USB applications with Qt ======
+
+//Germany 24.05.2013//
+
+<WRAP column 60px>
+<html>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.0" width="59.696404" height="117.03584" id="svg2"> <metadata id="metadata10"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <defs id="defs4" /> <g transform="translate(-113.88396,-59.934988)" id="layer1"> <g transform="translate(432,-133)" id="g2396"> <g transform="matrix(0.5,0,0,0.5,-144.13392,125.72645)" id="g3855"> <path d="m -286.94644,276.07647 c 2.25641,0 2.375,-0.32456 2.375,-6.5 0,-5.78113 -0.21599,-6.5 -1.95295,-6.5 -3.70388,0 -6.85214,-2.24136 -8.60347,-6.12513 -0.96609,-2.14239 -1.57361,-4.03559 -1.35005,-4.2071 0.22356,-0.17151 2.53288,-1.52939 5.13182,-3.01751 12.90306,-7.38812 18.68728,-23.96169 18.72409,-53.65026 0.0443,-35.70973 -8.94704,-52.63835 -30.26591,-56.98381 -6.70354,-1.3664 -14.30708,-0.63312 -20.27292,1.95511 -8.91148,3.86617 -15.69871,14.21474 -19.03883,29.0287 -2.37545,10.5355 -2.34662,39.37509 0.0505,50.5 3.51644,16.31976 11.81536,28.41254 21.77764,31.7333 3.68933,1.22977 4.20364,1.83831 5.7544,6.80859 2.41185,7.73016 4.56676,11.48088 8.00116,13.92639 3.43513,2.44602 10.23575,4.07656 14.41955,3.45728 C -290.61516,276.26797 -288.25266,276.07647 -286.94641,276.07647 z m -22.60906,-37.30473 c -3.04896,-1.52007 -6.70937,-6.83665 -7.98395,-11.59631 -4.16759,-15.56307 -3.81851,-54.0943 0.58989,-65.11198 2.00113,-5.00129 6.62237,-8.98698 10.42005,-8.98698 4.20244,0 9.48751,5.06719 11.45111,10.97905 3.47238,10.45434 4.05746,45.54877 1.00529,60.29934 C -296.49997,236.08345 -302.93276,242.07353 -309.5555,238.77174 z m 66.98406,7.25641 c 9.46242,-2.10155 10,-2.56605 10,-8.64039 0,-4.71812 -0.23391,-5.37657 -1.75,-4.92617 -5.99778,1.78186 -7.39498,1.79365 -9.29029,0.0784 -1.84998,-1.6742 -1.95971,-3.22064 -1.95971,-27.61852 l 0,-25.84501 6,0 6,0 0,-5.87083 0,-5.87084 -6,-0.67882 -6,-0.67882 0,-9.39133 c 0,-5.16523 -0.3375,-9.59681 -0.75,-9.84796 -0.4125,-0.25114 -2.9657,-0.6152 -5.67377,-0.80901 l -4.92378,-0.35239 -1.71558,7 c -0.94357,3.85 -1.99895,8.2375 -2.34528,9.75 -0.53873,2.35272 -1.13256,2.75 -4.11064,2.75 l -3.48095,0 0,6.5 0,6.5 3,0 3,0 0,29.03984 c 0,35.48318 0.3987,36.84529 11.5,39.28807 C -247.87899,247.10685 -247.31626,247.08194 -242.57144,246.02814 Z" id="path2400" style="fill:#7cc040" /> <path d="m -302.57962,364.48874 8.94276,-15.48548 -6.37933,0 0,-79.15064 16.2824,15.41153 c 1.05131,1.31158 1.7888,3.02765 1.82965,4.79292 0,7.14127 0.002,11.38209 0.005,12.94311 -3.01465,1.05811 -5.19061,3.90039 -5.19061,7.2793 0,4.27454 3.46866,7.74351 7.74476,7.74351 4.27795,0 7.74537,-3.46866 7.74537,-7.74351 0,-3.37891 -2.17472,-6.22119 -5.18689,-7.2793 l 0.002,-12.79146 c 0,-3.4668 -1.90207,-7.09949 -4.13187,-9.41162 0.0662,0.0631 0.13679,0.12874 -10e-4,-0.004 -0.0551,-0.0489 -17.27336,-16.35111 -17.27336,-16.35111 -1.04976,-1.30879 -1.78261,-3.02394 -1.8247,-4.78798 l 0,-8.95389 -5.1151,0.001 0,8.79699 c 0,0.0226 -10e-4,0.0452 0,0.0681 l 0,19.45737 c -0.0449,1.76063 -0.77865,3.47361 -1.82965,4.78116 0,0 -17.21703,16.2985 -17.27274,16.34894 -0.13834,0.1306 -0.0662,0.0656 -10e-4,10e-4 -2.2295,2.31213 -4.13033,5.94636 -4.13033,9.41379 l 0.003,12.32723 -5.19216,0 0,15.48952 15.48796,0 0,-15.48952 -5.18535,0 c 0,0 0.006,-3.24676 0.006,-12.47826 0.0405,-1.76559 0.77711,-3.48352 1.82842,-4.79448 l 16.28549,-15.41492 0,59.79447 L -311.52044,349.00275 Z" id="path1334" style="fill:#7cc040;fill-opacity:1" /> </g> </g> </g> </svg> 
+</html>
+</WRAP>
+
+
+USB is very popular and user-friendly computer interface. Unfortunately it is far from the most easy ones to use. 
+This article is meant to provide a guidelines and samples on building multi-platform application from the 
+side of device and host as well.
+
+In many cases CDC(virtual serial) class device is enough but there might be situations where user wan to avoid using it (for example to obscure communication and block third part software access).
+I will show how to create true plug and play generic bulk device on Windows and how to create Linux version of the same software.
+I believe that this way is much more professional than HID "hack" (using HID class for both way communication).
+
+
+The application will allow to control Launchpad RGB led colour using simple GUI on PC.
+
+There are several software projects involved:
+  * [[http://www.ti.com/tool/sw-lm3s|TI StellarisWARE]] - provides embedded USB stack and basic examples. 
+  * [[https://qt-project.org/|Qt]] - provides multi platform application framework and widget toolkit.
+  * [[http://libusbx.org/|libusbX]] - provides generic access to USB devices on multiple platforms.
+
+There are multiple USB libraries available. For example:
+  * Microsoft [[http://msdn.microsoft.com/en-us/library/windows/hardware/ff540174(v=vs.85).aspx|winusb]] - Native for windows (platform-dependent)
+  * [[http://www.libusb.org/wiki/APIs|libusb 0.1]] - Now legacy. Unix (platform-dependent)
+  * [[http://www.libusb.org/wiki/libusb-win32|libusb-win32]] - Now legacy. Windows (platform-dependent)
+  * [[http://www.libusb.org/wiki/libusb-1.0|libusb 1.0]] - multi platform solution, alternative to libusbX
+
+=== What are the advantages of libusbx over libusb? ===
+Quoting [[http://libusbx.org/]]:
+> Apart from frequent releases, which include regular bugfixes as well as exciting new features (please check our roadmap), you should find that we are a lot more responsive and that, rather than focus our efforts on elements that are of little interest to you, or an ever delayed promise of "better" features that fail to materialize, we strive to bring you the best possible user and developer experience today.
+> Also, unlike libusb, we fully subscribe to the Release Early, Release Often (RERO) philosophy, upon which the success of the Linux kernel and countless other Open Source projects is based.
+> Finally, if there's anything the failure of libusb has taught us, it's that a project should never fail to listen to you, its user... As such, libusbx is as much your library as it is ours, and we hope that you will engage with us to help make it even greater!
+
+libusbx supports Windows, Linux, MacOS X, OpenBSD and NetBSD. Multiple language bindings exist including Python and C<sup>#</sup>.
+
+<WRAP center important>
+2014-07-06: libusbx was merged back to libusb project. See [[http://libusbx.1081486.n5.nabble.com/Libusbx-devel-Announcing-libusb-1-0-18-as-well-as-libusbx-1-0-18-FINAL-td2375.html| this post]].
+</WRAP>
+
+
+=== What about VID/PID? ===
+If you are planning commercial product you need to have custom VID((Vendor ID))/PID((Product ID)). You may buy your VID from USB Implementers Forum or use one from MCU manufacturer.
+
+  * [[http://www.usb.org/developers/usbfaq#12| USB.org How do I get a USB VID, TID and PID?]]
+  * [[http://www.ti.com/mcu/docs/mcuorphan.tsp?contentId=72713&DCMP=STELLARIS&| TI Stellaris USB VID/PID Sublicense Application]]
+====== Software ======
+
+===== Embedded =====
+Code for embedded device is based on Generic Bulk example provided by TI. 
+Instead of echoing data back to PC data is processed and LEDs are set according to it. 
+Additionally device provide OS Descriptors unlike TI example.
+Please view my [[projects:winusb]] project for more information on what OS Descriptors are and how to use them with TI StellarisWARE.
+Software for MCU does not change for any PC platform.
+
+There are 4 commands that MCU can understand:
+
+  - ''0x0E'' - **E**nable LEDs 
+  - ''0x0D'' - **D**isable LEDs
+  - ''0x0C'' - Set **c**olour of LEDs (followed by 6 bytes: 2x Red, 2x Green, 2x Blue)
+  - ''0x0A'' - Host **a**sk for status. Device will reply with 1 byte indicating LED current state
+
+
+  * {{:projects:qtusb_led_bulk.zip|MCU source code}}
+===== Windows =====
+
+{{:art:qtusb_gui.png?nolink |}} GUI with device connected under Windows.
+
+This sample application was written in Qt 5. GUI controls are disabled as long as device is not connected. Connection/disconnection is fully automatic. Program pools device status every 500[ms] to check if user disabled LED by pressing on-board switch (SW1). Button LEDs ON is toogle-type. When LEDs are active button glows.
+
+{{:projects:usb_windows_gui.zip|GUI Windows source code}}
+==== Linking libusbx ====
+
+I have downloaded the most recent release of library (http://sourceforge.net/projects/libusbx/) and decompressed it.
+There are 2 options on linking it: static or dynamic.
+I am choose static to reduce output file count.
+
+Now we need to:
+  - Add header file to our project by coping ''[...]\include\libusbx-1.0\libusb.h'' to our project
+  - Copy compiled library to our project folder ''[...]\MinGW32\static\libusb-1.0.a''
+  - Add library binary by adding following line to ''***.pro'' file of our project <code>LIBS += -L$$PWD -lusb-1.0</code>
+
+==== Detecting device mount/remove ====
+
+It is possible to get a notification from Windows when our device is connected or disconnected from the system.
+
+
+<code=c>    
+#include <dbt.h>
+
+[...]
+
+//
+// Register for device connect notification
+//
+DEV_BROADCAST_DEVICEINTERFACE devInt;
+ZeroMemory( &devInt, sizeof(devInt) );
+devInt.dbcc_size        = sizeof(DEV_BROADCAST_DEVICEINTERFACE);
+devInt.dbcc_devicetype  = DBT_DEVTYP_DEVICEINTERFACE;
+devInt.dbcc_classguid   = GUID_DEVINTERFACE_LAUNCHPAD;
+//
+HDEVNOTIFY m_hDeviceNotify =
+            RegisterDeviceNotification((HANDLE)winId(),&devInt, DEVICE_NOTIFY_WINDOW_HANDLE );
+//
+if(m_hDeviceNotify == NULL)
+{
+    qDebug() << "Error: Failed to register device notification!";
+    qApp->quit();
+}</code>
+
+Structure ''devInt'' consists variable ''GUID_DEVINTERFACE_LAUNCHPAD''. This variable stores [[wp>Globally_Unique_Identifier|GUID]] of device interface.
+
+<code=c>static const GUID GUID_DEVINTERFACE_LAUNCHPAD =
+{ 0xfd96fadb, 0x9246, 0x4017, { 0x8d, 0x76, 0x3e, 0x30, 0x77, 0x80, 0xf6, 0xeb } };
+//{{fd96fadb-9246-4017-8d76-3e307780f6eb}}
+</code>
+
+Device interface GUID usually is stored in driver ''.inf'' file. Since we are using OS Descriptors we can define it in OS Properties descriptor
+
+<code=c>
+const g_sOSProperties g_pOSProperties =
+{
+ dwLength: 			sizeof(g_pOSProperties),
+ bcdVersion:			0x0100,
+ wIndex:			5,
+ wCount:			3,
+
+ dwSize:			sizeof(L"DeviceInterfaceGUID")+sizeof(L"{4d36e978-e325-11ce-bfc1-08002be10318}")+14,//132,
+ dwPropertyDataType: 		1,	//(Unicode string
+ wPropertyNameLength: 		sizeof(L"DeviceInterfaceGUID"),
+ bPropertyName: 		L"DeviceInterfaceGUID",
+ dwPropertyDataLength:		sizeof(L"{fd96fadb-9246-4017-8d76-3e307780f6eb}"),
+ bPropertyData: 		L"{fd96fadb-9246-4017-8d76-3e307780f6eb}", 
+[...]
+</code>
+
+Handling of the messages is being performed in a standard way. In case message is interesting for us we emit signal.
+
+<code=c>
+// Function that receive messages 
+// This is windows-specific
+bool MainWindow::nativeEvent(const QByteArray& eventType, void* message,
+                             long* result)
+{
+    Q_UNUSED( result );
+    Q_UNUSED( eventType );
+
+    MSG* msg = reinterpret_cast<MSG*>(message);
+
+    // Does this specific message interest us?
+    if(msg->message == WM_DEVICECHANGE)
+    {
+        switch(msg->wParam)
+        {
+        case DBT_DEVICEARRIVAL:
+            emit signal_DeviceConnected();
+            break;
+
+        case DBT_DEVICEREMOVECOMPLETE:
+            emit signal_DeviceDisconnected();
+            break;
+        }
+    }
+
+    // Qt handles the rest
+    return false;
+}
+</code>
+===== Linux =====
+{{:projects:qt_usb_linux.png |}}
+I am using Debian 7 with LXDE. 
+
+We cannot use windows-specific routines under Linux. To check if device is connected or not we will pool udev monitor. 
+Additionally we need to set udev rules to allow non-root users access device.
+
+At this moment Linux requires user action to install device unlike Windows. It is possible to add udev rules through GUI (root obviously needed). 
+If true plug-and-play is required it is better to use standard USB class (for example CDC).
+
+ {{:projects:usb_gui.zip|Qt Linux source code}}
+
+==== Linking libraries ====
+If your system is up-to-date you will most likely have both libraries installed. You can link them using following qmake code:
+<code>
+LIBS += -L/usr/local/lib/ -lusb-1.0
+LIBS += -L/usr/lib/ -ludev
+</code>
+==== udev rules ====
+
+Create a rule for device by making a new file:
+
+  nano /etc/udev/rules.d/usb_led_bulk.rules
+
+with following content:
+
+  SUBSYSTEMS=="usb", ATTRS{idVendor}=="1cbe", ATTRS{idProduct}=="0003", GROUP="users", MODE="0666", SYMLINK+="rgb_led"
+
+This will allow non-root users to access the device. Also device will be accessible through path ''/dev/rgb_led''
+
+Restart udev service for changes to take effect ''/etc/init.d/udev restart''
+
+There are more actions that udev rules can implement. For example launching application when device is connected.
+
+
+==== Detecting device mount/remove ====
+
+udev allow user applications to receive messages on changes in devices filesystem. 
+One can filter messages by subsystem and type. 
+In our case we want to receive USB device notifications from USB subsystem (it also emits USB interface messages).
+Finally monitor is activated and file descriptor ([[wp>Unix_file_types#Socket|socket file]]) retrieved. 
+
+<code=c>
+// Create the udev object
+if (!(udev = udev_new()))
+[..]
+
+// Set up a monitor to monitor usb devices
+mon = udev_monitor_new_from_netlink(udev, "udev");
+// We want only to receive information about usb devices
+udev_monitor_filter_add_match_subsystem_devtype(mon, "usb", "usb_device");
+udev_monitor_enable_receiving(mon);
+fd = udev_monitor_get_fd(mon);
+</code>
+
+The messages need to be pooled periodically. I created timer that fires every 250 [ms].
+<code=c>
+// Start timer that will periodicaly check if hardware is connected
+monitorTimer = new QTimer(this);
+connect(monitorTimer, &QTimer::timeout, this, &MainWindow::monitorTimerTick );
+monitorTimer->start(250);
+</code>
+
+Timer code checks if there is a new message. select() returns amount of messages. In this case function is non-blocking but one can implement timeout easy here.
+<code=c>
+void MainWindow::monitorTimerTick()
+{
+    // Set up select
+    fd_set fds;
+    struct timeval tv;
+    int ret;
+    FD_ZERO(&fds);
+    FD_SET(fd, &fds);
+    tv.tv_sec = 0;
+    tv.tv_usec = 0;
+
+    ret = select(fd+1, &fds, NULL, NULL, &tv);
+
+    // Check if our file descriptor has received data.
+    if (ret > 0 && FD_ISSET(fd, &fds))
+    {
+</code>
+
+When new message is confirmed code check if it from our hardware by looking into vendor id and product id.
+If device matches, code checks type of event and emits appropriate Qt signal.
+
+<code=c>
+// Get the device
+if ( (dev = udev_monitor_receive_device(mon)) == NULL)
+[...]
+// Now check if the device is our rgb_led launchpad
+
+const char* str_action = udev_device_get_action(dev);
+const char* str_PID = udev_device_get_property_value(dev, "ID_MODEL_ID");
+const char* str_VID = udev_device_get_property_value(dev, "ID_VENDOR_ID");
+
+[...]
+// Compare strings and send signals
+if ( (strcmp(STR_PRODUCT_ID,str_PID) == 0) && (strcmp(STR_VENDOR_ID,str_VID) == 0) )
+{
+   if (strcmp("add",str_action) == 0)
+   {
+      emit signal_DeviceConnected();
+   }
+   else if (strcmp("remove",str_action) == 0)
+   {
+      emit signal_DeviceDisconnected();
+   }
+[...]
+
+    // If there are more events to process, do not wait for next tick!
+    if (ret-1 > 0)
+        monitorTimerTick();
+</code>
+====== References ======
+
+  * http://libusbx.sourceforge.net/api-1.0/
+
+  * http://www.signal11.us/oss/udev/
+  * http://www.freedesktop.org/software/systemd/libudev/
+  * http://linux.die.net/man/8/udevadm
+
+  * http://www.linuxforu.com/2012/06/some-nifty-udev-rules-and-examples/
+  * http://www.reactivated.net/writing_udev_rules.html
+  * http://hackaday.com/2009/09/18/how-to-write-udev-rules/
+
+  * http://msdn.microsoft.com/en-us/library/windows/hardware/gg463179.aspx
+
+<WRAP todo>
+  * Build single software package for MCU, Win and Linux
+</WRAP>

@@ -1,0 +1,33 @@
+====== ASP.NET wiki engine ======
+STEP.wiki- **S**cientific **T**echnical **E**ngineering **P**rojects wiki
+
+===== Concept =====
+  * Similar to DokuWiki
+  * Fast, lightweight, minimalistic
+  * ASP.NET based
+  * Modular
+  * File database
+  * Responsive
+  * Use free components where possible
+  * Native plugins
+    * Chart (chartjs)
+    * CodeBlocks (prismjs)
+    * SVG images
+    * BPG images
+    * Formulas (mathjax)
+    * Schematics
+      * Electrical
+      * Software (plantUML)
+      * Chemical
+  * HTML5 + only modern browsers
+  * Pastable content (text, images, data)
+
+===== Syntax =====
+Dokuwiki syntax.
+
+Elements support. <equation1;>
+
+===== Design guidelines =====
+  * 'flat' design 
+  * code: max 132 characters/line
+  * svg is better than bitmap

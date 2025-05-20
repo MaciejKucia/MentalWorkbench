@@ -1,0 +1,87 @@
+====== Algorytm Minty'ego ======
+
+===== Zadanie 18 =====
+
+  * Węzeł A - początek, J - koniec
+ {{:other:bo:minty1.png|}}
+
+ **1.** Tworzę listę z pierwszego wierzchołka.
+
+| A -> B | 15 |
+| A -> __C__ | **10** |
+| A -> D | 12 |
+
+ **2.** Tworzę listę z wierzchołka C.
+
+| A -> B | 15 |
+| //C -> B// | 10+6 |
+| //C -> E// | 10+9 |
+| //C -> F// | 10+10 |
+| A -> __D__ | **12** |
+
+ **3.** Kontynuuję.
+
+| A -> __B__ | **15** |
+| C -> B | 16 |
+| C -> E | 19 |
+| C -> F | 20 |
+| //D -> F// | 12+12 |
+| //D -> I// | 12+13 |
+
+ **4.** Skreślam B->C oraz C->B, ponieważ zarówno węzły C, jak i B, są na liście jako węzły początkowe krawędzi.
+
+| <del>//B -> C//</del> |  |
+| //B -> E// | 15+7 |
+| //B -> G// | 15+11 |
+| <del>C -> B</del> |  |
+| C -> __E__ | **19** |
+| C -> F | 20 |
+| D -> F | 24 |
+| D -> I | 25 |
+
+ **5.** Kontynuuję aż do osiągnięcia warunku stopu, nie wpisuję nowych krawędzi które i tak bym usunął.
+
+| <del>B -> E</del> | |
+| B -> G | 26 |
+| //E -> G// | 19+5 |
+| //E -> H// | 19+4 |
+| //E -> F// | 19+6 |
+| C -> __F__ | **20** |
+| D -> F | 24 |
+| D -> I | 25 |
+
+| B -> G | 26 |
+| E -> G | 24 |
+| E -> __H__ | **23** |
+| <del>E -> F</del> | |
+| //F -> H// | 20+5 |
+| //F -> I// | 20+6 |
+| <del>D -> F</del> | |
+| D -> I | 25 |
+
+| B -> G | 26 |
+| E -> __G__ | **24** | 
+| //H -> J// | 23+8 |
+| //H -> I// | 23+4 |
+| <del>F -> H</del> | |
+| F -> I | 26 |
+| D -> I | 25 |
+
+| <del>B -> G</del> |  | 
+| //G -> J// | 24+10 |
+| H -> J | 31 |
+| H -> I | 27 |
+| F -> I | 26 |
+| D -> __I__ | **25** |
+
+| G -> J | 34 |
+| H -> __J__ | **31** |
+| <del>H -> I</del> |  |
+| <del>F -> I</del> |  |
+| I -> J | 25+12 |
+
+Najkrótsza droga to: '' A -> C -> E -> H -> J '', a jej koszt wynosi: '' 31 ''.
+
+Wyznaczenie drogi: idąc od tyłu zaznaczamy ten węzeł z którego "przyszliśmy". Czyli jeżeli zaznaczyliśmy łuk H->J (z kosztem 31), to szliśmy przez węzeł H. I teraz szukamy skąd przyszliśmy do H. To był łuk E->H, więc szliśmy przez węzeł E. Itd.
+
+[[pl:other:bo:dijk|Dalej>>]]

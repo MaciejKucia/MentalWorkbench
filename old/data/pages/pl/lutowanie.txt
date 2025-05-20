@@ -1,0 +1,19 @@
+====== Lutowanie ======
+
+YouTube EN:
+  - [[http://www.youtube.com/watch?v=J5Sb21qbpEQ|EEVblog #182 - Soldering Tutorial Part 1]]
+  - [[http://www.youtube.com/watch?v=fYz5nIHH0iY|EEVblog #183 - Soldering Tutorial Part 2]]
+  - [[http://www.youtube.com/watch?v=b9FC9fAlfQE|EEVblog #183 - Soldering Tutorial Part 3]]
+  - [[http://www.youtube.com/watch?v=q53uPn1mKc0|EEVblog #181 - Dead Bug Prototype Soldering]]
+
+PDF Elportal artykuły z EdW:
+  - [[http://www.elportal.pl/pdf/2003/edw_2003_04_s27.pdf| Wszystko o lutowaniu, cz. 1]]
+  - [[http://www.elportal.pl/pdf/2003/edw_2003_05_s26.pdf| Wszystko o lutowaniu, cz. 2]]
+  - [[http://www.elportal.pl/pdf/2003/edw_2003_06_s26.pdf| Wszystko o lutowaniu, cz. 3]]
+  - [[http://www.elportal.pl/pdf/2003/edw_2003_09_s24.pdf| Wszystko o lutowaniu, cz. 4]]
+  - [[http://www.elportal.pl/pdf/2003/edw_2003_10_s22.pdf| Wszystko o lutowaniu, cz. 5]]
+
+  * [[https://docs.google.com/file/d/0B1Q2XTPf2Q8xRjNiU3hGeVhER0E/view?sle=true#|Lutowanie SMD w formie komiksu]]
+
+====== Topnik ======
+  * [[http://www.eres.alpha.pl/elektronika/news.php?readmore=782]]

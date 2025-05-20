@@ -1,0 +1,20 @@
+====== Batteries ======
+
+<WRAP center todo >
+Under construction
+</WRAP>
+
+
+===== Li-Po =====
+
+http://www.rchelicopterfun.com/rc-lipo-batteries.html
+
+==== Configuration ====
+
+^ Configuration ^ Voltage ^ Comment ^
+| 1S | | |
+| 3S | | | 
+| 2S2P | | |
+
+==== C rating ====
+You can safely discharge at a rate X times the capacity of the pack. Ex: 10C = 10 times the capacity. The maximum current you can draw from 10C rated 1000 [mAh] battery is 10 [A].

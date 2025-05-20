@@ -1,0 +1,71 @@
+====== eCommerce ======
+
+===== Buisness =====
+Provide low cost ecommerce solution for wide range of products and services.
+
+  * Multi-national
+  * Easy to use (oriented for non-technical people)
+  * Serverless approach (Azure)
+
+Payment model:
+
+  * Free tier
+  * Premium tier
+  * On-prem
+  * Thirdparty ecosystem
+
+Components: Just Warehouse? No problem.
+
+==== OpenSource ====
+
+  * Core open, special features closed
+
+===== Components =====
+
+  * Admin
+  * Warehouse (backend)
+  * Front
+  * Mobile app
+
+===== Tech stack =====
+  * Azure
+  * C#, Vue
+  * cloudies.tech Semantic Business Framework (SBF)
+    * Wikidata
+
+===== Concepts =====
+  * POS
+  * Tax
+  * Documents (emails, invoice)
+  * Product
+  * Customer
+  * Front Template
+  * Guest
+  * Testimonials/Feedback
+  * Featured
+  * Image handling
+  * Shipping
+    * Tracking
+  * Payment
+  * Newsletter
+  * Returns
+  * Search
+  * Social
+  * Wishlist
+  * Coupons
+  * Gift
+  * Membership (ex discounts)
+  * Reward
+  * Special offers
+  * SEO
+  * Alternative Checkout (Amazon FPS etc)
+
+===== Konkurencja =====
+https://en.wikipedia.org/wiki/Comparison_of_shopping_cart_software
+
+^ Nazwa ^ Notatki
+| Prestashop |
+| WooCommerce |
+| Shopify |
+| Magento | 
+

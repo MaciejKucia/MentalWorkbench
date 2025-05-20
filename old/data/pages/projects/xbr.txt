@@ -1,0 +1,149 @@
+====== DIY Xbox 360 PC wireless receiver with MSP430 control ======
+//Germany 15.06.2013//
+===== Abstract =====
+Xbox 360 wireless controller can be used with PC when special adapter is used. 
+Xbox 360 itself has a separate RF module that communicates with motherboard through USB interface. 
+Additional interface is used to initialize module LEDs and start sync process. 
+One can create adapter for a fraction of cost using only several elements. 
+
+{{:projects:xbr.jpg |}}
+===== Description =====
+
+Required parts:
+  * Xbox360 RF board
+  * USB cable
+  * MCU
+  * LDO (3.3 [V])
+  * Capacitor/resistor for MCU
+
+Pinout of the RF board from top:
+
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" width="123.44238" height="149.39978" id="svg2" inkscape:version="0.48+devel r11698" sodipodi:docname="xbox_rf_pinout.svg"> <sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2" inkscape:window-width="739" inkscape:window-height="480" id="namedview39" showgrid="false" width="0px" height="0px" fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="1.5796543" inkscape:cx="81.978789" inkscape:cy="74.69989" inkscape:window-x="0" inkscape:window-y="0" inkscape:window-maximized="0" inkscape:current-layer="layer1" /> <defs id="defs4" /> <metadata id="metadata7"> <rdf:RDF> <cc:Work rdf:about=""> <dc:format>image/svg+xml</dc:format> <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" /> <dc:title></dc:title> </cc:Work> </rdf:RDF> </metadata> <g transform="translate(-91.508179,-81.962402)" id="layer1"> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-155,-141.36218)" id="path3848" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-135,-141.36218)" id="path3850" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-115,-141.36218)" id="path3852" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-95,-141.36218)" id="path3854" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-165,-121.36218)" id="path3856" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-145,-121.36218)" id="path3858" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-125,-121.36218)" id="path3860" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-105,-121.36218)" id="path3862" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,139.86218 a 2.5,2.5 0 1 1 -5,0 A 2.5,2.5 0 1 1 140,139.86218 Z" transform="matrix(2,0,0,2,-85,-121.36218)" id="path3864" style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:5.6" /> <path d="m 140,132.36218 0,-30" id="path3866" style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 120,132.36218 0,-30" id="path3868" style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 160,132.36218 0,-30" id="path3870" style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 180,132.36218 0,-30" id="path3872" style="fill:none;stroke:#000000;stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /> <path d="m 110,222.36218 0,-58" id="path3874" style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 130,207.36218 0,-43" id="path3876" style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 150,192.36218 0,-28" id="path3878" style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <text x="163.75122" y="211.16748" id="text3880" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif" sodipodi:linespacing="125%"><tspan x="163.75122" y="211.16748" id="tspan3882">data</tspan></text> <text x="164.24133" y="226.16748" id="text3884" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif" sodipodi:linespacing="125%"><tspan x="164.24133" y="226.16748" id="tspan3886">button</tspan></text> <text x="164.24133" y="196.16748" id="text3888" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"><tspan x="164.24133" y="196.16748" id="tspan3890">clock</tspan></text> <text x="95.460815" y="97.567261" id="text3892" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"><tspan x="95.460815" y="97.567261" id="tspan3894">3v3</tspan></text> <text x="149.35486" y="97.362183" id="text3896" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"><tspan x="149.35486" y="97.362183" id="tspan3898">D+</tspan></text> <text x="130.12878" y="97.362183" id="text3900" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"><tspan x="130.12878" y="97.362183" id="tspan3902">D-</tspan></text> <text x="179.22791" y="97.16748" id="text3904" xml:space="preserve" style="font-size:13.75px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:sans-serif"><tspan x="179.22791" y="97.16748" id="tspan3906">GND</tspan></text> <path d="m 150,192.36218 10,0" id="path3908" style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 130,207.36218 30,0" id="path3910" style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> <path d="m 110,222.36218 50,0" id="path3912" style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" /> </g> </svg> 
+
+Board must be powered by 3v3 so I decided to use LDO. 
+Furthermore to start pairing process specific serial command must be sent. I have used MSP430G2231 for this task.
+MCU need reset pull-up resistor and decoupling capacitor.
+Pins 1 and 8 are connected to RF board.
+
+Pairing process starts few seconds after device is powered. No external button needed.
+
+
+<code=c>
+#include <msp430.h> 
+#include <stdbool.h>
+
+#define DATA 1
+#define CLOCK 8
+
+#define DTA_INPUT P1DIR &= ~DATA;
+#define DTA_OUTPUT P1DIR |= DATA;
+
+#define DTA_HI P1OUT |= DATA;
+#define DTA_LO P1OUT &= ~DATA;
+
+volatile signed   short bit_counter	=0;
+volatile unsigned short command		=0;
+
+ //Port 1 interrupt service routine
+#pragma vector=PORT1_VECTOR
+__interrupt void Port_1(void)
+{
+ P1IFG &= ~CLOCK;
+
+ // are we sending or receiving?
+ if (bit_counter>0)
+ {
+	 DTA_OUTPUT
+	 if (command & (1<<(bit_counter-1)))
+		 DTA_HI
+	 else
+		 DTA_LO
+ }
+ // stop bit!
+ else if (bit_counter == 0)
+ {
+	 P1OUT |= DATA;
+	 command=0;
+ }
+ else
+ {
+	 DTA_INPUT
+	 if (P1IN&DATA)
+		 command |= (1<<((11+bit_counter)));
+	 else
+		 command &= ~(1<<((11+bit_counter)));
+ }
+
+ bit_counter--;
+}
+
+inline void send(char s)
+{
+	DTA_OUTPUT
+	command = s;
+	bit_counter = 10;
+	DTA_LO				// Send start bit
+}
+
+//------------------------------------------------------------------------------
+
+int main(void)
+{
+    unsigned short delay=0;
+
+    //
+    // CLOCK
+    //
+    WDTCTL = WDTPW | WDTHOLD;		// Stop watchdog timer
+    if (CALBC1_1MHZ==0xFF)		// If calibration constants erased
+    {
+      while(1);                     	// do not load, trap CPU!!
+    }
+    DCOCTL = 0;                     	// Select lowest DCOx and MODx settings
+    BCSCTL1 = CALBC1_1MHZ;
+    DCOCTL = CALDCO_1MHZ;
+
+    //
+    // Serial Interface
+    //
+    P1OUT |= DATA; 			// DTA HIGH
+    P1DIR |= (1<<6);
+    DTA_OUTPUT 				// DTA OUTPUT
+
+    P1IES |= CLOCK;			// fires on falling edge~
+    P1IFG &= ~CLOCK; 			// int cleared
+    P1IE |= CLOCK; 			// int enabled
+
+    //
+    // Start
+    //
+    __enable_interrupt();
+    __delay_cycles(2000000);
+
+    send(132);				// LEDs active with power button on
+    while(--delay);			// Delay for a while
+    send(0x085);			// Start animation
+    while(--delay);
+    while(--delay);
+    send(0x004);			// Start sync
+
+    __delay_cycles(5000000);		// Give some extra time to finish cmd send
+
+    __disable_interrupt();		// Turn off MCU
+    _BIS_SR(LPM4_bits);
+
+}
+</code>
+===== Notes =====
+
+  * There is no way to detect if controller is connected without snooping USB. Current and serial responses do not change after connection.
+  * RF board should be easy to get as repair shops have huge stock from broken Xboxs
+
+
+===== References =====
+  * [[http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00000544.pdf|STM LD1117xx datasheet]]
+  * [[http://www.ti.com/product/msp430g2231|TI MSP430G2x31 Mixed Signal Microcontroller]]
+  * TI Application Report [[http://www.ti.com/lit/an/slaa363a/slaa363a.pdf|PCB-Based Capacitive Touch Sensing With MSP430 Zack Albus]]
+  * TI Application Report [[http://www.ti.com/lit/an/slaa574/slaa574.pdf|Capacitive Touch Sensing, MSP430™ Button Gate Time Optimization and Tuning Guide]]
+  * [[http://www.oocities.org/xbox.360@rogers.com/Public/Xbox360HC14.pdf|XBOX 360 Motherboard Headers and Connector]]
+  * http://web12.ger2.x-ex.com/viewtopic.php?f=13&t=4029&sid=69aff04e1efbaf199411f8dbfb315e2d

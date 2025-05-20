@@ -1,0 +1,10 @@
+====== TI Launchpad Ideas ======
+
+
+  * [[http://processors.wiki.ti.com/index.php/BYOB|Build your own launchpad]] 
+
+===== RFID BoosterPack =====
+
+  * [[http://www.ti.com/lit/ug/slou297/slou297.pdf|TRF7960TB HF RFID Reader Module]]
+  * [[http://www.ti.com/lit/an/sloa135/sloa135.pdf|Antenna Matching for the TRF7960 RFID Reader]]
+  * [[http://dangerousprototypes.com/2012/05/10/nfc-ti-trf7970a-breakout-board-v1-1-update/]]

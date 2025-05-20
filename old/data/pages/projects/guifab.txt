@@ -1,0 +1,22 @@
+====== GUIfab Automatic User Interface Generator ======
+
+  * Wizard
+
+===== Components: =====
+  * 
+  * TextInput
+  * MultiLineTestInput
+  * Button
+  * CheckBox
+  * Dropdown
+  * FileBrowse
+  * DirectoryBrowse
+  * 
+  * TextView
+
+
+===== Events: =====
+  * OnPageEnter
+  * OnPageExit
+
+===== Validation =====

@@ -1,0 +1,3 @@
+  * [[http://en.wikipedia.org/wiki/Core_ontology|Core]]
+  * [[http://en.wikipedia.org/wiki/Foundation_ontology|Foundation]]
+  * Specialized

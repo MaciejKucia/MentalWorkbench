@@ -1,0 +1,42 @@
+====== EEPROM ======
+W układzie znajdują się 3 rodzaje pamięci: 
+  * Ulotna RAM do odczytu i zapisu
+  * Nieulotna FLASH tylko do odczytu
+  * Nieulotna EEPROM do odczytu i zapisu (ale wielokrotnie wolniejsza niż RAM i działa tylko do około 100,000 operacji zapisu)
+
+W pamięci EEPROM możemy zapisywać pomiary i ustawienia. Wykorzystamy nagłówek: <code c>#include <avr/eeprom.h></code>W którym znajdują się prototypy następujących funkcji:
+<code c>
+uint8_t  eeprom_read_byte (const uint8_t *addr) 
+void     eeprom_write_byte (uint8_t *addr, uint8_t value) 
+uint16_t eeprom_read_word (const uint16_t *addr) 
+void     eeprom_write_word (uint16_t *addr, uint16_t value) 
+void     eeprom_read_block (void *pointer_ram, const void *pointer_eeprom, size_t n) 
+void     eeprom_write_block (void *pointer_eeprom, const void *pointer_ram, size_t n)</code>
+===== EEMEM =====
+Wcześniej pisałem o ''PROGMEM'' dotyczącym pamięci FLASH, tutaj analogicznie użyjemy ''EEMEM''.
+<code c>
+uint8_t  EEMEM NonVolatileChar; 
+uint16_t EEMEM NonVolatileInt; 
+uint8_t  EEMEM NonVolatileString[10]; 
+
+int main(void) 
+{ 
+    uint8_t  SRAMchar; 
+    uint16_t SRAMint; 
+    uint8_t  SRAMstring[10];    
+
+    SRAMchar = eeprom_read_byte(&NonVolatileChar); 
+    SRAMint  = eeprom_read_word(&NonVolatileInt); 
+    eeprom_read_block((void*)&SRAMstring, (const void*)&NonVolatileString, 10); 
+    eeprom_write_block((const void*)&NonVolatileString, "123456789", 10);
+    
+}</code>
+
+Uwaga! Jeżeli definiujemy początkowe wartości zmiennych w pamięci EEPROM to musimy pamiętać o zaprogramowaniu również pliku wynikowego dla pamięci EEPROM (nie tylko FLASH) W Eclipse: __Project->Properties->AVR->AVRDude->Flash/EEPROM->Upload EEPROM Image__ zaznaczamy __from build__
+
+====== Bootloader ======
+Układy AVR posiadają możliwość programowanie poprzez bootloader (od [[wppl>Bootstrap_(informatyka)|Bootstrap]]) czyli program rozruchowy. Możemy napisać program który zostanie umieszczony na końcu pamięci FLASH oraz ustawić odpowiednie fusebity które pozwalają ustawić wektor przerwania reset z początku pamięci programu do adresu pod którym znajduje się nasz bootloader. Taki fragment kodu posiada specjalne uprawnienia: może zapisywać pamięć FLASH! Istnieją pewne ograniczenia np. bootloader musi zajmować określony zakres pamięci, a więc może zajmować tylko: 128, 256, 512 lub 1024 bajty. W praktyce zastosowanie bootloadera jest niezwykle pomocne, do układu nie musi być podpięty programator ISP czy JTAG, programowanie może odbywać się przez UART, który zajmuje tylko 2 piny układu, co więcej często aplikacje układu wykorzystują UART z założenia. 
+
+Do poczytania PDF: [[http://www.avrfreaks.net/index.php?name=PNphpBB2&file=viewtopic&t=79206|AVRFreaks]]
+
+====== Watchdog ======

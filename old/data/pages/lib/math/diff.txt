@@ -1,0 +1,7 @@
+====== Ordinary Differential Equations ======
+===== Separatable variables =====
+===== First Order Linear =====
+===== Bernoulli =====
+  - Divide by $y^n$
+  - Use $z=y^{1-n}$
+  - Therefore $z'=(1-n)y^{-n}y'$

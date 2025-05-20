@@ -1,0 +1,11 @@
+====== Software Defined Radio ======
+
+http://hackaday.com/2013/01/04/pictures-from-weather-satellites-with-a-usb-tv-tuner/
+
+
+===== RTL SDR =====
+
+  * http://superkuh.com/rtlsdr.html
+  * http://sdr.osmocom.org
+  * [[http://erewhon.superkuh.com/gnuradio/Elonics-E4000-Low-Power-CMOS-Multi-Band-Tunner-Datasheet.pdf|Elonics E4000 Multi Band Tunner Datasheet]]
+  * [[http://superkuh.com/gnuradio/e4000_refsch_rev4.pdf|E4000 reference design]]

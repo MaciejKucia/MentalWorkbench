@@ -1,0 +1,166 @@
+====== F# workshop ======
+{{:projects:fsharp_logo.png?nolink|}}
+===== Prerequisites =====
+    * https://www.linqpad.net/ or anything that can execute a REPL((Read, Evaluate, Print Loop))
+<hidden ↘ alternatives>
+    * Try F# in browser: http://www.tryfsharp.org/Create
+    * Use Visual Studio https://www.visualstudio.com/
+    * Get a full distribution: http://fsharp.org/use/windows/ OR http://fsharp.org/use/linux/
+</hidden>
+
+===== Agenda =====
+
+  * hello(x)
+  * Type providers (strongly typed)
+  * Matching
+  * Options
+
+
+===== hello(x) =====
+<code fsharp>
+let hello = printf "Hello World"
+hello
+</code>
+
+F# (pronounced “F Sharp”) is 
+
+<WRAP group>
+<WRAP half column box>
+  * Open Source
+  * Multi platform
+  * Modern, rising popularity
+  * Lazy evaluated
+  * Reusable
+  * Concise (See [[http://theburningmonk.com/2014/12/seven-ineffective-coding-habits-many-f-programmers-dont-have/|signal-to-noise ratio]])
+  * Strongly typed
+  * Functional first
+    * Use functional to write easy to test and understand code
+    * Use imperative for performance and compatibility
+    * Use objective for organization and encapsulation
+  * Compiled
+</WRAP>
+
+<WRAP half column box>
+  * Not suitable for real time (unpredictable performance)
+  * Hard to optimize (Functional languages fundamentally don't model how your computer works)
+  * Functional first (different thinking process, you will need to re-learn)
+</WRAP>
+</WRAP>
+programming language for writing simple code to solve complex problems. 
+
+<code fsharp>
+let hello x = printfn "Hello %s" x
+hello "world"
+</code>
+
+Introducing pipeline operator:
+<code fsharp>
+let hello x = printfn "Hello %s" x
+"World" |> hello
+</code>
+
+<hidden pipeline operator definition>
+How to define the operator? 
+<code fsharp>
+let inline (|>) x f = f x
+</code>
+</hidden>
+
+<code fsharp>
+let square x = x * x
+let subtract x y = x - y
+</code>
+
+<code fsharp>
+let ``complicated stuff`` x =
+    printfn "%d" (add 5 (square x))
+</code>
+
+<code fsharp>
+let ``another complicated stuff`` x =
+    x |> square |> subtract 5 |> printfn "%d"
+</code>
+
+<code fsharp>
+let equation x =
+	x 
+	|> (fun y -> y * y ) 
+	|> (fun y z -> y - z ) 5
+	|> printfn "%d"
+</code>
+
+Note that F# uses indentation to indicate block structure. Find out more [[http://fsharpforfunandprofit.com/posts/fsharp-syntax/|here]].
+
+===== Getting data =====
+
+The following example loads data from webpage and stores it in CSV file.
+
+<hidden>
+<code fsarp>
+open System.Net
+open System
+open System.IO
+
+let myURL = @"..."
+
+let fetchUrl callback url =        
+    let req    = WebRequest.Create(Uri(url)) 
+    use resp   = req.GetResponse() 
+    use stream = resp.GetResponseStream() 
+    use reader = new IO.StreamReader(stream) 
+    callback reader url
+	
+let myCallback (reader:IO.StreamReader) url = 
+    let htmlSource = reader.ReadToEnd()
+    htmlSource
+
+let getWebpageHTML = fetchUrl myCallback myURL
+
+type FirstOrLast = 
+	| GetFirst
+	| GetLast
+
+let getDataFromHTML (rawHTML:String) = 
+	let split (split_point:String) (firstOrLast:FirstOrLast) (text:String) = 
+		let array = text.Split([|split_point|], 2, StringSplitOptions.RemoveEmptyEntries)
+		match firstOrLast with
+		| GetFirst -> array.First()
+		| GetLast  -> array.Last()
+	rawHTML
+	|> split @"<table id=""t2"">" GetLast
+	|> split @"</table>"          GetFirst
+	
+let removeAllTags text =
+    Regex.Replace(text, "<.*?>", String.Empty);
+
+let getCSVfromHTML rawHTML = 
+	let mutable (text:String) = String.Empty
+	text <- rawHTML
+	text <- text.Replace(@"</th>", ";");
+	text <- text.Replace(@"</td>", ";");
+	text <- text.Replace(@"</tr>", Environment.NewLine);
+	text <- text.Replace(',', '|');
+	text <- text.Replace('.', ',');
+	text <- removeAllTags text
+	text
+
+let CSVresult = getCSVfromHTML (getDataFromHTML getWebpageHTML)
+CSVresult.Dump()
+</code>
+</hidden>
+
+> An F# **type provider** is a component that provides types, properties, and methods for use in your program. 
+> The key to information-rich programming is to eliminate barriers to working with diverse information sources. One significant barrier to including a source of information into a program is the need to represent that information as types, properties, and methods for use in a programming language environment. 
+> Writing these types manually is very time-consuming and difficult to maintain. A common alternative is to use a code generator which adds files to your project; however, the conventional types of code generation do not integrate well into exploratory modes of programming supported by F# because the generated code must be replaced each time a service reference is adjusted.
+===== References =====
+  * http://fsharp.org/
+  * http://fsharp3sample.codeplex.com/wikipage?Title=MicroSamples
+  * http://en.wikibooks.org/wiki/F_Sharp_Programming
+  * http://fsharp.org/specs/language-spec/3.0/FSharpSpec-3.0-final.pdf
+  * http://www.mindscapehq.com/blog/index.php/2012/03/27/5-12-f-features-every-c-programmer-should-lust-after/
+  * [[https://msdn.microsoft.com/en-us/library/dd233228.aspx|MSDN Symbol and Operator Reference (F#)]]
+  * https://github.com/rookboom/SharpShaders/wiki/Why-write-shaders-in-F%23%3F
+  * http://www.quora.com/What-are-some-limitations-disadvantages-of-functional-programming
+  * http://fsharpforfunandprofit.com/site-contents/
+  * http://research.microsoft.com/en-us/projects/kiwi/
+  * [[https://www.youtube.com/watch?v=hMjv8m--W28|Ten things F# can do, and C# can't - Liam McLennan @ DDD Brisbane 2013]]

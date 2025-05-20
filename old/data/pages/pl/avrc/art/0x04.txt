@@ -1,0 +1,186 @@
+====== Wymagania ======
+
+  - Jak poprzednio + potencjometr
+
+====== Komparator ======
+
+{{:pl:avrc:art:cmp_comparator.jpg?200|}}\\
+Jednym z peryferiów układu ATMega8A jest [[http://www.ftj.agh.edu.pl/koidc/materials/laboratoria/podstawy/P1-Komparator.pdf|komparator analogowy ]]. Jest to układ porównujący dwa napięcia na wejściach: nieodwracającym AIN0 oraz odwracającym AIN1. Jeżeli napięcia na wejściu AIN0 jest większe od tego na AIN1 to wyjście komparatora (ACO((Analog Comparator Output)) - bit 5 rejestru ACSR((Analog Comparator Control and Status Register))) jest ustawiane jako logiczna 1. Wyjście komparatora może wywoływać przerwanie lub wpływać na [[|Timer/Counter1]]. Komparator jest opisany w nocie katalogowej w rozdziale 21 __Analog Comparator__.
+
+===== Rejestry sterujące =====
+==== SFIOR ====
+W tym rejestrze tylko 1 bit reguluje prace komparatora: ACME - Analog Comparator Multiplexer Enable. Jest to bit 3.
+
+<code c>SFIOR |= (1<<ACME);
+SFIOR &= ~(1<<ACME);
+</code>
+
+Możliwe jest ustawienie dowolnego pinu wejścia ADC jako wejścia odwracającego (zamiast AIN1). W takim przypadku ADC musi być wyłączony (bit ADEN w ADCSRA), natomiast bit ACME((Analog Comparator Multiplexer Enable bit)) w rejestrze SFIOR((Special Function IO Register)) musi być aktywny. 
+==== ADMUX ====
+
+Za pomocą bitów MUX2:0 w rejestrze ADMUX wybiera się pin wejścia odwracającego komparatora:
+^ ACME ^ ADEN ^ MUX2:0 ^ Wejście odwracające ^
+|  0  |  x  |  xx  |  AIN 1  |
+|  1  |  1  |  xx  |  AIN 1  |
+|  1  |  0  |  000  |  ADC0  |
+|  1  |  0  |  001  |  ADC1  |
+|  1  |  0  |  010  |  ADC2  |
+|  1  |  0  |  011  |  ADC3  |
+|  1  |  0  |  100  |  ADC4  |
+|  1  |  0  |  101  |  ADC5  |
+|  1  |  0  |  110  |  //ADC6//  |
+|  1  |  0  |  111  |  //ADC7//  |
+//Uwaga: Piny ADC6 i ADC7 są dostępne w układach ATMega8A produkowanych w obudowach QFN i MLF ale nie w DIP.//
+
+==== ACSR ====
+^ACSR - Analog Comparator Control and Status Register^^^^
+^Bit ^Nazwa bitu ^ Analog Comparator ^ Opis ^
+|  7  |  ACD  | Disable | Jeżeli jest aktywny komparator jest wyłączony. Jeżeli gasimy ten bit, bit ACIE (przerwanie komparatora) musi być wyłączony, w przeciwnym wypadku w momencie uruchamiania komparatora może zostać wywołane przerwanie komparatora. |
+|  6  |  ACBG  | Bandgap Select | Jeżeli ten bit jest aktywny wejście nieodwracające (AIN0) zostaje podłączone do wewnętrznego referencyjnego źródła napięcia odniesienia 2.56 [V].|
+|  5  |  ACO  | Output | Wskazuje stan wyjścia komparatora, jest synchronizowany z dokładnością 1-2 cykli zegarowych. (Tylko do odczytu)|
+|  4  |  ACI  | Interrupt Flag | Jest zapalany jeżeli występuje przerwanie komparatora. |
+|  3  |  ACIE  | Interrupt Enable | Jeżeli jest aktywny przerwanie komparatora zostanie wywołane w przypadku wybranym przez ACIS1:0.|
+|  2  |  ACIC  | Input Capture Enable | Jeżeli jest aktywny zostaje włączona funkcja Input Capture w [[Timer/Counter1]]|
+|  1  |  ACIS1  | Interrupt Mode Select | Wybiera jakie zdarzenie wywołuje przerwanie komparatora.|
+|  0  |  ACIS0  | ::: |::: |
+
+^  ACIS1  ^  ACIS0  ^  Przerwanie  ^
+|  0  |  0  | w momencie zmiany |
+|  0  |  1  | w momencie zmiany |
+|  1  |  0  | w momencie opadającego zbocza |
+|  1  |  1  | w momencie rosnącego zbocza |
+
+
+<code> ACSR |= (1<<ACD)|(1<<ACBG)|(1<<ACO)|(1<<ACI)|(1<<ACIE)|(1<<ACIC)|(1<<ACIS1)|(1<<ACIS0); </code>
+
+===== Zastosowanie =====
+Komparatory stosuje się np do:
+  * Sprawdzania napięcia baterii
+  * Cyfryzacji sygnałów czujników analogowych
+  * Detekcji [[wp>Zero_crossing|przejścia przez zero]]
+  * Budowy oscylatorów
+  * Budowy buforów napięciowych
+  * Budowy przetworników ADC
+
+===== Napięcie odniesienia =====
+Czasami użytecznym staje się zastosowanie układu zewnętrznego
+[[integra:ic&#zrodla_napiecia_odniesienia|źródła napięcia odniesienia]], które jest dużo stabilniejsze od dzielnika napięcia.
+===== Przykład =====
+{{:pl:avrc:art:adc_schematic.jpg?nolink&300|}}
+  * 8 diod podłączamy do dowolnego wolnego portu
+  * Jeden z potencjometrów w konfiguracji dzielnika napięcia zasilania podłączamy do dowolnego wejścia multipleskera (piny oznaczone ADC w przykładowym kodzie połączony jest pin ADC7)
+  * Wejście AREF((Analog Reference)) sprzęgamy z dodatnią szyną zasilania za pomocą kondensatora (rzędu nF)
+<code c>ISR(ANA_COMP_vect)
+{
+	PORT ^= 2;
+	//PORT |= 0xFF;
+}
+
+int main()
+{
+	//Porty trzeba initializowac
+
+	ADCSRA&=~(1<<ADEN); //ADC musi być wyłączone jeżeli kożystamy z multipleksera
+
+	//Skozystamy z multipleksera
+	SFIOR |= (1<<ACME);
+	ADMUX |= 0x07;
+
+	//konfigurujemy
+	ACSR  |= (1<<ACD)|(1<<ACBG)|(1<<ACI)|(0<<ACIC)|(1<<ACIE)|(0<<ACIS1)|(0<<ACIS0);
+
+	//uruchamiamy gaszac bit
+	ACSR  &= ~(1<<ACD);
+
+	sei();
+
+	for(;;)
+	{
+		_delay_ms(50);
+		if ((ACSR & (1<<ACO)))
+			PORT |= 1;
+		else
+			PORT &= ~1;
+	}</code>
+  * Sprawdź jak układ zachowuje się po podłączeniu kondensatora do linii sygnału z potencjometru.
+  * Sprawdź zachowanie układu przy różnych ustawieniach ACIS.
+  * Podłącz źródło sygnału do komparatora bez pośrednictwa multipleksera.
+  * Zamiast korzystać z wewnętrznego źródła napięcia skorzystaj z zewnętrznego (potencjometr do wejścia AREF).
+  * Jeżeli posiadasz przyrządy pomiarowe, sprawdź przy jakich napięciach zachodzą zmiany.
+====== ADC ======
+Układy ATMega8 posiadają również wbudowany prosty przetwornik [[wp>Analog-to-digital_converter|ADC]]
+korzystający z metody [[wp>Successive_approximation_ADC|sukcesywnej aproksymacji]]. Jego parametry są zestawione w poniższej tabeli:
+^Parametr ^ ^ Wartość ^ Jednostka ^ Opis ^
+|Resolution|Rozdzielczość| 10 | bit | Określa minimalną zmianę napięcia jaką może zarejestrować przetwornik ((Czyli $\frac{V_{max}}{2}^{10}$. Dla 5[V] max da to około 5[mV])) |
+|Integral Non-linearity (INL)|Nieliniowość całkowa|0.5|LSB((Least Significant Bit))|Określa maksymalną różnicę pomiędzy wartością zmierzoną a oczekiwaną(idealną). W tym przypadku pół najmniej znaczącego bitu. |
+|Absolute Accuracy|Bezwzględna dokładność| ±2| LSB| Określa zakres błędu przetwarzania |
+|Conversion Time|Czas konwersji|  13 ÷ 260 |µs| Czas trwania przetwarzania 1 próbki. Jego odwrotność określa ilość próbek na sekundę. |
+|:::|:::| do 15| kSPS((kilo Samples Per Second - tysięcy próbek na sekundę)) | Maksymalna prędkość przetważania dla maksymalnej rozdzielczości w tysiącach próbek na sekundę.|
+|Input Voltage Range|Zakres napięć wejściowych| 0 ÷ VCC| V | Określa zakres napięć przetwarzanych |
+|Input Channels|Wejścia| 6 (8) | - | Przetwornik posiada 6 multipleksowanych wejść (8 w obudowach TQFP iQFN/MLF)|
+
+
+
+Poza tym:
+  * Sprzętowe wyrównanie bitów wyniku do lewej
+  * Dostępne wewnętrzne napięcie odniesienia 2.56 [V] (ADC Reference Voltage)
+  * Tryby pracy: ciągły (Free Running) lub pojedyńcza konwersja (Single Conversion Mode)
+  * Przerwanie wywoływane zakończeniem konwersji
+  * Tryb uśpienia do niwelowania zakłóceń generowanych przez układ (Sleep Mode Noise Canceler)
+Napięcie jest odczytywane pomiędzy masą a jednym z pinów portu C wybieranym za pomocą multipleksera. W momencie przetwarzania wartość napięcia zostaje zapamiętana na czas konwersji dzięki czemu w czasie konwersji zmiany na mierzonym wejściu nie wpływają na wynik (Sample and Hold). ADC posiada osobny pin zasilania AVcc, jest to zabieg który ma na celu zmniejszenie zakłóceń pomiaru, szczegóły znajdują się w nocie katalogowej. Napięcie odniesienia może być dostarczone z wewnętrznego źródła lub z pinu AREF.
+===== Sterowanie =====
+Moduł ADC uruchamia się zapalając bit ADEN((ADC Enable)) w rejestrze ADCSR((ADC Status Register)). Bit ten włącza zasilanie modułu.
+<codeC>ADCSR |= (1<<ADEN);
+ADCSR &= ~(1<<ADEN);</code>
+10 bitowy wynik konwersji trafia do rejestrów ADCH i ADCL. Wynik można przesunąć do lewej korzystając z bitu ADLAR((ADC Left Adjust Result)) w rejestrze ADMUX.
+^ADLAR^ADCH^^^^^^^^ADCL^^^^^^^^
+^0|-|-|-|-|-|-|d|d|d|d|d|d|d|d|d|d|
+^1|d|d|d|d|d|d|d|d|d|d|0|0|0|0|0|0|
+
+Jeżeli wynik 8 bitowy jest zadowalający wystarczy odczytać wartość z ADCH, jednak jeżeli chcemy poprawnie odczytać wartość 10 bitową należy na początku odczytać ADCL (w innym przypadku wartość może zmienić się w czasie odczytu i wynik zostanie zakłamany). Po odczycie ADCL rejestry są chronione przed zapisem a blokada zostaje zniesiona w momencie odczytu ADCH.
+==== Rozpoczęcie konwersji ====
+
+===== Przykład =====
+Konfiguracja sprzętowa jak w przykładach do komparatora!
+<code c>#include "avr/io.h"
+#include "avr/interrupt.h"
+#include "util/delay.h"
+#include "avr/sleep.h"
+
+volatile uint8_t val;
+
+ISR(ADC_vect)
+{
+	val=ADCH;
+}
+
+int main()
+{
+
+	//Konfiguracja portów!
+
+	//Ustawiam ADC
+	ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+
+	//Multiplekser
+	ADMUX |= (1 << REFS0)|(0 << REFS1)|(1 << ADLAR)|0x07;
+
+	ADCSRA |= (1 << ADEN)|(1 << ADIE)|(1<<ADATE);
+
+	sei();
+
+	ADCSRA |= (1 << ADSC);
+
+	for(;;)
+	{
+		//PORT=val;
+		//PORT=val/8;
+		PORT=~(0xFF>>(val>>5));
+	}
+
+}
+</code>
+
+===== Materiały dodatkowe =====
+  * [[http://www.noise.physx.u-szeged.hu/DigitalMeasurements/ADConversion/DataConversion.pdf|SLAA013: Understanding Data Converters]] materiały TI
+  * [[http://masteringelectronicsdesign.com/an-adc-and-dac-integral-non-linearity-inl/|Mastering Electronics: An ADC and DAC Integral Non-Linearity (INL)]]

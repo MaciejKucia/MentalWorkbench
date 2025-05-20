@@ -1,0 +1,20 @@
+====== Automatics and Robotics ======
+
+Muscles: HASEL muscles http://www.keplingerresearchgroup.com/
+
+Sim software: https://www.youtube.com/channel/UCJyqf9XJpDoM9XnpAwW6WxA
+
+
+===== Controllers =====
+
+==== PID ====
+
+==== LQR ====
+
+http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=ControlStateSpace#6
+
+
+==== LQG ====
+
+
+

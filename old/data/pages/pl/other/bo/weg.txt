@@ -1,0 +1,105 @@
+====== Zagadnienie przydziału - Metoda Węgierska ======
+===== Zadanie 25 =====
+
+  * Przydzielanie pracowników do prac (zasobem jest czas). Szukany najmniejszy czas, 1 pracownik -> 1 praca.
+
+Macierz kosztów:
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 430 | 510 | 260 | 390 |
+| 2 | 470 | 410 | 280 | 390 |
+| 3 | 410 | 530 | 280 | 410 |
+| 4 | 350 | 480 | 350 | 480 |
+
+ **1.** Przekształcam macierz
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 ^ |
+| 1 | 430 | 510 | 260 | 390 | -260 |
+| 2 | 470 | 410 | 280 | 390 | -280 |
+| 3 | 410 | 530 | 280 | 410 | -280 |
+| 4 | 350 | 480 | 350 | 480 | -350 |
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 170 | 250 | 0 | 130 |
+| 2 | 190 | 130 | 0 | 110 |
+| 3 | 130 | 250 | 0 | 130 |
+| 4 | 0   | 130 | 0 | 130 |
+
+  * Brakuje zer, kontynuuje dla kolumn
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 170 | 250 | 0 | 130 |
+| 2 | 190 | 130 | 0 | 110 |
+| 3 | 130 | 250 | 0 | 130 |
+| 4 | 0   | 130 | 0 | 130 |
+^   | -0   |-130 | -0 | -110 |
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 170 | 120 | 0 | 20 |
+| 2 | 190 | 0   | 0 | 0  |
+| 3 | 130 | 120 | 0 | 20 |
+| 4 | 0   | 0   | 0 | 20 |
+
+ **2.** Skreślam kolumny i wiersze z elementami = 0
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 170 | 120 ^ 0 | [20] |
+| 2 ^ 190 ^ 0   ^ 0 (X) ^ 0  |
+| 3 | 130 | 120 ^ 0 | 20 |
+| 4 ^ 0   ^ 0   ^ 0 (X) ^ 20 |
+
+3 linie (wiersze Pracownik 2,4 i kolumna Praca 3) < wymiar = 4 a więc:
+  * znajduje najmniejszy element nieokreślony: [20]
+  * odejmuje od pozostałych elementów nieokreślonych i dodaje w miejscu podwójnych skreśleń **(X)**
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 150 | 100 | 0 | 0 |
+| 2 | 190 | 0   | 20 | 0  |
+| 3 | 110 | 100 | 0 | 0 |
+| 4 | 0   | 0   | 20 | 20 |
+
+ **3.** Buduje macierz przydziału i sprawdzam rozwiązania
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 0 | 0 | 1 | 1 |
+| 2 | 0 | 1 | 0 | 1 |
+| 3 | 0 | 0 | 1 | 1 |
+| 4 | 1 | 1 | 0 | 0 |
+
+Kombinacja I:
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 0 | 0 ^ 1 | 1 |
+| 2 | 0 ^ 1 | 0 | 1 |
+| 3 | 0 | 0 | 1 ^ 1 |
+| 4 ^ 1 | 1 | 0 | 0 |
+
+  * Pracownik 1 -> Praca 3 = 260
+  * Pracownik 2 -> Praca 2 = 410
+  * Pracownik 3 -> Praca 4 = 410
+  * Pracownik 4 -> Praca 1 = 350
+  * Suma : 1430
+
+Kombinacja II:
+
+| Pracownik | Praca 1 | Praca 2 | Praca 3 | Praca 4 |
+| 1 | 0 | 0 | 1 ^ 1 |
+| 2 | 0 ^ 1 | 0 | 1 |
+| 3 | 0 | 0 ^ 1 | 1 |
+| 4 ^ 1 | 1 | 0 | 0 |
+
+  * Pracownik 1 -> Praca 4 = 390
+  * Pracownik 2 -> Praca 2 = 410
+  * Pracownik 3 -> Praca 3 = 280
+  * Pracownik 4 -> Praca 1 = 350
+  * Suma : 1430
+
+Oba rozwiązania są równoważne.
+
+===== Zadanie 26 =====
+
+===== Zadanie 27 =====
+
+===== Zadanie 28 =====
+
+
+[[pl:other:bo:john|Dalej>>]]

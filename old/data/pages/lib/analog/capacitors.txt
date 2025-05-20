@@ -1,0 +1,8 @@
+====== Capacitors ======
+
+| Type ^ Electrolytic ^ Ceramic ^ Paper ^ Plastic ^ Tantalum ^ Nobium ^
+^ Capacity range |
+^ Cost |
+
+===== References =====
+http://dev.emcelettronica.com/guide-to-capacitors-electrolytic-capacitor-ceramic-capacitor-and-others

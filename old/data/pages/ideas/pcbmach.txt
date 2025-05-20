@@ -1,0 +1,8 @@
+====== PCB rapid prototyping ideas ======
+
+  * Copper laser vaporizing 
+  * wax laser vaporizing
+  * wax hot needle suction
+  * black paint vaporizing
+  * Positiv developing with blue laser
+  * Wire bonding

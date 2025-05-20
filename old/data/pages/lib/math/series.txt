@@ -1,0 +1,103 @@
+====== Szeregi ======
+
+
+===== Szeregi liczbowe =====
+==== Dowód indukcyjny ====
+  - Twierdzenie: $S_{n} = f(n)$
+  - Dowód
+    - Sprawdzenie dla $n=1$ ($S_{1} = f(1)$)
+    - Założenie indukcyjne. Prawdziwe dla pewnego $k$ ($S_{k} = f(k)$)
+    - Teza indukcyjna. Twierdzenie dla $k+1$ ($S_{k+1} = f(k+1)$)
+    - Krok indukcyjny. If prawdziwe dla $k$ ⇒ prawdziwe dla $k+1$\\
+$$S_{n+1} = S_{n} + a_{n+1} \Rightarrow f(n+1) = f(n) + a_{n+1}  $$
+
+==== Szereg geometryczny ====
+  - Suma $n$ wyrazów: $S_{n} = a_{1} \frac{1-q^n}{1-q}$
+  - Zbieżność:
+  - $|q| < 1$ - $\lim_{n \to \infty} S_{n} = \frac{a_1}{1-q}$
+  - $|q| = 1$ - $S_{n} = \infty$
+  - $|q| > 1$ - nie istnieje
+
+==== Szereg harmoniczny rzędu α ====
+  - $\sum \limits_{n=1}^{\infty} \frac{1}{n^{\alpha}}$
+  - dla $\alpha>1$ zbieżny w przeciwnym wypadku rozbieżny
+
+==== Szereg przemienny ====
+$$\sum \limits^{\infty}_{n=0} (-1)^n a_n$$
+==== Kryterium Leibnitza ====
+Szereg $\sum \limits^{\infty}_{n=0}\left(-1\right)^n a_n$ jest zbieżny jeżeli:
+  - $\lim \limits_{n \to \infty} a_n = 0$
+  - ciąg $a_n$ nie rosnący (pochodna)
+
+==== Warunek konieczny zbieżności ====
+$\sum \limits_{n=1}^{\infty} a_n$ zbieżny ⇔ $\lim \limits_{n \to \infty} a_n = 0$
+
+==== Szereg bezwzględnie zbieżny ====
+Szereg $\sum a_n$ jest bezwzględnie zbieżny (zbieżny) ⇔ szereg $\sum |a_n|$ jest zbieżny.
+
+
+==== Kryteria zbieżności ====
+=== D'Alemberta ===
+  * $\forall_{n \in \mathbb{R}} \; a_n \neq 0 $
+  * $ g = \lim \limits_{n \to \infty} \left| \frac{a_{n+1}}{a_n} \right|$
+    * g < 1 ⇒ zbieżny
+    * g > 1 ⇒ rozbieżny
+    * g = 1 ⇒ nie rozstrzyga
+=== Cauchy'ego ===
+  * $g = \lim \limits_{n \to \infty} \sqrt[n]{|a_n|}$
+  * g < 1 ⇒ zbieżny
+    * g > 1 ⇒ rozbieżny
+    * g = 1 ⇒ nie rozstrzyga
+=== Całkowe ===
+  * $a_n = f(n)$
+  * $\sum \limits_{n=n_0}^{\infty} a_n$ jest zbieżny ⇔ $\int \limits_{n_0}^{+\infty} f(x) \, dx$ jest zbieżna (istnieje)
+=== Porównawcze "graniczne" ===
+
+  * $\forall_{n \in \mathbb{R}} \; a_n > 0, b_n > 0 $
+  * $\lim \limits_{n \to \infty} \frac{a_n}{b_n} = g, \: g \in (0;+\infty)$
+  * $a_n$ zbieżny ⇔ $b_n$ zbieżny
+
+=== Porównawcze ===
+  * $\forall_{n \geq n_0} \; a_n \geq 0, b_n \geq 0 $
+  * $\forall_{n \geq n_0} \; a_n \leq b_n$
+  * $\forall_{n \geq n_0} \sum b_n$ zbieżny ⇒ $\sum a_n$ zbieżny
+==== Wzory ====
+  * $\lim \limits_{x \to 0} \frac{\sin{x}}{x} = 1$
+  * $\lim \limits_{x \to \infty} \sqrt[n]{a} = 1, a > 0 $
+  * $\lim \limits_{x \to \infty} \sqrt[n]{n} =1 $
+
+
+
+===== Szeregi potęgowe =====
+Szereg potęgowy to szereg funkcyjny postaci:
+$$ \sum \limits_{n=0}^{\infty} a_n(x-x_0)^n$$
+gdzie $a_n \in {\mathbb  {R}} $ lub $ {\mathbb  {C}}$
+
+$$ f_n(x) = a_n(x-x_0)^n $$
+
+$x_0$ - środek szeregu potęgowego
+==== Promień zbieżności ====
+Takie $R$ że szereg (*) jest zbieżny dla wszystkich $x \in (x_0-R;x_0+R)$
+
+=== Twierdzenie Cauchy'ego-Hadamarda ===
+
+$$\lambda = \lim_{n \to \infty} \sqrt[n]{|a_n|}$$
+$$\lambda = \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right|$$
+
+$ R=\begin{cases}    \frac{1}{\lambda}, & 0<\lambda<+\infty\\    +\infty, & \lambda = 0 \\ 0, & \lambda=+\infty  \end{cases}$
+
+=== Twierdzenie Abela ===
+  * $ (-r,r] \ni x \mapsto f(x) = \sum \limits^{\infty}_{n=0}a_n x^n$ lewostronnie ciągła w $x=r$
+  * $ [-r,r) \ni x \mapsto f(x) = \sum \limits^{\infty}_{n=0}a_n x^n$ prawostronnie ciągła w $x=-r$
+==== Tw o różniczkowaniu i całkowaniu ====
+
+
+===== Szereg Taylora funkcji =====
+Rozwinięcie funkcji $f$ w punkcie $x_0$
+$$f(x)=\sum \limits_{n=0}^{\infty} \frac{f^{(n)}(x_0)}{n!} (x-x_0)^n$$
+==== Szeregi z $e$ ====
+
+  * $ f(x) = e^x =  \sum \limits_{n=0}^\infty \frac{x^n}{n!}$
+  * $ f(x) = e^{-x^2} =  \sum \limits_{n=0}^\infty \frac{(-x^2)^n}{n!}=\sum \limits_{n=0}^\infty \frac{(-1)^n x^{2n}}{n!}$
+  * $ f(x) = e^{x+1} = e^x e = \sum \limits_{n=0}^\infty \frac{e}{n!}x^n$
+  * $ \ln(x) = \sum \limits_{n=1}^\infty \frac{(-1)^{n+1}}{n}(x-1)^n \quad 0 < x \leq 2$

@@ -1,0 +1,143 @@
+====== Analiza matematyczna ======
+===== Teoria =====
+==== Ekstrema funkcji uwikłanej ====
+==== Różniczkowalność funkcji ====
+funkcja dwóch zmiennych ma w jakimś punkcie obie pochodne cząstkowe i są one ciągłe w tym punkcie, to funkcja jest w tym punkcie różniczkowalna
+==== Całki ====
+  * podwójna
+  * potrójna
+
+
+=== Całka krzywoliniowa ===
+
+=== Całka powierzchniowa ===
+
+Płat dany równaniem $z = \phi(x, y),$ gdzie funkcja $\phi(x, y)$ jest klasy C<sup>1</sup> w D, to
+$$\iint\limits_{S}f(x, y, z)\;dS = \iint\limits_{D}f\big(x,\ y,\ \phi(x, y)\big)\sqrt{1+\left(\frac{\partial\phi}{\partial x}\right)^2+\left(\frac{\partial\phi}{\partial y}\right)^2}\;dx\;dy$$
+
+=== Współrzędne ===
+
+^   ^ Biegunowe ^  Sferyczne  ^ Walcowe ^
+^  X  |  $r\cos\phi$  |  $r\cos\phi\cos\omega$  |  $p\cos\phi$  |
+^  Y  |  $r\sin\phi$  |  $r\cos\phi\sin\omega$  |  $p\sin\phi$  |
+^  Z  |  -  |  $r\sin\phi$  |  $z$  |
+^ Jakobian |  $r$  |  $r^2\cos\phi$  |  $r$  |
+
+=== Tw Stokesa ===
+
+=== Tw Greena ===
+  * P i Q C<sup>1</sup> wewnątrz D a K jest dodatnio zorientowanym brzegiem D to:
+$$\int\limits_K {(P dx + Q dy)}=\iint\limits_D \left ( {\partial Q \over \partial x} - {\partial P \over \partial y}\right ) dx\,dy$$
+
+=== Tw Ostrogradskiego-Gaussa ===
+Całka powierzchniowa <-> potrójna
+
+  * P,Q,R mają pochodne cząstkowe I rzędu na V
+
+$$\iint\limits_S \vec{\mathbf A}\cdot d \vec{\mathbf S} = \iiint\limits_V~\operatorname{div} \vec{\mathbf A}\; dx dy dz$$
+
+$$\iint\limits_S (P\; dy dz + Q\; dz dx + R\; dx dy) = \iiint\limits_V \left( {\partial P \over \partial x} + {\partial Q \over \partial y} + {\partial R \over \partial z} \right)\; dx dy dz$$
+==== Pochodna funkcji uwikłanej ====
+$$y'=-\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}}$$
+$$y''={F''_{\!xx}+2F''_{\!xy}y'+F''_{\!yy}(y')^2+F'_{\!y}y''}$$
+$$y''=\frac{2F'_xF'_yF''_{xy}-(F'_y)^2F''_{xx}-(F'_x)^2F''_{yy}}{(F'_y)^3}$$
+==== Szeregi ====
+  * Suma
+  * Kryteria zbieżności + warunek konieczny
+  * Promień zbieżności
+  * Twierdzenie Abela
+==== Wzór taylora ====
+
+==== Pochodna kierunkowa ====
+==== Funkcja Lagrange'a ====
+  * Pozwala znaleźć ekstremum warunkowe. 
+  * Może da się rozwikłać "normalnie"
+  * Układ:
+    * $F_x'(x,y)$
+    * $F_y'(x,y)$
+    * $G(x,y)$
+===== Zadania =====
+{{:pl:other:analiza:egzamin.pdf|}} ([[http://home.agh.edu.pl/~cmiel/airanaliza.html|źródło]])
+==== Zadanie 1 ====
+Obliczyć $y'(0)$ i $y''(0)$ funkcji uwikłanej $y = y(x)$ zadanej równaniem $x^2 - xy +2y^2+x-y=1$
+
+$$f(x)=x^2 - xy +2y^2+x-y-1$$
+$$f'(0)= - {{F'_x(0,0)}\over{F'_y(0,0)}} = ?$$
+  * Szukam pochodnych cząstkowych
+$$\frac{\partial F}{\partial x}=2x-y+1$$
+$$\frac{\partial F}{\partial y}=-x+4y-1$$
+  * Pierwsza pochodna
+$$y'(x) = -{{2x-y+1} \over {-x+4y-1}} = {{-2x+y-1}\over{-x+4y-1}}$$
+$$y(0) = {{y-1} \over {4y-1}}, y \neq \frac{1}{4}$$
+  * Druga pochodna 
+$$ \frac{\partial}{\partial y} y'(-x+4y-1) +2x+y-1 $$
+$$ y''(x) = 4y''(-x+4y-1)+ 1$$
+$$y''(0) = 4y''(4y-1)+1$$
+==== Zadanie 2 ====
+Wyznaczyć ekstrema lokalne funkcji $f(x,y,z) = x^3 +xy +y^2 -2xz +2z^2 +3y -1$
+
+  * Szukam pochodnych cząstkowych
+$$ f'_{\!x}(x,y,z) = 3x^2 + y -2z $$
+$$ f'_{\!y}(x,y,z) = x+2y+3 $$
+$$ f'_{\!z}(x,y,z) = -2x+4z $$
+
+  * Szukam punktów - kandydatów na ekstrema
+
+$$\begin{cases}3x^2 + y -2z=0\\ x+2y+3=0 \\ -2x+4z=0 \end{cases}$$
+
+ Rozwiązaniem są 2 punkty: $(-\frac{1}{2},-\frac{5}{4},-\frac{1}{4})$ oraz $(1,-2,\frac{1}{2})$
+
+  * Szukam pochodnych cząstkowych 2 stopnia
+
+$$ f'_{\!xx}(x,y,z) = 6x $$
+$$ f'_{\!yy}(x,y,z) = 2 $$
+$$ f'_{\!zz}(x,y,z) = 4 $$
+$$ f'_{\!xy}(x,y,z) = 1 $$
+$$ f'_{\!xz}(x,y,z) = -2 $$
+$$ f'_{\!yz}(x,y,z) = 0 $$
+
+  * Buduje macierz dla obu punktów:
+
+$$ \left[\begin{array}{ccc}F_{xx}&F_{xy}&F_{xz}\\F_{yx}&F_{yy}&F_{yz}\\F_{zx}&F_{zy}&F_{zz}\end{array}\right] $$
+
+$(-\frac{1}{2},-\frac{5}{4},-\frac{1}{4})$ 
+$$ \left[\begin{array}{ccc}-3&1&-2\\1&2&0\\-2&0&4\end{array}\right] $$
+
+$(1,-2,\frac{1}{2})$
+$$ \left[\begin{array}{ccc}6&1&-2\\1&2&0\\-2&0&4\end{array}\right] $$
+
+  * Sprawdzam wyznaczniki minorów obu macierzy:
+
+  * $(-\frac{1}{2},-\frac{5}{4},-\frac{1}{4})$ 
+    * $I_1 = -3$
+    * $I_2 = \left|\begin{array}{cc}-3&1\\1&2\end{array}\right| = -7$
+    * $I_3 = \left|\begin{array}{ccc}-3&1&-2\\1&2&0\\-2&0&4\end{array}\right| = -36$
+  * $(1,-2,\frac{1}{2})$
+    * $I_1 = 6$
+    * $I_2 = \left|\begin{array}{cc}6&1\\1&2\end{array}\right| = 11$
+    * $I_3 = \left|\begin{array}{ccc}6&1&-2\\1&2&0\\-2&0&4\end{array}\right| = 36$
+
+  * Podsumowując:
+    * W punkcie $(-\frac{1}{2},-\frac{5}{4},-\frac{1}{4})$ znajduje się maksimum
+    * W punkcie $(1,-2,\frac{1}{2})$ znajduje się minimum
+
+
+
+
+
+==== Zadanie 3 ====
+Obliczyć całkę potrójną $\iiint\limits_U \! y \sin \pi x \,d x \,d y \,d z$, gdzie U jest obszarem ograniczonym powierzchniami $z=1-y^2,\, z=0 ,\, x=-1,\, x=1$.
+
+[RYSUNEK]
+  * Zamieniam na całkę iterowaną
+
+$$ \iiint\limits_U \! y \sin \pi x \,d x \,d y \,d z = \int\limits_{-1}^1 \, \left( \int\limits_{-1}^1 \, \left(  \int\limits_{0}^{1-y^2} y \sin \pi x \,dz \right) \, dx \right) \, dy  = $$ 
+$$ \int\limits_{-1}^1 \, \left( \int\limits_{-1}^1 \, \left(   z y \sin \pi x \,  \big|_0^{1-y^2} \right) \, dx \right) \, dy  =$$
+$$ \int\limits_{-1}^1 \, \left( \int\limits_{-1}^1 \, \left(   z y \sin \pi x - y^3 \sin \pi x \right) \, dx \right) \, dy  =$$
+==== Zadanie 4 ====
+Obliczyć sumę szeregu $\sum_{n=1}^\infty n^2x^n$ dla $|x|<1$.
+
+==== Zadanie 5 ====
+Obliczyć strumień pola wektorowego $\vec{F}=(xy^2,x^2y,z^3)$ przez zewnętrzną stronępowierzchni bryły danej nierónościami $\sqrt{x^2+y^2} \leq z \leq \sqrt{1-x^2-y^2}$
+
+$$ \iint\limits_S F_n \, dS = \iiint\limits_V \left( \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right)\, dxdydz $$

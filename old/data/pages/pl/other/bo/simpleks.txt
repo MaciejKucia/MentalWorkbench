@@ -1,0 +1,130 @@
+====== Metoda Simpleks ======
+===== Zadanie 10 =====
+  * $\min f(x)=2x_1+3x_2+2x_3$
+  * $x_1+2x_2+5x_3 \leq 11$
+  * $4x_1-5x_2+5x_3 \leq 10$
+  * $x_1+6x_3 \leq 12$
+  * $x_1,x_2,x_3 \geq 0$
+  * Postać bazowa + Simplex
+
+**Doprowadzam do postaci bazowej**
+
+  * $\max f(x)=-2x_1-3x_2-2x_3 + 0 x_4 + 0 x_5 + 0 x_6$
+  * $x_1+2x_2 + 5x_3 + x_4 =11$
+  * $4x_1-5x_2 + 5x_3 + x_5 = 10$
+  * $x_1+6x_3 + x_6 = 12$
+  * $x_1,x_2,x_3,x_4,x_5,x_6 \geq 0$
+
+**Buduję tablicę simplex**
+
+^  c<sup>T</sup>->max  ||  -2  |  -3  |  -2  |  0  |  0  |  0  ^  b<sub>i</sub>  |
+^  x<sub>B</sub>  ^  c<sub>B</sub>  ^  x<sub>1</sub>  ^  x<sub>2</sub>  ^  x<sub>3</sub>  ^  x<sub>4</sub>  ^  x<sub>5</sub>  ^  x<sub>6</sub>  ^:::|
+^  x<sub>4</sub>  |  0  |  1  |  2  |  5  |  1  |  0  |  0  |  11   |
+^  x<sub>5</sub>  |  0  |  4  |  -5  |  5  |  0  |  1  |  0  |  10  |
+^  x<sub>6</sub>  |  0  |  1  |  0  |  6  |  0  |  0  |  1  |  12  |
+^  Z<sub>j</sub>  ||  0  |  0  |  0  |  0  |  0  |  0  |
+^  C<sub>j</sub> - Z<sub>j</sub>  ||  -2  |  -3  |  -2  |  0  |  0  |  0  |
+|  =====  ||  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |  =====  | 
+===== Zadanie 11 =====
+  * $\min f(x)=2x_1+3x_2+2x_3-4x_4$
+  * $x_1+2x_2+5x_3 \geq 11$
+  * $4x_1 - 5x_2 + 5x_3 \leq 10$
+  * $x_1+6x_3-6x_4 \leq 12$
+  * $x_1,x_2,x_3,x_4 \geq 0$
+
+**Doprowadzam do postaci bazowej**
+
+  * $\max f(x)=-2x_1-3x_2-2x_3 + 4x_4 + 0 x_5 + 0 x_6 + 0 x_7 -Ms_1$
+  * $x_1+2x_2+5x_3 -x_4 + s_1 = 11$
+  * $4x_1 - 5x_2 + 5x_3 +x_5 = 10$
+  * $x_1+6x_3-6x_4 + x_6 = 12$
+  * $x_1,x_2,x_3,x_4, s_1,s_2,s_3 \geq 0$
+
+**Buduję tablicę simplex**
+
+^  c<sup>T</sup>->max  ||  -2  |  -3  |  -2  |  +4  |  0  |  0  |  0  |  -M  ^  b<sub>i</sub>  |
+^  x<sub>B</sub>  ^  c<sub>B</sub>  ^  x<sub>1</sub>  ^  x<sub>2</sub>  ^  x<sub>3</sub>  ^  x<sub>4</sub>  ^  x<sub>5</sub>  ^  x<sub>6</sub>  ^  x<sub>7</sub>  ^  s<sub>1</sub>  ^:::|
+^  x<sub>1</sub>  |  -M  |  1  |  2  |  5  |  0  |  -1  |  0  |  0  |  1  |  11  |
+^  x<sub>2</sub>  |  0  |  4  |  -5  |  5  |  0  |  0  |  1  |  0  |  0  |  10  |
+^  x<sub>3</sub>  |  0  |  1  |  0  |  6  |  -4  |  0  |  0  |  1  |  0  |  12  |
+^  Z<sub>j</sub>  ||  -M  |  0  |  0  |  0  |  0  |  0  |  0  |  0  |
+^  C<sub>j</sub> - Z<sub>j</sub>  ||  -2+M  |  -3  |  -2  |  +4  |  0  |  0  |  0  |  0  |
+|  =====  ||  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |
+===== Zadanie 12 =====
+  * $\max f(x) = 30 x_1 + 50 x_2$
+  * $x_1 \leq 4$
+  * $2x_2 \leq 12$
+  * $3x_1 + 2 x_2 \leq 18$
+  * $x_1,x_2 \geq 0$
+
+Sprowadzam do postaci bazowej. Przekształcam warunki
+
+  * $x_1 \leq 4$ -> $x_1 + 0x_2 + x_3 = 4$
+  * $2x_2 \leq 12$ -> $0x_1 + 2x_2 \;\;\;\; +x_4 = 12$
+  * $3x_1 + 2 x_2 \leq 18$ -> $3x_1 + 2x_2 \;\;\;\;\;\;\;\; +x_5 = 18$
+  * $x_i \geq 0$
+
+Funkcja celu:
+
+  * $\max f(x) = 30 x_1 + 50 x_2$ -> $f(x)=30x_1+50x_2+0x_3+0x_4+0x_5$
+
+Buduję tabelę sympleks
+
+^  c<sup>T</sup>->max  ||  30  |  50  |  0  |  0  |  0  ^  b<sub>i</sub>  |
+^  x<sub>B</sub>  ^  c<sub>B</sub>  ^  x<sub>1</sub>  ^  x<sub>2</sub>  ^  x<sub>3</sub>  ^  x<sub>4</sub>  ^  x<sub>5</sub>  ^:::|
+^  x<sub>3</sub>  |  0  |  1  |  0  |  1  |  0  |  0  |  4   |
+^  x<sub>4</sub>  |  0  |  0  |  2  |  0  |  1  |  0  |  12  |
+^  x<sub>5</sub>  |  0  |  3  |  2  |  0  |  0  |  1  |  18  |
+^  Z<sub>j</sub>  ||  0  |  0  |  0  |  0  |  0  |
+^  C<sub>j</sub> - Z<sub>j</sub>  ||  30  |  50  |  0  |  0  |  0  | 
+|  =====  ||  =====  |  =====  |  =====  |  =====  |  =====  |  =====  | 
+
+  * x<sub>B</sub> - zmienne bazowe
+  * c<sub>B</sub> - współczynniki funkcji celu przy zmiennych bazowych
+  * Z<sub>j</sub> - współczynniki przy funkcji celu
+
+
+===== Zadanie 13 =====
+  * W tym zadaniu dodajemy sztuczne zmienne (ze współczynnikiem -M ponieważ szukamy max, +M dla min) \\
+M reprezentuje dużą liczbę > 0
+  * Gdy $\leq$ dodajemy zmienną
+  * Gdy $\geq$ odejmujemy zmienną i dodajemy zmienną sztuczną psującą funkcję celu
+
+  * $\max f(x) = 3 x_1 + 8 x_2 + 2x_3$
+  * $x_1 + 0.5x_2 -x_3  \leq 10$
+  * $x_2 + 3x_3 \geq 0$
+  * $5x_1 + 14x_2 +2x_3 = 28$
+  * $x_1,x_2,x_3 \geq 0$
+ 
+Doprowadzam do postaci bazowej
+
+  * $x_1 + 0.5x_2 -x_3 +x_4 = 10$
+  * $x_2 + 3x_3 \;\;\;\; -x_5 + s_1 = 20$
+  * $5x_1 + 14x_2 + 2x_3= 28$
+  * $x_i,S_i \geq 0$
+  * $\max f(x) = 3 x_1 + 8 x_2 + 2x_3 + 0x_4 + 0x_5 - M s_1$
+
+Dodaję jeszcze jedną zmienną sztuczną aby uzupełnić bazę:
+
+  * $x_1 + 0.5x_2 -x_3 +x_4 = 10$
+  * $x_2 + 3x_3 \;\;\;\; -x_5 + s_1 = 20$
+  * $5x_1 + 14x_2 + 2x_3 \;\;\;\;\;\;\;\; + s_2 = 28$
+  * $x_i,S_i \geq 0$
+  * $\max f(x) = 3 x_1 + 8 x_2 + 2x_3 + 0x_4 + 0x_5 - M s_1 - M s_2$
+
+Buduję tablicę
+
+^  c<sup>T</sup>->max  ||  3  |  8  |  2  |  0  |  0  |  -M  |  -M  ^  b<sub>i</sub>  |
+^  x<sub>B</sub>  ^  c<sub>B</sub>  ^  x<sub>1</sub>  ^  x<sub>2</sub>  ^  x<sub>3</sub>  ^  x<sub>4</sub>  ^  x<sub>5</sub>  ^  s<sub>1</sub>  ^  s<sub>2</sub>  ^ ::: |
+^  x<sub>4</sub>  |  0  |  1  |  0.5  |  -1  |  1  |  0  |  0  |  0  |  10  |
+^  s<sub>1</sub>  |  -M  |  0  |  1  |  3  |  0  |  -1  |  1  |  0  |  20  |
+^  s<sub>2</sub>  |  -M  |  5  |  14  |  2  |  0  |  0  |  0  |  1  |  28  |
+^  Z<sub>j</sub>  ||  -5M  |  -15M  |  -5M  |  0  |  M  |  -M  |  -M  |    |
+^  C<sub>j</sub> - Z<sub>j</sub>  ||  3+5M  |  8+15M  |  2+5M  |  0  |  -M  |  0  |  0  |  
+|  =====  ||  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |  =====  |
+
+Z<sub>j</sub> tworzę ze wzoru: $Z_j = \sum_{i=1}^{m} c_{Bi}a_{ij} $
+
+Tak więc np. $ -15M = 0 \cdot 0.5 + (-M) \cdot 1 + (-M) \cdot 14 $
+
+[[pl:other:bo:pio|Dalej>>]]

@@ -1,0 +1,5 @@
+====== Complex numbers ======
+
+
+$$ \underline{A_m} = \Re + \Im j = a + b j = A_m ( \cos \phi + j \sin \phi) = A_m e ^ {j \phi}$$
+$$ A_{rms} \sin( \omega t + \phi) $$

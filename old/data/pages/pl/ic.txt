@@ -1,0 +1,79 @@
+====== Cyfrowe ======
+Rodziny układów cyfrowych dzielą się ze względu na technologię wykonania:
+  * [[wp>CMOS]] (Complementary MOSFET -> Complementary Metal Oxide Field Effect Transistor) 
+  * [[wp>Transistor–transistor_logic|TTL]]
+  * [[wp>Emitter-coupled_logic|ECL]]
+  * [[wp>BiCMOS]]
+Istnieją również inne rodziny, jednak są one obecnie przestarzałe. Warto zapoznać się z opisem serii układów scalonych [[wppl>Seria_7400|7400]] oraz [[wp>4000_series|4000]].
+===== Logiczne ===== 
+==== Liczniki ====
+Zliczają ilość taktów zegarowych. Zbudowane są z szeregowo połączonych przerzutników.
+==== ALU ==== 
+Jednostka arytmetyczno-logiczna (ang. Arithmetic Logic Unit). Jest układem cyfrowym wykonującym operacje matematyczne (+ - / *) na liczbach całkowitych, operacje logiczne (and or xor), bitowe (przesunięcia) oraz inne (np. modulo). Integralny składnik każdego mikroprocesora. Liczby zmiennoprzecinkowe przetwarzane są w FPU (Floating Point Uinit).
+==== Bramki ====
+Podstawowe składniki systemu cyfrowego. Najczęściej dwustanowe jednak istnieją również trójstanowe (np. bufory z wejściem enable). 
+
+Podstawowe bramki:
+  * NAND (funkcjonalnie pełna)
+  * NOR (funkcjonalnie pełna)
+  * OR
+  * AND
+  * NOT
+  * YES (bufor)
+  * XOR
+  * XNOR
+
+==== Przerzutniki ====
+zatrzask 
+==== Kodery, Dekodery, Enkodery ====
+==== Multipleksery i demultipleskery ====
+===== Pamięci =====
+Flash 
+EEPROM
+RAM SRAM itp
+===== Układy interfejsów
+===== Rejestry ===== 
+==== Układy programowalne ==== 
+CPLD FPGA GLUE
+
+
+
+====== Analogowe i mieszane ======
+===== Multiwibratory =====
+[[wp>Multivibrator|Multiwibratory]] są układami elektronicznymi układami posiadającymi dwa lub więcej stanów. Multiwibratory dzielimy na:
+  * Astabilne - żaden ze stanów nie jest stabilny, jest to generator fali prostokątnej
+  * Bistabilne - oba stany są stabilne, jest to przerzutnik
+  * Monostabilne - jeden stan jest stabilny drugi nie, (np. układ wyłączający światło na klatce schodowej po pewnym czasie)
+===== Wzmacniacze =====
+===== Drivery =====
+===== Mostki =====
+===== Przetworniki napięcia =====
+===== Stabilizatory napięcia =====
+LDO
+===== Ekspandery portów ===== 
+===== Regulatory napięcia =====
+===== Transceivery =====
+===== Drivery =====
+===== Przetworniki ADC i DAC =====
+===== Wzmacniacze operacyjne =====
+===== Źródła napięcia odniesienia =====
+  * MAX9062  0.200 [V]
+  * LT6700   0.400 [V] 
+  * ADCMP350 0.600 [V]
+  * MAX9025  1.236 [V]
+  * MAX9040  2.048 [V] 
+  * TLV3012  1.24 [V] 
+  * TSM109   2.5 [V] 
+===== Multipleksery i przełączniki =====
+===== Komparatory =====
+===== Generatory =====
+pll
+===== Czujniki scalone =====
+===== Kontrolery ładowania ===== 
+===== Generatory PWM =====
+===== Potencjometry cyfrowe ===== 
+==== Timery ==== 
+
+===== MEMS =====
+==== Akcelerometry ====
+  * [[http://www.youtube.com/watch?feature=player_embedded&v=KZVgKu6v808#!]]

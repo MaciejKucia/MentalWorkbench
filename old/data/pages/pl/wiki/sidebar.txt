@@ -1,0 +1,6 @@
+  * [[::pl:start|Start]]
+  * [[::pl:art|Artykuły]]
+  * [[::pl:avrc|Kurs AVR]]
+  * [[:projects|Projekty]]
+  * [[::links|Linki]]
+  * [[::start|English section]]

@@ -1,0 +1,14 @@
+====== Stash/Bitbucket + Jenkins tips ======
+
+===== Using [Http Request Post Receive Hook] and [Build Authorization Token Root Plugin] =====
+The notifications did not work for me because of 
+<code>org.acegisecurity.AccessDeniedException: Invalid token provided.</code>
+Instead
+
+<code>http://{JENKINS_URL}/buildByToken/build?job={SOME+JOB+NAME}&token={TOKEN}/</code>
+
+use
+
+<code>http://{JENKINS_URL}/buildByToken/build?token={TOKEN}&job={SOME+JOB+NAME}/</code>
+
+Fixed! Bitbucket can now trigger jenkins build!

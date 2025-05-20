@@ -1,0 +1,7 @@
+====== Radio related info ======
+
+===== Therminology =====
+  * Balun - **BAL**anced to **UN**balanced (:PL: symetryzator)
+
+===== Links =====
+  * [[http://www.ti.com/lit/ml/slap127/slap127.pdf|RF Basics, RF for Non-RF Engineers]]

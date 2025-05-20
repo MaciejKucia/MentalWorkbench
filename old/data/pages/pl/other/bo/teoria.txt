@@ -1,0 +1,104 @@
+====== Teoria ======
+===== Selected =====
+  * Problem - pytanie ogólne zależne od kilku parametrów na które należy dać odpowiedz
+  * Liczba rozwiązań komiwojażera 
+  * Algorytm - to określona procedura obliczeniowa umożliwiająca rozwiązanie konkretnego problemu. Dla właściwych danych wejściowych dostarcza żądane wyjściowe, czyli wynik.
+  * Relaksacja - "upraszczanie" problemu, usunięcie, osłabienie
+  * Algo heurystyczne - najpierw najlepszy, Z (najpierw najlepszy+specyficzna funkcja heurystyczna), BF* (najpierw najlepszy+pewna optymalność), Z* (BF*+Z), A* (Z*+najtańsza droga)
+  * Model matematyczny - Zmienne decyzyjne, funkcja celu, ograniczenia, parametry modelu
+  * Graf eulerowski - da się w nim skonstruować cykl eulera, cykl przechodzący przez każdą krawędź dokładnie raz i wraca do punktu wyjściowego.
+  * Graf hamiltonowski - droga przez każdy wierzchołek dokładnie raz
+  * Maszyna turinga - 
+  * Liczba chromatyczna - minimalna liczba koloró do legalnego pokolorowania grafu G
+  * Klika - podzbiór wierzchołków gdzie każdy jest wierzchołkiem przyległym do wszystkich pozostałych z tego podzbioru.
+  * Literowe oznaczenia systemów maszyn i kryteriów - F J 
+  * dendryt - digraf spójny z dendrytem, all but root has a parent
+  * problem trudny - czas wykładniczy
+
+===== All =====
+  * Algorytm
+  * Algorytm poprawny
+  * Algorytm optymalny
+  * Algorytm efektywny
+  * Problem łatwy/trudny
+  * Notacja
+    * Θ
+    * Ω
+    * O
+    * o
+  * Graf nieskierowany 
+  * Graf skierowany - __directed graph__ or __digraph __
+  * Wierzchołki i krawędzie sąsiednie
+  * Pętla
+  * Krawędzie równoległe - incydentne do tej samej pary wierzchołków 
+  * Stopień wierzchołka - __vertex degree__ (ile krawędzi)
+  * Sposoby przedstawiania gradu
+    * Lista głęzi
+    * Macierz incydencji - __Incidence matrix__ (-1 -> 1)
+    * Macierz przyległości (sąsiedztwa) - __Adjacency matrix__ (1 gdy przyległy)
+  * Gęstość grafu - __graph density__ - ile krawędzi \over max ilość
+  * Graf pełny - __Complete graph__
+  * Ścieżka - __path__ list of nodes
+  * Droga w grafie - ścieżka w ktrórej wierzchołki są różne ()
+  * Cykl 
+  * Graf spójny __connected graph__
+  * Graf eulerowski - cykl eulera -> droga przez kazda krawedz raz + start=stop
+  * Graf hamiltonowski - to samo wierzcholki
+  * Podgraf graf częściowy - __subgraph__ 
+  * Klika - __clique__ - podgraf, w którym każde dwa wierzchołki są połączone krawędzią.
+  * Graf planarny - __planar graph__
+  * Sieć - graf skierowany z ważonymi krawędziami.
+  * Izomorfizm grafów - [[wppl>zomorfizm_graf%C3%B3w]]
+  * Automorfizm
+  * Kolorowanie grafu
+    * klasyczne
+    * pokolorowanie wierzchołków
+    * optymalne
+  * liczba chromatyczna grafu
+  * Drzewo - acykliczny + spójny
+  * Dendryt - drzewo rozpinające
+  * Antydendryt - ??
+  * Drzewo rozpinające grafu - __spanning tree__
+  * Heurystyczne metody przeszukiwania
+    * Najpierw najlepszy
+    * Przeszukiwanie Z
+    * Przeszukiwanie BF*
+    * Przeszukiwanie Z*
+    * Przeszukiwanie A*
+  * Pokrycie wierzchołkowe grafu - __graph covering__ podzbiór jego wierzchołków, że każda krawędź G jest incydentna do jakiegoś wierzchołka z tego podzbioru.
+  * Zbiór dominujący w grafie - __dominating set__ - [[wppl>Zbi%C3%B3r_dominuj%C4%85cy]]
+  * Maksymalne skojarzenie w grafie - __matching__ [[wppl>>Skojarzenie_(teoria_grafów)]]
+  * Graf dwudzielny - __bipartite graph__ - zbiór wierzchołków można podzielić na dwa rozłączne zbiory tak, że krawędzie nie łączą wierzchołków tego samego zbioru.
+  * Graf Halla - [[http://mathworld.wolfram.com/HallGraph.html]]
+  * Maszyny 
+  * zadania
+    * zależne / niezależne
+  * zasoby
+    * dyskretne
+    * odnawialne / nieodnbawialne
+    * podwójnie ograniczone
+  * parametry zasobów
+    * dostępność
+    * ilość
+    * koszt
+    * dopuszczalne obciążenie
+  * ch-ka maszyn
+    * równoległe
+      * identyczne
+      * jednorodne
+      * dowolne
+    * dedykowane
+      * flowshop
+      * jobshop
+      * openshop
+  * uszeregowanie
+  * harmonogram
+  * Klasyfikacja α|β|Γ
+    * α - typ
+    * β - ograniczenia
+    * Γ - kryterium optymalizacji
+  * Kryteria jakości
+    * c<sub>sum</sub>
+    * f<sub>sum</sub>
+    * l<sub>sum</sub>
+    * t<sub>sum</sub>
