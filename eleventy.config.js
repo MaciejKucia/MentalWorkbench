@@ -11,4 +11,5 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("projects/**/*.svg");
 	eleventyConfig.addPassthroughCopy("projects/**/*.gif");
 	eleventyConfig.addPassthroughCopy("media/**/*");
+	eleventyConfig.addGlobalData("layout", "base.njk");
 };
