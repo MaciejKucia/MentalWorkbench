@@ -5,7 +5,7 @@ layout: "base.njk"
 
 ## Projects
 
-* [Programming AVR with ADA programming language](/projects/avrADA)
+* [Programming AVR with ADA programming language](/projects/avrada)
 * [Evalbot Chronos USB Control](/projects/evalbotusbdrive)
 * [Robot gripper design](/media/gripper.pdf) (in Polish)
 * [Sensor fusion](/projects/GY-80)
