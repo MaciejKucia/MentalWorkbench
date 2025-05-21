@@ -33,7 +33,7 @@ Kiedy już wiadomo co się chce zrobić trzeba zastanowić się jak to zrobić.
 
 ### Wyświetlacz
 
-Informacja o stanie w jakim znajduje się urządzenie będzie przekazywana za pomocą prostego wyświetlacza [[integra:elem#Wyświetlacze_7_segmentowe|7 segmentowego]]. Ponieważ będzie to zamek zastosuje również dwukolorową diodę (czerwony/zielony). Pierwszym krokiem jest wysterowanie wyświetlaczem. Ponieważ sterowanie takim wyświetlaczem jest bardzo proste, wyprowadzenia odpowiednich segmentów podłączyłem w sposób zupełnie losowy do portu C. Następnie na mikrokontrolerze uruchomiłem prosty program ustawiający po kolei wszystkie piny portu C co 1 sekundę. Na papierze narysowałem schemat wyświetlacza i obliczyłem kombinacje liczb dla wszystkich potrzebnych znaków ( 0,1,2,3,4,5,6,7,8,9, ,-,=, <animacja obrotu>).
+Informacja o stanie w jakim znajduje się urządzenie będzie przekazywana za pomocą prostego wyświetlacza 7 segmentowego. Ponieważ będzie to zamek zastosuje również dwukolorową diodę (czerwony/zielony). Pierwszym krokiem jest wysterowanie wyświetlaczem. Ponieważ sterowanie takim wyświetlaczem jest bardzo proste, wyprowadzenia odpowiednich segmentów podłączyłem w sposób zupełnie losowy do portu C. Następnie na mikrokontrolerze uruchomiłem prosty program ustawiający po kolei wszystkie piny portu C co 1 sekundę. Na papierze narysowałem schemat wyświetlacza i obliczyłem kombinacje liczb dla wszystkich potrzebnych znaków ( 0,1,2,3,4,5,6,7,8,9, ,-,=, animacja obrotu).
 
 ```
 // Tablica znaków 7 seg
@@ -295,4 +295,4 @@ int main()
 
 ## Upgrade
 
-W projekcie można by zmienić kilka rzeczy. Po pierwsze zamek nie otwiera niczego, w kodzie jest komentarz w którym momencie można włączyć np. przekaźnik. Ponieważ zawieszenie się programu (które może zostać spowodowane np. zakłóceniami) spowodowałoby odcięcie możliwości otwarcia zatrzasku sterowanego przez ten zamek szyfrowy dobrym pomysłem byłoby zaimplementowanie [[integra:warsztaty:w0b#Watchdog|watchdoga]]. Porogram nie jest optymalny, niektóre zmienne można zupełnie wyeliminować (czy zauważysz które?). 
+W projekcie można by zmienić kilka rzeczy. Po pierwsze zamek nie otwiera niczego, w kodzie jest komentarz w którym momencie można włączyć np. przekaźnik. Ponieważ zawieszenie się programu (które może zostać spowodowane np. zakłóceniami) spowodowałoby odcięcie możliwości otwarcia zatrzasku sterowanego przez ten zamek szyfrowy dobrym pomysłem byłoby zaimplementowanie watchdoga. Porogram nie jest optymalny, niektóre zmienne można zupełnie wyeliminować (czy zauważysz które?). 

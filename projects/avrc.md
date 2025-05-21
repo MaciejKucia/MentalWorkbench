@@ -15,10 +15,15 @@ layout: "base.njk"
 * [03 Przyciski, podstawowe przerwania](/projects/avrc/art/0x03)
 * [04 Przetwornik ADC i komparator](/projects/avrc/art/0x04)
 * [05 Fusebity, biblioteka avr-libc](/projects/avrc/art/0x05)
+* [06 Układy czasowe](/projects/avrc/art/0x06)
+* [07 UARTc](/projects/avrc/art/0x07)
+* [08 PROGMEM](/projects/avrc/art/0x08)
+* [10 EEPROM](/projects/avrc/art/0x0a)
 
 ## Miniprojekty
 
 * [00 Zamek szyfrowy z tarczą numeryczną](/projects/avrc/mp/mp0)
+* [Przejściówka IDC10](/projects/avrc/mp/przejsciowka)
 
 ## Wyprowadzenia
 
@@ -38,8 +43,7 @@ Dyrektywa ta służy do poinformowania wszelakich makr i podprogramów w naszym 
 
 ## Pozostałe
 
-* [Tabele z elementami oraz parametry elementów. (Zakupy grupowe 2012)](/projects/avrc/zestaw2011)
+* [Tabele z elementami oraz parametry elementów. (Zakupy grupowe 2012)](/projects/avrc/zestaw2012)
 * [Tabela z elementami oraz parametry elementów. (Zakupy grupowe 2011)](/projects/avrc/zestaw2011)
 * **[Programator AVRISP-MKII Clone](/projects/avrc/programator)**
-
 * [Dodatki](/projects/avrc/dodatki)
