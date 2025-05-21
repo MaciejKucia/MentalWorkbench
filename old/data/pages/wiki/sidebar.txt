@@ -1,3 +1,0 @@
-  * [[::start|Start]]
-  * **[[::projects|Projects]]**
-  * [[pl:start|Old Polish section]]
