@@ -8,7 +8,7 @@ layout: "base.njk"
 * [Programming AVR with ADA programming language](/projects/avrada)
 * [Evalbot Chronos USB Control](/projects/evalbotusbdrive)
 * [Robot gripper design](/media/gripper.pdf) (in Polish)
-* [Sensor fusion](/projects/GY-80)
+* [Sensor fusion](/projects/gy80)
 * [RFID booster pack](/projects/rfid) 
 * [sprog - simple serial AVR bootloader](/projects/sprog)  (in Polish)
 * [Small factor USB programmer for Atmel AVRs](/projects/avrprogrammer)
