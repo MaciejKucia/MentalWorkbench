@@ -4,12 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <title>{{ title }}</title>
-    <meta name="generator" content="DokuWiki" />
+    <meta name="generator" content="Eleventy" />
     <meta name="theme-color" content="#008800" />
     <meta name="robots" content="index,follow" />
     <meta name="keywords" content="{{ page.fileSlug }}" />
-    <link rel="canonical" href="https://wiki.kucia.net/" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="canonical" href="https://kucia.net/" />
+    <link rel="stylesheet" href="/style.css" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 </head>
 
@@ -20,7 +20,7 @@
                 <div class="pad group">
                     <div class="headings group">
                         <h1 class="logo"><a href="{{ this.page.url }}" accesskey="h" title="{{ this.page.fileSlug }}">
-                            <img src="logo.png" width="64" height="64" alt="" />
+                            <img src="/logo.png" width="64" height="64" alt="" />
                             <span>Matt Kucia</span></a>
                         </h1>
                         {# <p class="claim">Impossible is easy</p> #}
@@ -29,7 +29,8 @@
                         <div class="trace">
                             <span class="bchead">Trace:</span>
                             <span class="bcsep">•</span>
-                            <span class="curid"><bdi><a href="{{ page.url }}" class="breadcrumbs" title="start">Welcome to my wiki</a></bdi></span></div>
+                            <span class="curid"><bdi><a href="{{ page.url }}" class="breadcrumbs" title="start">Welcome to my wiki</a></bdi></span>
+                        </div>
                     </div>
                     <hr class="a11y" />
                 </div>
@@ -41,13 +42,13 @@
                             <div class="group">
                                 <ul>
                                     <li class="level1">
-                                        <div class="li"> <a href="{{ page.url }}" class="wikilink1" title="start" data-wiki-id="start">Start</a></div>
+                                        <div class="li"> <a href="/" class="wikilink1" title="start" data-wiki-id="start">Start</a></div>
                                     </li>
                                     <li class="level1">
-                                        <div class="li"> <strong><a href="/doku.php?id=projects" class="wikilink1" title="projects" data-wiki-id="projects">Projects</a></strong></div>
+                                        <div class="li"> <strong><a href="/projects" class="wikilink1" title="projects" data-wiki-id="projects">Projects</a></strong></div>
                                     </li>
                                     <li class="level1">
-                                        <div class="li"> <a href="{{ page.url }}" class="wikilink1" title="pl:start" data-wiki-id="pl:start">Old Polish section</a></div>
+                                        <div class="li"> <a href="/pl" class="wikilink1" title="pl:start" data-wiki-id="pl:start">Old Polish section</a></div>
                                     </li>
                                 </ul>
                             </div>
