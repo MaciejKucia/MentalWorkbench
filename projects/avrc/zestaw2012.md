@@ -1,0 +1,51 @@
+---
+title: Zestaw z roku 2012
+layout: "base.njk"
+---
+
+====== Zestaw z roku 2012 ======
+====== Tabela elementów ======
+====== Lista elementów ======
+===== Programator =====
+
+Do podziału pomiędzy wszystkich:
+  * Pasta lutownicza [[http://lispol.com/p/250/EASY%20PRINT%20Sn62/Pb36/Ag2%208g| 8[mg] 9.90 ]]
+
+^ Element ^ Wartość ^ Opis ^ Cena/szt [PLN] ^
+| | PCB | Płytki kupione przez Michała | 3 |  
+| IC1 | AT90USB162 | Mikrokontroler | 12.00 (sklep w Krk) |
+| USB | - | Pola lutownicze do podłączenia przewodu USB | - |
+| F1  | 500 [mA] | Bezpiecznik polimerowy | ((Trudno kupić zastępujemy zworką SMD)) 1 x 0.025 (1/10)((Najmniejsza możliwa ilość do kupienia to 10 sztuk))|
+| R1 R2 | 22 [Ω] | Rezystory linii USB | [[http://lispol.com/c/100400000/Rezystory/SMD| 2 x 0.025]] |
+| C1 | 1 [uF] | Kondensator stabilizatora napięcia 3V3 ((Dla modułu USB układu)) | [[http://lispol.com/p/1469/Kon.%20tantalowy%20SMD-A%201uF/25V| 1 x 0.26]](1/10) |
+| C3 C4 | 33 [pF] | Kondensatory oscylatora | [[http://lispol.com/p/1339/Kondensator%20SMD1206%2033pf/63V%20NPO| 2 x 0.08 ]](1/10) |
+| Y1 | 16 [MHz] | Oscylator kwarcowy | [[http://lispol.com/p/57/Kwarc%2016.000MHz%20-%20SMD%20U70SMD| 1 x 0.7]] |
+| C2 | 100 [nF] | Kondensator szyny zasilania | [[http://lispol.com/p/392/Kondensator%20SMD0805%20100nf/50V%20Y5V| 1 x 0.05 ]](1/10) |
+| C5 | 10 [uF] | Kondensator szyny zasilania | [[http://lispol.com/p/1467/Kon.%20tantalowy%20SMD-B%2010uF/16V| 1 x 0.28]](1/10) |
+| R3 | 1 [kΩ] | Rezystor ustalający stan nieaktywny (wysoki) na sygnale reset uC | 1 x 0.025 (1/10) |
+| R4 | 1 [kΩ] | Rezystor ustalający stan nieaktywny (wysoki) na sygnale hardware bootloader uC | 1 x 0.025 (1/10) |
+| R5 R6 | 220 [Ω] | Rezystory ograniczające prądy w diodach sygnalizacyjnych | 2 x 0.025 (1/10) |
+| LED1 | - | Diody sygnalizacyjne (red) | [[http://lispol.com/p/1751/Dioda%20LED%20smd1206%20czerwona| 1 x 0.18 ]](1/10) |
+| LED2 | - | Diody sygnalizacyjne (green) | [[http://lispol.com/p/1783/Dioda%20LED%20smd1206%20zielona| 1 x 0.20 ]](1/10) |
+| | | Elementy złączne i osprzęt | 1 x 1.50 |
+| | 10 [cm] | Przewody | [[http://lispol.com/p/1625/Przew%C3%B3d%20ta%C5%9Bmowy%2012%C5%BCy%C5%82%20kolor| 1x 0.26]](1/10) |
+^  Suma: ^^^ ~ 19 ^
+
+==== Zestaw ====
+^Nazwa ^Cena [PLN] ^
+| [[http://lispol.pl/p/1442/Prototypowa%20p%C5%82ytka%20stykowa%20830%20p%C3%B3l|Płytka stykowa]] | 12.00 | 
+| [[http://lispol.pl/p/1600/Mikrokontroler%20AVR,%20DIP28|ATmega8A]] | 5.60 |
+| [[http://lispol.pl/p/364/Kon.%20ceramiczny%20100nF/50V%20r5.08|Kondensatory ceramiczne 100n]] | 0.50 (10 pcs) |
+| [[http://lispol.pl/p/1158/Kon.%20elektrolityczny%20220uF/16V%206x11%20105C|Kondensatory elektrolityczne 220u]] | 0.20 |
+| [[http://lispol.pl/p/1895/Tact%20Switch%206x6mm,%20h=8.0mm|Mikroswitche]] | 1.80 (10 pcs) |
+| [[http://allegro.pl/lispol-diody-led-5mm-czerwone-100szt-i2163799915.html|LEDy]] | 0.62 (10 pcs) |
+| [[http://lispol.pl/p/115/Potencjometr%20monta%C5%BCowy%20le%C5%BC%C4%85cy%20470R|Potencjometr 470R]] | 0,20 |
+| [[http://lispol.pl/p/1494/Przew%C3%B3d%20skr%C4%99tka%20drut%20UTP%20CCA%20szary|Skrętka na przewody]] | 0.08 [10cm] |
+| [[http://lispol.pl/p/1136/Dioda%20LED%205mm%20RGB,%20wsp.%20anoda|LED RGB]] | 1.00 |
+| [[http://allegro.pl/lispol-rezystory-1-8w-1500szt-hit-cenowy-i2176202339.html| Zestaw rezystorów ]]| 1.50 |
+^ Suma ^ 23.50 ^
+
+** Szacowana suma zestawu: 43 PLN **
+Oprócz ww. elementów każdy musi znaleźć sobie przewód USB (dowolny podłączalny do komputera).
+====== Parametry ======
+
