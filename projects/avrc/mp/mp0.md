@@ -3,19 +3,22 @@ title: Zamek szyfrowy z tarczą telefoniczną
 layout: "base.njk"
 ---
 
-====== Zamek szyfrowy z tarczą telefoniczną ======
-
+## Zamek szyfrowy z tarczą telefoniczną
 
 Projekt ten ma na celu pokazanie jak powinno się realizować mały projekt.
 
-====== Założenia ======
+## Założenia
+
 Bardzo ważna jeżeli nie najważniejsza część, zauważyłem że bardzo często wręcz pomijana przez kolegów. Jak można pracować nie wiedząc o się chce zrobić? W założeniach powinny się znaleźć:
+
   * Cel
   * Wymagania
   * Dostępne środki (koszty i czas)
+
 Wypisując założenia warto zaczynać od najważniejszych zagadnień. Planując projekt trzeba pamiętać o własnych umiejętnościach, dostępnych narzędziach i zasobach. Urządzenie które chcemy zrealizować musi mieć wstępną specyfikację, im dokładniejsza tym lepiej. Budując urządzenie należy przestrzegać technicznej zasady: jak najlepiej jak najmniejszym kosztem (optymalnie).
 
 W moim przypadku założenia wyglądają tak:
+
  Projekt zamka szyfrowego
   * Chcę zrealizować zamek szyfrowy
   * Wprowadzanie kombinacji jest realizowane za pomocą tarczy telefonicznej
@@ -24,25 +27,35 @@ W moim przypadku założenia wyglądają tak:
   * Czas wykonania: 2 dni
   * Funkcja edukacyjna
 
-====== Projektowanie ======
+## Projektowanie
+
 Kiedy już wiadomo co się chce zrobić trzeba zastanowić się jak to zrobić. 
-===== Wyświetlacz =====
+
+### Wyświetlacz
+
 Informacja o stanie w jakim znajduje się urządzenie będzie przekazywana za pomocą prostego wyświetlacza [[integra:elem#Wyświetlacze_7_segmentowe|7 segmentowego]]. Ponieważ będzie to zamek zastosuje również dwukolorową diodę (czerwony/zielony). Pierwszym krokiem jest wysterowanie wyświetlaczem. Ponieważ sterowanie takim wyświetlaczem jest bardzo proste, wyprowadzenia odpowiednich segmentów podłączyłem w sposób zupełnie losowy do portu C. Następnie na mikrokontrolerze uruchomiłem prosty program ustawiający po kolei wszystkie piny portu C co 1 sekundę. Na papierze narysowałem schemat wyświetlacza i obliczyłem kombinacje liczb dla wszystkich potrzebnych znaków ( 0,1,2,3,4,5,6,7,8,9, ,-,=, <animacja obrotu>).
-<code c>// Tablica znaków 7 seg
+
+```
+// Tablica znaków 7 seg
 const char chartab[] = {252,144,234,186,150,
 			62,126,152,254,190,
 			0,
 			2,114,
-			8,128+8,16+8+128,32+8+16+128,64+32+8+16+128,4+64+32+8+16+128};</code> W ostatniej linijce tablicy widać jak zostały utworzone kolejne znaki: poprzez dodawanie liczb odpowiadających konkretnym segmentom. Powyższy kod jest poprawny tylko dla pewnej **nieokreślonej** konfiguracji połączeń, każdy musi stożyć tablicę odpowiadającą jego połączeniom. Uprościłem również sposób ograniczania prądu diod w wyświetlaczu, rezystory ograniczające prąd są wpięte pomiędzy katody a masę. Rozwiązanie takie powoduje zmianę jasności segmentów w zależności od tego ile ich jest używanych równocześnie.
+			8,128+8,16+8+128,32+8+16+128,64+32+8+16+128,4+64+32+8+16+128};
+```
+			
+W ostatniej linijce tablicy widać jak zostały utworzone kolejne znaki: poprzez dodawanie liczb odpowiadających konkretnym segmentom. Powyższy kod jest poprawny tylko dla pewnej **nieokreślonej** konfiguracji połączeń, każdy musi stożyć tablicę odpowiadającą jego połączeniom. Uprościłem również sposób ograniczania prądu diod w wyświetlaczu, rezystory ograniczające prąd są wpięte pomiędzy katody a masę. Rozwiązanie takie powoduje zmianę jasności segmentów w zależności od tego ile ich jest używanych równocześnie.
 
-===== Tarcza =====
+## Tarcza
 
 Tarcze telefoniczną dostałem od kolegi. Posiada ona 3 wyprowadzenia. Po odkręceniu tylnej obudowy ukazał się skomplikowany układ mechaniczny. Jeden z przewodów był przewodem wspólnym dla 2 styków. Tarcza generuje 2 sygnały:
   * Impulsy wybieranego numeru
   * Ciągły sygnał aktywny w momencie obracania się tarczy
 
 Początkowo planowałem wykorzystanie obu sygnałów, jednak zrezygnowałem z drogiego ponieważ same impulsy wystarczą do poprawnego odczytu stanu tarczy. Elektrycznie przewód wspólny jest podłączony do dodatniej szyny zasilania natomiast przewód sygnału impulsów jest podciągnięty pod masę przez rezystor 10k. Zastosowałem również kondensator 100nF podłączony pomiędzy linią sygnału a masą w celu debouncingu styków tarczy.
-===== Stany =====
+
+## Stany
+
 Następnym krokiem jest zaprojektowanie zachowania programu, rozrysowałem stany w jakich może się znajdować program.\\
 
 :pl:avrc:art:tarcza_stany.png?400|\\
@@ -55,14 +68,16 @@ Urządzenie po resecie i inicjalizacji peryferiów wchodzi do punktu Reset gdzie
   * Locked pattern - wszystkie cyfry kombinacji zostały wprowadzone
   * Fail - cyfry kombinacji nie zgadzają się z zaszytym wzorem
   * Success - cyfry kombinacji zgadzają się z wzorem
+
 Schemat pozwala zaplanować logiczne przejścia i możliwe stany urządzenia. 
 
-====== Schemat ideowy ======
+## Schemat ideowy
 
 :pl:avrc:art:tarcza_zamek.png?nolink&800|\\
 
 Na schemacie nie zaznaczyłem kondensatorów na szynie zasilania.
-====== Program ======
+
+## Program
 
 ```
 #include "avr/interrupt.h"
@@ -278,6 +293,6 @@ int main()
 }
 ```
 
-====== Upgrade ======
+## Upgrade
 
 W projekcie można by zmienić kilka rzeczy. Po pierwsze zamek nie otwiera niczego, w kodzie jest komentarz w którym momencie można włączyć np. przekaźnik. Ponieważ zawieszenie się programu (które może zostać spowodowane np. zakłóceniami) spowodowałoby odcięcie możliwości otwarcia zatrzasku sterowanego przez ten zamek szyfrowy dobrym pomysłem byłoby zaimplementowanie [[integra:warsztaty:w0b#Watchdog|watchdoga]]. Porogram nie jest optymalny, niektóre zmienne można zupełnie wyeliminować (czy zauważysz które?). 

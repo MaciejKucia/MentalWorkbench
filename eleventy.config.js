@@ -9,5 +9,6 @@ export default async function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("projects/**/*.jpg");
 	eleventyConfig.addPassthroughCopy("projects/**/*.png");
 	eleventyConfig.addPassthroughCopy("projects/**/*.svg");
+	eleventyConfig.addPassthroughCopy("projects/**/*.gif");
 	eleventyConfig.addPassthroughCopy("media/**/*");
 };
