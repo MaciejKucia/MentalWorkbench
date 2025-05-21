@@ -18,7 +18,7 @@ Obecnie popularne programatory posiadają następujące wady:
 Oraz co najgorsze:
   * Wymagają innego programatora do uruchomienia!
 
-Kod programatora opiera się na projekcie wchodzącym w skład pakietu LUFA((Lightweight USB Framework for AVRs by Dean Camera)): <http://www.fourwalledcubicle.com/AVRISP.php> Natomiast płytka została zaprojektowana przeze mnie.
+Kod programatora opiera się na projekcie wchodzącym w skład pakietu LUFA((Lightweight USB Framework for AVRs by Dean Camera)): <https://web.archive.org/web/20241108081242/http://www.fourwalledcubicle.com/AVRISP.php> Natomiast płytka została zaprojektowana przeze mnie.
 
 ## Zalety tego programatora
 
@@ -93,7 +93,7 @@ Kod programatora opiera się na projekcie wchodzącym w skład pakietu LUFA((Lig
 1. Ściągamy potrzebne narzędzia:
 
 * [Najnowsze libUSB-win](http://sourceforge.net/apps/trac/libusb-win32/wiki)
-* [Najnowszy pakiet LUFA](http://www.fourwalledcubicle.com/LUFA.php) (wymaga modyfikacji)
+* [Najnowszy pakiet LUFA](https://web.archive.org/web/20241108081242/http://www.fourwalledcubicle.com/LUFA.php) (wymaga modyfikacji)
 * [Narzędzie Atmel FLIP](http://www.atmel.com/dyn/products/tools_card.asp?tool_id=3886) lub [[http://dfu-programmer.sourceforge.net/|DFU-programmer]] pod Linuksem
 * (Dodatkowo) [USBView](http://www.ftdichip.com/Support/Utilities.htm)
 

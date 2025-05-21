@@ -50,8 +50,8 @@ Jeżeli którykolwiek z wyjściowych tranzystorów jest aktywny, napięcie na ws
 
 ![alt](/projects/open_collector_5.svg)
 
-* Sygnał przechodzi przez dwa bufory z wyjściami OC, połączenie przewodów (kropka) zastępuje bramkę AND \(Y=A \cdot B\)
-* Sygnał przechodzi przez dwa inwertery z wyjściami OC, połączenie przewodów zastępuje brankę OR \(Z= \bar C \vee \bar D\)
+* Sygnał przechodzi przez dwa bufory z wyjściami OC, połączenie przewodów (kropka) zastępuje bramkę AND \\( Y=A \cdot B \\)
+* Sygnał przechodzi przez dwa inwertery z wyjściami OC, połączenie przewodów zastępuje brankę OR \\(Z= \bar C \vee \bar D\\)
 
 ## Źródła
 
