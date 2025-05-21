@@ -1,4 +1,5 @@
-<code=ADA>--  AVR Studio 5 Device definition XML to ADA processor
+```ada
+--  AVR Studio 5 Device definition XML to ADA processor
 --  Krakow 2012
 --
 --  Copyright (C) 2012 Maciej Kucia
@@ -142,4 +143,4 @@ exception
       Put_Line(Ada.Exceptions.Exception_Message(e));
       Put_Line(Ada.Exceptions.Exception_Information(e));
 end Main;
-</code>
+```

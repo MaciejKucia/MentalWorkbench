@@ -1,4 +1,5 @@
-<code=ADA>with Interfaces; use Interfaces;
+```ada
+with Interfaces; use Interfaces;
 with System;
 
   -- architecture = AVR8
@@ -1950,4 +1951,4 @@ package AVR.ATmega2560 is
 
 
 end AVR.ATmega2560;
-</code>
+```

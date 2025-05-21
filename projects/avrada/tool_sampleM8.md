@@ -1,4 +1,5 @@
-<code=ADA>with Interfaces; use Interfaces;
+```ada
+with Interfaces; use Interfaces;
 with System;
 
   -- architecture = AVR8
@@ -752,4 +753,4 @@ package AVR.ATmega8 is
 
 
 end AVR.ATmega8;
-</code>
+```

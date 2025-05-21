@@ -1,48 +1,56 @@
-====== Programming AVR with ADA programming language ======
+# Programming AVR with ADA programming language
 
 
-The purpose of this page is to provide information on building and running embedded software on [[http://www.atmel.com/products/microcontrollers/avr/default.aspx|Atmel AVR]] family devices using [[wp>Ada_(programming_language)|Ada programming language]]. Some information can be obtained in sourceforge project [[http://sourceforge.net/projects/avr-ada/|AVR-Ada]]. Unfortunately AVR-Ada project is no longer being developed. [[wp>AdaCore|AdaCore]], the company maintaining GNAT compiler recently released [[wp>Cross_compiler|cross compiler]] version of GNAT for AVR. All tools are cross-platform, if binaries are not available they can be compiled to run on any platform as sources are attainable to download.
+The purpose of this page is to provide information on building and running embedded software on [Atmel AVR](http://www.atmel.com/products/microcontrollers/avr/default.aspx) family devices using [Ada programming language](https://en.wikipedia.org/wiki/Ada_(programming_language)). Some information can be obtained in sourceforge project [AVR-Ada](http://sourceforge.net/projects/avr-ada/). Unfortunately AVR-Ada project is no longer being developed. [AdaCore](https://pl.wikipedia.org/wiki/AdaCore), the company maintaining GNAT compiler recently released [cross compiler](https://en.wikipedia.org/wiki/Cross_compiler) version of GNAT for AVR. All tools are cross-platform, if binaries are not available they can be compiled to run on any platform as sources are attainable to download.
 
 January 2012
 
-===== Software =====
-To start writing embedded code in Ada, several software packages are required:
-  * [[http://libre.adacore.com/libre/download2?config=avr-elf-windows&version=2011#|GNAT AVR]] 
-  * AdaCore GPS (part of GNAT AVR package)
-  * [[http://sourceforge.net/projects/winavr/|WinAVR]] GNU gcc tools and libraries for AVR
-  * [[http://www.atmel.com/tools/ATMELAVRSTUDIO5_0.aspx|Atmel AVR Studio 5]] (Only for device XML description file)
+## Software
 
-===== CRT - C Run-Time Library =====
-Usually programs written in Ada comes with extensive run-time library. In embedded environment especially such low-end as in AVR8 platform, memory cost of such RTL is very high. Additionally there's no OS and [[wp>Hardware_abstraction_layer|HAL]]. In embedded world initialization code is device-specific and CRT((C Run-Time Library)) must consist: 
+To start writing embedded code in Ada, several software packages are required:
+  * [GNAT AVR](http://libre.adacore.com/libre/download2?config=avr-elf-windows&version=2011#)
+  * AdaCore GPS (part of GNAT AVR package)
+  * [WinAVR](http://sourceforge.net/projects/winavr/) GNU gcc tools and libraries for AVR
+  * [Atmel AVR Studio 5](http://www.atmel.com/tools/ATMELAVRSTUDIO5_0.aspx) (Only for device XML description file)
+
+## CRT - C Run-Time Library
+
+Usually programs written in Ada comes with extensive run-time library. In embedded environment especially such low-end as in AVR8 platform, memory cost of such RTL is very high. Additionally there's no OS and [HAL](https://pl.wikipedia.org/wiki/Warstwa_abstrakcji_sprz%C4%99towej). In embedded world initialization code is device-specific and CRT((C Run-Time Library)) must consist:
+
   * Program entry point
   * Vector table
   * Stack initialization
   * Global variables initialization
-AdaCore provides sample initialization code written in assembler for ATmega2560. Instead of writing code for other chips it is easier (and safer) to use CRT code from WinAvr. Compiled CRT files can be found in ''\avr\lib\'' subdirectory of WinAvr distribution. For example: AtMega8 uses following file: ''\avr\lib\avr4\crtm8.o''. It is advised to compile WinAvr rather than using pre-compiled files.
 
-===== Device specyfication package =====
+AdaCore provides sample initialization code written in assembler for ATmega2560. Instead of writing code for other chips it is easier (and safer) to use CRT code from WinAvr. Compiled CRT files can be found in `\avr\lib\` subdirectory of WinAvr distribution. For example: AtMega8 uses following file: `\avr\lib\avr4\crtm8.o`. It is advised to compile WinAvr rather than using pre-compiled files.
+
+## Device specyfication package
+
 Each AVR device has a number of internal peripherals and registers associated with them. Registers are located at various memory locations specific to the type of the device. AdaCore provides tool (avr_gen) for generating Ada package based on Atmel XML device specification files, but only in redundant AVRStudio 4 format. I rewritten similar tool which works with current device specification format (AVRStudio 5). Please note that tool is designed to work with AVR8 device description files (using it with AVR32 and Xmega families will require modifications).
 
-  * [[:projects:avrada:tool_src|Source]]
-  * {{:projects:avrada:avr_gen_avrs5.zip|Windows binaries}}
-  * [[:projects:avrada:tool_sampleM8|Sample output file for AtMega8]]
-  * [[:projects:avrada:tool_sampleM2560|Sample output file for AtMega2560]]
+  * [Source](/projects/avrada/tool_src)
+  * [Windows binaries](/media/avrada/avr_gen_avrs5.zip)
+  * [Sample output file for AtMega8](/projects/avrada/tool_sampleM8)
+  * [Sample output file for AtMega2560](/projects/avrada/tool_sampleM2560)
 
 To build this tool following software is required:
 
   * GNAT x86 (for your OS)
-  * XMLAda (Both software packages are available on [[http://libre.adacore.com]])
+  * XMLAda (Both software packages are available on <http://libre.adacore.com>)
 
 To build device specification package:
   - Build or unzip tool
-  - Copy device specification file from ''<Program Files>\Atmel\AVR Studio 5.0\devices\'' into tool directory
-  - Run ''main device.xml >avr-device.ads'' where ''device'' is changed into appropriate name. Ex: ''main atmega8.xml >avr-atmega8.ads''
-===== Makefile =====
-When all required files and tools are installed, machine code can be compiled using ''avr-gnatmake'' tool. It's handy to keep compilation and programming scripts in makefile and invoke them using ''make''.
+  - Copy device specification file from `<Program Files>\Atmel\AVR Studio 5.0\devices\` into tool directory
+  - Run `main device.xml >avr-device.ads` where `device` is changed into appropriate name. Ex: `main atmega8.xml >avr-atmega8.ads`
+
+## Makefile
+
+When all required files and tools are installed, machine code can be compiled using `avr-gnatmake` tool. It's handy to keep compilation and programming scripts in makefile and invoke them using `make`.
 
 Sample makefile for AtMega8 is:
 
-<code=makefile>all: main.hex main.lss sizedummy
+```makefile
+all: main.hex main.lss sizedummy
 
 program:
 	avrdude -pm8 <PROGRAMMER SPECIFIC> -Uflash:w:"main.hex"
@@ -61,33 +69,40 @@ sizedummy: main.elf
 
 clean:
 	$(RM) *.o leds  *.ihex *.ali *.elf *.hex *.lss *.map
-</code>
+```
+
 The most important line is:
-<code>avr-gnatmake main -o $@ -Os -mmcu=avr4 --RTS=zfp -largs crtm8._o -nostdlib -lgcc -mavr4 -Tdata=0x00800200</code>
-  * ''-Os'' turns on size optimization  
-  * ''--RTS=zfp'' sets Ada RTL to 'Zero FootPrint' 
-  * ''-mmcu=avr4'' and ''-mavr4'' sets device architecture to avr4 (AtMega8 specific, change for other devices)
-  * ''-largs'' allows passing arguments to linker
-  * ''crtm8._o'' forces linker to link Ada code with CRT. Please note that the **file extension was changed** from ''.o'' to ''._o'', if the extension remained unchanged file would be **removed** when using ''make clean''
-  * ''-nostdlib'' forces linker not to attach any libraries by itself
-  * ''-lgcc'' required when using ''-nostdlib'', allows resolving reference to procedure ''main''
-  * ''-Tdata=0x00800200'' sets data code section to appropriate address
-===== Setting up GPS =====
+
+```avr-gnatmake main -o $@ -Os -mmcu=avr4 --RTS=zfp -largs crtm8._o -nostdlib -lgcc -mavr4 -Tdata=0x00800200```
+
+  * `-Os` turns on size optimization  
+  * `--RTS=zfp` sets Ada RTL to 'Zero FootPrint' 
+  * `-mmcu=avr4` and `-mavr4` sets device architecture to avr4 (AtMega8 specific, change for other devices)
+  * `-largs` allows passing arguments to linker
+  * `crtm8._o` forces linker to link Ada code with CRT. Please note that the **file extension was changed** from `.o` to `._o`, if the extension remained unchanged file would be **removed** when using `make clean`
+  * `-nostdlib` forces linker not to attach any libraries by itself
+  * `-lgcc` required when using `-nostdlib`, allows resolving reference to procedure `main`
+  * `-Tdata=0x00800200` sets data code section to appropriate address
+
+## Setting up GPS
+
 GPS (GNAT Programming Studio) is an editor maintained by AdaCore and it's default editor for software written in Ada. If makefile is present it is easy to use it to develop embedded software in Ada.
-  - Select ''Build->Settings->Targets''
-  - Select ''Run->Run Main'' and change ''Target model'' to ''make''
-  - Select ''Clean->Clean All'' and change ''Target model'' to ''make''
-  - Assure that command in text box is ''make clean''
-  - Select ''Project->Build *'' and change ''Target model'' to ''make''
-  - Assure that command in text box is ''make all''
+  - Select `Build->Settings->Targets`
+  - Select `Run->Run Main` and change `Target model` to `make`
+  - Select `Clean->Clean All` and change `Target model` to `make`
+  - Assure that command in text box is `make clean`
+  - Select `Project->Build *` and change `Target model` to `make`
+  - Assure that command in text box is `make all`
   - Now code can be generated and run just like in any other Ada project.
-===== Useful code samples =====
+
+## Useful code samples
 Following code samples are written and tested for ATmega8 device.
 
+### Lighting LED
 
-==== Lighting LED ====
 Assuming LED anode is connected to AtMega8 PORTB pin 0 and cathode is connected to the power rail trough appropriate resistor.
-<code=Ada>
+
+```
 with Interfaces; use Interfaces;
 with AVR.AtMega8; use AVR.AtMega8;
 
@@ -116,11 +131,14 @@ begin
    loop end loop;
 
 end Main;
+```
 
-</code>
-==== Using interrupts ====
+### Using interrupts
+
 avr-interrupts.adb
-<code=ADA>-- AVR ATMEGA8 - Interrupts
+
+```
+-- AVR ATMEGA8 - Interrupts
 -- Maciej Kucia Krakow 2012
 -- MIT/X11 license 
 
@@ -139,9 +157,12 @@ package body AVR.Interrupts is
    end Disable;
 
 end AVR.Interrupts;
-</code>
+```
+
 avr-interrupts.ads
-<code=ADA>-- AVR ATMEGA8 - Interrupts
+
+```
+-- AVR ATMEGA8 - Interrupts
 -- Maciej Kucia Krakow 2012
 -- MIT/X11 license
 
@@ -157,11 +178,14 @@ private
    pragma Inline(Enable);
 
 end AVR.Interrupt;
-</code>
-==== Buffered interrupt driven UART ====
+```
+
+### Buffered interrupt driven UART
 
 avr-uart.ads
-<code=ada>with Interfaces; use Interfaces;
+
+```
+with Interfaces; use Interfaces;
 with AVR.strings; use AVR.strings;
 with System;
 
@@ -202,10 +226,13 @@ private
       Line            : Integer);
    pragma Export (C, Last_Chance_Handler, "__gnat_last_chance_handler");
 
-end AVR.UART; </code>
+end AVR.UART;
+```
 
 avr-uart.adb
-<code=ada>with System.Machine_Code; use System.Machine_Code;
+
+```
+with System.Machine_Code; use System.Machine_Code;
 with AVR.atmega8; use AVR.atmega8;
 with AVR.strings; use AVR.strings;
 with AVR.Interrupt;
@@ -419,12 +446,18 @@ package body AVR.UARTis
      -- error handling here
    end Last_Chance_Handler;
 
-end AVR.UART;</code>
+end AVR.UART;
+```
 
 Example:
-<code=ada>with AVR.UART; use AVR.UART;</code>
-==== Storing strings in program memory ====
-<code=ADA>-- AVR ATMEGA8 - Strings
+```
+with AVR.UART; use AVR.UART;
+```
+
+### Storing strings in program memory
+
+```
+-- AVR ATMEGA8 - Strings
 -- Maciej Kucia Krakow 2012
 -- 
 
@@ -447,11 +480,14 @@ package AVR.strings is
    pragma Linker_Section (Flash_String2, ".progmem");
 
 end AVR.strings;
-</code>
+```
 
-==== Timer0 PWM ====
+### Timer0 PWM
+
 avr-timer0pwm.ads
-<code=ada>with Interfaces; use Interfaces;
+
+```
+with Interfaces; use Interfaces;
 
 package AVR.TIMER0PWM is
 
@@ -465,10 +501,13 @@ private
    pragma Inline(SetPWM);
    pragma Inline(InitPWM);
 
-end AVR.TIMER0PWM; </code>
+end AVR.TIMER0PWM;
+```
 
 ada-timer0pwm.adb
-<code=ada>with AVR.AtMega8; use AVR.AtMega8;
+
+```
+with AVR.AtMega8; use AVR.AtMega8;
 
 package body AVR.TIMER0PWM is
 
@@ -489,12 +528,15 @@ package body AVR.TIMER0PWM is
       OCR1AL := val;
    end SetPWM;
 
-end AVR.TIMER0PWM; </code>
+end AVR.TIMER0PWM;
+```
 
-==== TWI interface ====
+### TWI interface
 
 avr-twi.ads
-<code=ada>package AVR.TWI is
+
+```
+package AVR.TWI is
 
    TW_READ  : constant := 1;
    TW_WRITE : constant := 0;
@@ -516,10 +558,13 @@ avr-twi.ads
 private
    pragma Inline_Always(Init);
 
-end AVR.TWI; </code>
+end AVR.TWI;
+```
 
 avr-twi.adb
-<code=ada>with AVR.AtMega8; use AVR.AtMega8;
+
+```
+with AVR.AtMega8; use AVR.AtMega8;
 with Environment;
 
 package body AVR.TWI is
@@ -636,12 +681,15 @@ package body AVR.TWI is
 
    end ReadNak;
 
-end AVR.TWI;</code>
+end AVR.TWI;
+```
 
-==== Watchdog ====
+### Watchdog
 
 avr-watchdog.ads
-<code=ada>package AVR.Watchdog is
+
+```
+package AVR.Watchdog is
 
    type Watchdog_Timeout is
      (
@@ -671,10 +719,13 @@ private
    pragma Inline_Always (Reset);
    pragma Inline_Always (Enable);
    pragma Inline_Always (Disable);
-end AVR.Watchdog;</code>
+end AVR.Watchdog;
+```
 
 avr-watchdog.adb
-<code=ada>with System.Machine_Code;  use System.Machine_Code;
+
+```
+with System.Machine_Code;  use System.Machine_Code;
 with AVR.AtMega8;          use AVR.AtMega8;
 
 package body AVR.Watchdog is
@@ -699,4 +750,5 @@ package body AVR.Watchdog is
       Asm ("wdr", Volatile => True);
    end Wdr;
 
-end AVR.Watchdog;</code>
+end AVR.Watchdog;
+```
