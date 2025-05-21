@@ -17,7 +17,7 @@ layout: "base.njk"
 * [USB CDC + Microsoft descriptors](/projects/winusb)
 * [Developing multi-platform USB applications with Qt](/projects/qtusb)
 * [Setting up wireless LAN in Sitara starter kit](/projects/emb_linux_StarterKit_wifi)
-* [Bitbucket Server Repository Pull Request Hook Plugin](/projects/bitbucket::pullrequestplugin)
+* [Bitbucket Server Repository Pull Request Hook Plugin](/projects/pullrequestplugin)
 
 ## Documentation
 

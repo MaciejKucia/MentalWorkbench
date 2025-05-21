@@ -1,15 +1,20 @@
-====== Bitbucket Server Repository Pull Request Hook Plugin ======
+# Bitbucket Server Repository Pull Request Hook Plugin
 
-{{ :projects:bitbucket:repopullrequest-pluginlogo.png?nolink|}}
+*This project, including source code is discontinued. It is simply not relevant to the up to date versions of Bitbucket*
 
-  * [[https://marketplace.atlassian.com/plugins/com.maciejkucia.atlasbbplugin.repopullrequest/server/overview|Atlassian Marketplace]]
-  * [[https://github.com/MaciejKucia/bitbucket-server-repopullrequest|Sources]]
+![alt](/projects/bitbucket/repopullrequest-pluginlogo.png)
 
-===== Planned features =====
+* [Atlassian Marketplace](https://marketplace.atlassian.com/plugins/com.maciejkucia.atlasbbplugin.repopullrequest/server/overview)
+* [Sources](https://github.com/MaciejKucia/bitbucket-server-repopullrequest)
+
+## Planned features
+
   * Multiple URLs
   * Support for HTTPS
   * Internationalization
-===== Introduction =====
+
+## Introduction
+
 The plugin provides the following functionality:
   * Notifying 3rd party services via REST interface about the changes in the project Pull Requests
   * Notification on:
@@ -25,56 +30,55 @@ The plugin provides the following functionality:
     * PUT
     * DELETE
 
-===== Usage =====
+## Usage
 
-==== Templating ====
+### Templating
+
 Several variables can be passed by the message URL or body. There is a special variable containing
 comma separated list of available variables: 
-''${all_keys}''
+`${all_keys}`
 
-{{:projects:bitbucket:bb_body_json.png?nolink|}}
+![alt](/projects/bitbucket/bb_body_json.png)
 
-==== Authorization ====
+### Authorization
+
 There is no dedicated field for authorization. One can add authorization header into 'headers'. 
 In such case the field will look like:
 
-{{:projects:bitbucket:bb_auth_headers.png?nolink|}}
+![alt](/projects/bitbucket/bb_auth_headers.png)
 
-Please visit [[wp>Basic_access_authentication|wikipedia]] to learn how to construct basic auth header.
+Please visit [wikipedia](https://en.wikipedia.org/wiki/Basic_access_authentication) to learn how to construct basic auth header.
 
 For Jenkins it is recommended to use 
-[[https://wiki.jenkins-ci.org/display/JENKINS/Build+Token+Root+Plugin|Build Token Root Plugin]]. 
+[Build Token Root Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Build+Token+Root+Plugin).
 It allows using anonymous request + build token (think of API key).
 
-===== Example 1 =====
+## Example 1 ##
   - Create Jenkins job "Bitbucket Capture"
-    - Add String Parameter ''ALL''
-    - Add Token ''BBBUILD'' in ''Build Triggers'' ''Trigger builds remotely (e.g., from scripts)''
+    - Add String Parameter `ALL`
+    - Add Token `BBBUILD` in `Build Triggers` `Trigger builds remotely (e.g., from scripts)`
   - Check if the job is working
     - Trigger job manually using your browser's private mode
-    - Enter the (appropriate to your setup) URL ''http://localhost:8080/buildByToken/buildWithParameters?token=BBBUILD&job=Bitbucket%20Capture&ALL=Hello''
+    - Enter the (appropriate to your setup) URL `http://localhost:8080/buildByToken/buildWithParameters?token=BBBUILD&job=Bitbucket%20Capture&ALL=Hello`
 
 Entering URL will take you to an empty page. Back in Jenkins you should see that the job was triggered and parameter is successfully passed:
 
-{{:projects:bitbucket:bb_example1_1.png?nolink|}}
-
-
   - Add more String Parameters to the Jenkins job:
-    - ''ACTION''
-    - ''PR_ID''
-    - ''REPO''
-    - ''PROJECT''
+    - `ACTION`
+    - `PR_ID`
+    - `REPO`
+    - `PROJECT`
   - Configure Bitbucket Server
     - Ensure that the plugin is installed.
     - Enter any repository Settings, then Hooks
-    - Enable ''Pull Request Hook''
-    - Enter URL ''http://localhost:8080/buildByToken/buildWithParameters?token=BBBUILD&job=Bitbucket%20Capture&ALL=${all_keys}&ACTION=${action}&PR_ID=${pr_id}&REPO=${repo}&PROJECT=${project}''
+    - Enable `Pull Request Hook`
+    - Enter URL `http://localhost:8080/buildByToken/buildWithParameters?token=BBBUILD&job=Bitbucket%20Capture&ALL=${all_keys}&ACTION=${action}&PR_ID=${pr_id}&REPO=${repo}&PROJECT=${project}`
     - Enable all triggers
     - Save
 
-{{:projects:bitbucket:bb_example1_4.png?nolink|}}
-{{:projects:bitbucket:bb_example1_3.png?nolink|}}
-{{:projects:bitbucket:bb_example1_5.png?nolink|}}
+![alt](/projects/bitbucket/bb_example1_1.png)
+![alt](/projects/bitbucket/bb_example1_3.png)
+![alt](/projects/bitbucket/bb_example1_5.png)
 
   - Test connection
     - Create pull request
@@ -82,12 +86,13 @@ Entering URL will take you to an empty page. Back in Jenkins you should see that
 
 After that you should notice that a new builds were run. Inspect those builds parameters.
 
-{{:projects:bitbucket:bb_example1_2.png?nolink|}}
+![alt](/projects/bitbucket/bb_example1_2.png)
 
-=== Extras ===
+#### Extras
 
-Jenkins job ''config.xml'':
-<code xml>
+Jenkins job `config.xml`:
+
+```
 <project>
   <actions/>
   <description/>
@@ -115,34 +120,37 @@ Jenkins job ''config.xml'':
   <publishers/>
   <buildWrappers/>
 </project>
-</code>
+```
 
+## Displaying Log
 
-===== Displaying Log =====
 There is a button in the configuration dialog that leads to a log. Communications are logged per-repository.
-{{:projects:bitbucket:bb_example_viewlogs.png?nolink|}}
+<<:projects:bitbucket:bb_example_viewlogs.png?nolink|>>
 
-{{:projects:bitbucket:bb_example_weblog.png?nolink&800|}}
+![alt](/projects/bitbucket/bb_example_viewlogs.png)
 
-===== Notes =====
+## Notes
+
   * Connection time-out is set to 5 seconds
-===== Test scenarios =====
 
-==== Configuration ====
+## Test scenarios
+
+### Configuration
+
   * Entering incorrect URL
-    * https:\\123.com
-    * 45434.com
-    * http:\\ space .com
+    * `https:\\123.com`
+    * `45434.com`
+    * `http:\\ space .com`
   * Entering incorrect header data
     * without colon
     * empty lines
 
-==== Core ====
+### Core
   * Enable all notification types and check them one-by one
   * Set all possible variables in body and check if it is valid for all notification types
   * Use basic-auth header
 
-==== Weblog ====
+### Weblog
   * Accessing non-existing log
   * Accessing existing log by admin of other project
   * Accessing log with non-configured plugin for given repository
