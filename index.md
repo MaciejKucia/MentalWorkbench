@@ -18,7 +18,7 @@ Please check out my [projects](projects).
 
 ## About
 
-This website began in 2019 and was originally hosted on my university's server
+This website began in 2009 and was originally hosted on my university's server
 (my alma mater is the [AGH University of Krakow](https://www.agh.edu.pl/en/)),
 using a PHP-based [DokuWiki](https://www.dokuwiki.org/).
 
