@@ -31,7 +31,6 @@ layout: "base.njk"
 ## Small
 
 * [DIY Xbox 360 PC wireless receiver with MSP430 control](/projects/xbr)
-* [SVG images in DokuWiki](/projects/svg_dw)
 * [Sacks spiral in Processing](/projects/sacks_spiral)
 * [Identicon in C#](/projects/identicon)
 * [Doxygen XML to DokuWiki XLS transformation](/projects/doxy2doku)
