@@ -32,14 +32,16 @@ while reducing maintenance and minimizing security risks.
 Some of the original articles are in Polish, but I have since switched
 to English.
 
+I tend to post on [LinkedIn](https://www.linkedin.com/in/maciej-kucia/) nowadays.
+
 ## Contact information
 
 You can reach me at <matt@kucia.net>
 
 My:
 
-* [Website](https://kucia.net/)
 * [LinkedIn](https://www.linkedin.com/in/maciej-kucia/)
 * [CodinGame](https://www.codingame.com/profile/e2134a201f43cbbc82cc6cb849157a72518539)
 * [GitHub](https://github.com/MaciejKucia)
+* [GitLab](https://gitlab.com/matt.kucia)
 * [YouTube channel](https://www.youtube.com/@MattKucia)
