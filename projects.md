@@ -21,7 +21,7 @@ layout: "base.njk"
 
 ## Documentation
 
-* [Inspecting Git repository](/projects/progit:inspection)
+* [Inspecting Git repository](/projects/progit)
 * [Introduction to Docker](/projects/docker_intro)
 
 ## Suspended
