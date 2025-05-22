@@ -1,10 +1,10 @@
-====== Triggering Bitbucket Server Pull Request builds ======
+# Triggering Bitbucket Server Pull Request builds
 
 The following code can be used within Jenkins job triggered every few minutes. 
 
 It will get a list of currently open pull requests. Then get build data for every last commit in pull request. If the commit is not build then trigger Jenkins job.
 
-<code python>
+```
 # -*- coding: utf-8 -*-
 import requests, re, os, json, datetime, time
 from requests.auth import HTTPBasicAuth
@@ -78,4 +78,4 @@ print('Doing nothing for mandatory period of 10 seconds')
 time.sleep(10)
 exit(exitcode)
 
-</code>
+```
