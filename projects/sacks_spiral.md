@@ -1,6 +1,6 @@
-====== Sacks spiral in Processing ======
+# Sacks spiral in Processing
 
-<code java>
+```
 int i=0;
 int centerx,centery;
 
@@ -36,6 +36,6 @@ void draw()
     rect(X,Y,1,1);
   }
 }
-</code>
+```
 
-{{:projects:sacks_spiral.png?nolink |}}
+![alt](/projects/sacks_spiral.png)
